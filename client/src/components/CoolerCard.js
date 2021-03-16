@@ -5,10 +5,8 @@ import {Button, Card} from 'react-bootstrap'
 import SERVER_URL from '../utils/constants';
 import querystring from 'querystring';
 
-export default function CoolerCard({deets}){
+export default function CoolerCard({deets, low, high}){
     const [ph, setPh] = useState(deets.currentpH);
-
-    // let ph = deets.currentpH;
 
     const updatepH = () => {
         axios
@@ -32,17 +30,24 @@ export default function CoolerCard({deets}){
     }
     
     useEffect(() => {
+
         const interval = setInterval(() => {
             console.log('auto update phs')
-            updatepH();
+            updatepH(); //ph is currently getting updated every 1 hour
         }, 3600000) //1 hour in miliseconds
 
         return () => clearInterval(interval); //unmount function - clears interval to prevent memory leaks
     }, [])
     
+
+    const setColor = () => {
+        if(ph < low || ph > high) return '#FFCCCC' 
+        else return '#E5FFCC'
+    }
+
     return( 
          <div>
-             <Card style={{'margin':'0.5rem','alignItems': 'center', 'width': '18rem', 'height': '15rem', 'backgroundColor': '#82CAFA' }}>
+             <Card style={{'margin':'0.5rem','alignItems': 'center', 'width': '18rem', 'height': '15rem', 'backgroundColor': setColor()}}>
              {/* <Card.Img style={{'height': '7rem'}} variant="top" src="https://i.pinimg.com/474x/16/a8/3e/16a83e8583e19aacb560aae90c813e4a.jpg" /> */}
              <Card.Body>
                  <Card.Title style={{'fontSize': '3rem'}}>{deets.coolerName}</Card.Title>

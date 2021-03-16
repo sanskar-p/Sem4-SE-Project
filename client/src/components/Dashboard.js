@@ -179,7 +179,7 @@ export default function Dashboard() {
         if(coolers.list !== undefined){
             // console.log(drinksaphe._id)
             // return <p>{drinksaphe._id}</p>
-            return coolers.list.map(cooler => {return <CoolerCard deets = {cooler} />})
+            return coolers.list.map(cooler => {return <CoolerCard deets = {cooler} low={lowRange} high={highRange} />})
         }
         
         else return <p>coolers not loading</p>
