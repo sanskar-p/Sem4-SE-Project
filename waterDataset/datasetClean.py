@@ -22,5 +22,8 @@ shuffled = combined.sample(frac=1)
 #round to 2 decimal places
 rounded = combined.round(2)
 
+#removing duplicates
+filtered = rounded.drop_duplicates(subset="pH") 
+
 #export to final file
-rounded.to_csv("waterQuality.csv", index=False)
+filtered.to_csv("waterQuality2.csv", index=False)
