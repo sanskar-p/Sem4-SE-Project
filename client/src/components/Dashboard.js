@@ -125,12 +125,9 @@ export default function Dashboard() {
                         console.log("frontend knows cooler is added, data:", res.data);
 
                         getCoolers();
-
-                        // coolers.push({coolerName, coolerLoc});
-
-                        // updateCoolers(coo => [`${res.data.length}`])
                         console.log('coolers array: ', coolers.list);
-                        // res.redirect('/login');
+
+                        handleCloseAddCooler()
                         // history.push('/login')
                     }
                     console.log('addCooler response:',res)

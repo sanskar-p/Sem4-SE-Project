@@ -11,13 +11,14 @@ const coolerSchema = new Schema({
     },
     highestpH: {
         type: Number,
+        default: 0
     },
     averagepH: {
         type: Number
     },
-    numOfTimesMeasures: {
+    numOfTimesMeasured: {
         type: Number,
-        default: 0
+        default: 1
     }
 })
 

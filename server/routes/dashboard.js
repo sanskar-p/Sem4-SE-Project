@@ -3,6 +3,8 @@ const router = express.Router();
 
 const Drinksaphe = require('../models/drinksaphe.model');
 
+const waterQuality = require('../../waterDataset/waterQuality.json')
+
 //range routes
 router.get('/range', (req, res) => {
     Drinksaphe.find({"name": "drinksaphe"})
@@ -38,15 +40,16 @@ router.get('/getCoolers', (req, res) => {
 })
 
 router.post('/addCooler', (req, res) => {
-    console.log('addCooler req in backend', req.body);
-
     const {coolerName, location} = req.body;
-    
-    
-    
+
+    const currentpH = waterQuality[Math.floor(Math.random()*waterQuality.length)].pH
+
+
+    console.log('addCooler req in backend + pH', req.body, currentpH);
+
     Drinksaphe.findOne({"name": "drinksaphe"})
         .then(db => {
-            db.coolers.push({coolerName, location})
+            db.coolers.push({coolerName, location, currentpH})
             db.save()
             .then(data => {
                 console.log('addCooler backend response', data)
@@ -54,18 +57,48 @@ router.post('/addCooler', (req, res) => {
             })
             .catch(err => console.log('addCooler backend err', err))
         })
-        .catch(err => console.log('badadadda', err));
-
-    // console.log('drinksaphe db', Drinksaphe[0])
-    // Drinksaphe[0].coolers.push({coolerName: coolerName, location: location})
-    // console.log('checking if pushed', cooler.push)
-
-
-    // Drinksaphe.save()
-    //     .then(data => console.log('addCooler backend response', data))
-    //     .catch(err => console.log('addCooler backend err', err))
+        .catch(err => console.log('cannot find drinksaphe', err));
 })
 //cooler routes end
+
+//pH routes
+router.post('/updatepH', (req, res) => {
+    const currentpH = waterQuality[Math.floor(Math.random()*waterQuality.length)].pH
+    console.log('new pH', currentpH);
+    
+    Drinksaphe.findOne({"name": "drinksaphe"})
+        .then(db => {
+
+            //finding index of our cooler
+            let idx = -1;
+            for(let i=0; i<db.coolers.length; i++){
+                if(db.coolers[i]._id.toString() === req.body.id.toString()){
+                    console.log('i',i);
+                    idx = i;
+                }
+            }
+            console.log('cooler idx', idx);
+            
+            // updating values
+            db.coolers[idx].currentpH = currentpH;
+            db.coolers[idx].numOfTimesMeasured++;
+            if(currentpH >= db.coolers[idx].highestpH){
+                db.coolers[idx].highestpH = currentpH;
+            }
+
+            //saving changes to db
+            db.save()
+                .then(data => {
+                    console.log('updated and saved', data)
+                    // res.send(data)
+                })
+                .catch(err => console.log('err while saving', err))    
+        })
+        .then(data => res.send({data, currentpH}))
+        .catch(err => console.log('err after saving', err))
+
+})
+//pH routes end
 
 
 module.exports = router;
