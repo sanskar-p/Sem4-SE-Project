@@ -21,7 +21,7 @@ function App(){
 	const getLoggedInStatus = () =>{
 		return axios.post(`${SERVER_URL}/loggedin`)
 	}
-
+	
 	useEffect(() => {
 		async function loggedInStatus(){
 			const status = getLoggedInStatus();

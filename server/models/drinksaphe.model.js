@@ -1,6 +1,7 @@
 const { Schema, model } =  require('mongoose');
 
 const coolerSchema = new Schema({
+    coolerName: String,
     location: {
         type: String,
         trim: true
