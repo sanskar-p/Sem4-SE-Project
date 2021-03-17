@@ -10,7 +10,7 @@ export default function CoolerCard({deets, low, high}){
     const history = useHistory();
 
     const [ph, setPh] = useState(deets.currentpH);
-    const [cardColor, setCardColor] = useState('yellow');
+    const [cardColor, setCardColor] = useState('white');
 
     const updatepH = () => {
         axios
@@ -75,7 +75,7 @@ export default function CoolerCard({deets, low, high}){
 				</Card.Body>
 
 				<Card.Body style={{'padding': '0.7rem 0 0.7rem 0', 'width': '100%','display': 'flex', 'flexDirection': 'row', 'justifyContent': 'space-evenly'}}>
-					<Button onClick={updatepH} style={{'width': '7rem','color': 'white', 'backgroundColor': 'black'}} variant="primary">current pH</Button>
+					<Button onClick={updatepH} style={{'width': '7rem','color': 'white', 'backgroundColor': 'black'}} variant="primary">update pH</Button>
 					<Button onClick={goToCoolerDetails} style={{'width': '7rem', 'color': 'white', 'backgroundColor': 'black'}}>all details</Button>
 				{/* </div> */}
                 </Card.Body>

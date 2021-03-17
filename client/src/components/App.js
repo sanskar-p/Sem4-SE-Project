@@ -35,7 +35,7 @@ function App(){
 
 	return (
 		<loggedInContext.Provider value={loggedIn}>
-		<div>
+		<div className = "wholeApp">
 			{/* <h1>App Home</h1> */}
 			{/* <button onClick = {setLoggedIn(false)} >log out</button> */}
 			{/* {loggedIn ? <p>currently logged in</p> : <p>not logged in</p>} */}
