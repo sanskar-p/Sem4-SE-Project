@@ -7,7 +7,26 @@ const User = require('../models/user.model');
 // Register
 router.post('/', (req, res) => {
     console.log('req in backend', req.body);
-  const { username, email, password } = req.body;
+    const { username, email, password, password2 } = req.body;
+
+    let errors = []
+    //check all fields
+    if(!username || !email || !password || !password2){
+        errors.push({msg: 'please fill all fields'})
+	}
+	//passwords matching
+	if(password !== password2){
+		errors.push({msg: "passwords don't match"})
+	}
+
+	if(password.length < 6){
+		errors.push({msg: 'password length should be 6 or more characters'})
+	}
+
+	// if(errors.length > 0){
+	// 	res.send
+	// }
+
     User.findOne({ email: email }).then(user => {
       if (user) {
           console.log("user already exists", user);

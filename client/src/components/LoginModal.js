@@ -28,7 +28,7 @@ export default function LoginModal(){
             })
             .then(res => {
                 if(res.status === 200){
-                    localStorage.setItem('username', res.data.username);
+                    // localStorage.setItem('username', res.data.username);
                     history.push('/')
                 }
                 console.log('login response:',res)
@@ -42,11 +42,18 @@ export default function LoginModal(){
             <form onSubmit = {handleSubmit}>
                 <label>
                     <p>username</p>
-                    <input type="text" onChange = {event => setUsername(event.target.value)} />
+                    <input 
+                        type="text" 
+                        placeholder="enter username"
+                        onChange = {event => setUsername(event.target.value)}    
+                    />
                 </label>
                 <label>
                     <p>password</p>
-                    <input type="password" onChange = {event => setPassword(event.target.value)} />
+                    <input 
+                        type="password" 
+                        placeholder="enter password"
+                        onChange = {event => setPassword(event.target.value)} />
                 </label>
                 <div>
                     <button type="submit">submit</button>
