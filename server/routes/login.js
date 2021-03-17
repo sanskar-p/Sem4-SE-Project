@@ -13,14 +13,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res, next) => {
     console.log('login req in backend', req.body);
     const { username, password } = req.body;
-
-    let errors = [];
-
-    //check required
-    if(!name || !password){
-        errors.push({msg: 'please type email and password'})
-    }
-
     User.findOne({username: req.body.username})
     .then((user) => {
         if(!user) console.log('no such user exists');

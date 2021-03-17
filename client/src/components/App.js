@@ -1,8 +1,6 @@
 import React, {useState, createContext, useEffect} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Dashboard from './Dashboard';
 import Settings from './Settings';
 import LoginModal from './LoginModal';
 import Register from './Register';
@@ -21,7 +19,7 @@ function App(){
 	const getLoggedInStatus = () =>{
 		return axios.post(`${SERVER_URL}/loggedin`)
 	}
-	
+
 	useEffect(() => {
 		async function loggedInStatus(){
 			const status = getLoggedInStatus();
@@ -29,15 +27,13 @@ function App(){
 			setLoggedIn(status);
 		}
 		loggedInStatus();
-		console.log('logged in status', loggedIn);
 	},[])
 
 	return (
 		<loggedInContext.Provider value={loggedIn}>
 		<div>
-			{/* <h1>App Home</h1> */}
-			{/* <button onClick = {setLoggedIn(false)} >log out</button> */}
-			{loggedIn ? <p>currently logged in</p> : <p>not logged in</p>}
+			<h1>App Home</h1>
+			{/* {!token && <LoginModal/>} */}
 			<BrowserRouter>
 				<Switch>
 					<Route path = '/login'>
@@ -50,8 +46,7 @@ function App(){
 						<Settings />
 					</Route>
 					<Route path = '/'>
-						<Dashboard />
-						{/* <h1>Dashboard</h1> */}
+						<h1>Dashboard</h1>
 					</Route>
 				</Switch>
 			</BrowserRouter>
