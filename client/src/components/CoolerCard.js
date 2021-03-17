@@ -1,12 +1,16 @@
 import axios from 'axios';
 import {React, useEffect, useState} from 'react';
-import {Button, Card} from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap';
+import {useHistory} from 'react-router';
 
 import SERVER_URL from '../utils/constants';
 import querystring from 'querystring';
 
 export default function CoolerCard({deets, low, high}){
+    const history = useHistory();
+
     const [ph, setPh] = useState(deets.currentpH);
+    const [cardColor, setCardColor] = useState('yellow');
 
     const updatepH = () => {
         axios
@@ -29,6 +33,22 @@ export default function CoolerCard({deets, low, high}){
             .catch(err => console.log('update ph error', err))
     }
     
+	const goToCoolerDetails = () => {
+		return history.push(`/cooler/${deets._id}`);
+	}
+
+    const checkRange = () => {
+        if(ph < low || ph > high){
+            setCardColor('#FFCCCC');
+            console.log(`ph of ${deets.coolerName} is out of range`)
+        }
+        else setCardColor('#E5FFCC')
+    }
+
+    useEffect(() => {
+        checkRange();
+    }, [low, high, ph])
+
     useEffect(() => {
 
         const interval = setInterval(() => {
@@ -38,24 +58,28 @@ export default function CoolerCard({deets, low, high}){
 
         return () => clearInterval(interval); //unmount function - clears interval to prevent memory leaks
     }, [])
-    
 
-    const setColor = () => {
-        if(ph < low || ph > high) return '#FFCCCC' 
-        else return '#E5FFCC'
-    }
+    // const setColor = () => {
+    //     if(ph < low || ph > high) return '#FFCCCC' 
+    //     else return '#E5FFCC'
+    // }
 
     return( 
-         <div>
-             <Card style={{'margin':'0.5rem','alignItems': 'center', 'width': '18rem', 'height': '15rem', 'backgroundColor': setColor()}}>
-             {/* <Card.Img style={{'height': '7rem'}} variant="top" src="https://i.pinimg.com/474x/16/a8/3e/16a83e8583e19aacb560aae90c813e4a.jpg" /> */}
-             <Card.Body>
-                 <Card.Title style={{'fontSize': '3rem'}}>{deets.coolerName}</Card.Title>
-                 <Card.Text>current pH: {ph || 'unavailable'}</Card.Text>
-                 <Card.Text>location: {deets.location}</Card.Text>
-                 <Button onClick={updatepH} style={{'color': 'white', 'backgroundColor': 'black'}} variant="primary">get current pH</Button>
-             </Card.Body>
-             </Card>
-         </div>
+        <div>
+            <Card style={{'margin':'0.5rem','alignItems': 'center', 'width': '18rem', 'height': '15rem', 'backgroundColor': cardColor}}>
+            {/* <Card.Img style={{'height': '7rem'}} variant="top" src="https://i.pinimg.com/474x/16/a8/3e/16a83e8583e19aacb560aae90c813e4a.jpg" /> */}
+            <Card.Body>
+                <Card.Title style={{'fontSize': '3rem'}}>{deets.coolerName}</Card.Title>
+                <Card.Text>current pH: {ph || 'unavailable'}</Card.Text>
+                <Card.Text>location: {deets.location}</Card.Text>
+				</Card.Body>
+
+				<Card.Body style={{'padding': '0.7rem 0 0.7rem 0', 'width': '100%','display': 'flex', 'flexDirection': 'row', 'justifyContent': 'space-evenly'}}>
+					<Button onClick={updatepH} style={{'width': '7rem','color': 'white', 'backgroundColor': 'black'}} variant="primary">current pH</Button>
+					<Button onClick={goToCoolerDetails} style={{'width': '7rem', 'color': 'white', 'backgroundColor': 'black'}}>all details</Button>
+				{/* </div> */}
+                </Card.Body>
+            </Card>
+        </div>
     )
 }
