@@ -1,0 +1,131 @@
+body{
+    /* border: 2px solid red; */
+    background-color: black;
+   height: 587px;
+}
+h1{
+    /* display: flex; */
+    color: white;
+    border: 2px solid yellow;
+    display: inline-block;
+    margin-top: 0px;
+    text-align: left;
+}
+.mid h2{
+    width: 440px;
+    /* position: absolute; */
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin: -56px auto;
+    margin-left: 363px;
+    border: 2px solid green;
+    height: 50px;
+    font-size: 30px;
+}
+.navbar{
+    /* float: left; */
+    color: white;
+    border: 2px solid rgb(68, 67, 67);
+    display: block;
+    overflow: hidden;
+    /* background-color: white; */
+    /* margin-left: 370px; */
+    margin-top: 50px;
+    padding: 10px 2px;
+    border-radius: 40px;
+}
+
+.navbar h2{
+    text-align: center;
+    font-size: 25px;
+}
+
+.navbar a{
+    float: left;
+    font-size: 21px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin: 2px;
+    padding: 2px 26px;
+}
+.dropdown{
+    float: left;
+    overflow: hidden;
+}
+.dropdown .dropbtn{
+    background-color: inherit;
+    outline: none;
+    margin: 0;
+color: white;
+font-family: inherit;
+font-size: 21px;
+border: none;
+margin-top: 2px;
+padding-top: 2px;
+}
+.navbar a:hover, .dropdown:hover .dropbtn{
+    background-color: red;
+}
+.dropbtn{
+    padding-top: 2px;
+    cursor: pointer;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    color: white;
+    padding: 2px 2px;
+    background-color: rgb(201, 158, 41);
+
+}
+.dropdown-content a{
+    float: none;
+    text-align: left;
+text-decoration: none;
+display: block;
+text-align: left;
+
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+     cursor: pointer;
+}
+.flexbox{
+    border: 2px solid blue;
+    margin-top:50px ;
+    padding: 169px;
+    color: white;
+    height: 80px;
+    width: 60px;
+    /* position: relative; */
+    /* display: flex; */
+}
+img{
+    float: left;
+    /* position: absolute; */
+    height: 332px;
+    width: 399px;
+}
+.btn{
+    display: inline-flex;
+    width: 246%;
+    margin: 4px 69px;
+    padding: 8px;
+    float: right;
+    cursor: pointer;
+    background-color: rgb(245, 202, 224);
+    font-size: 15px;
+}
+
+footer{
+    background-color: grey;
+    height: 200px;
+    color: white;
+    border: 2px solid green;
+    margin-top: 25px;
+    padding: 2px;
+}

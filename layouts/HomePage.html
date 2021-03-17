@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="HomePage.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="left">
+            <h1 class="heading">DrinkSapHe </h1>
+        </div>
+        <div class="mid">
+            <h2>Welcome to dashboard</h2>
+            <nav class="navbar">
+
+                <ul>
+                    <a href="#">Home</a>
+                    <a href="#">Login</a>
+                    <a href="#">About Us</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Settings
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#">Password Change</a>
+                            <a href="#">pH interval check</a>
+                            <a href="#">Add cooler</a>
+                            <a href="#">Set pH limit</a>
+                        </div>
+                    </div>
+
+
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+    <div class="container card">
+        <img src="stainless-steel-water-cooler-500x500.jpg" alt="">
+        <div class=" flexbox">
+            <button class=" btn button1" onclick="checkpH()">Check current pH</button>
+            <button class="btn button2" onclick="details()">See full details</button>
+        </div>
+    </div>
+
+    <footer>
+        <h2>hey</h2>
+    </footer>
+
+
+    <script src="HomePage.js"></script>
+
+</body>
+
+</html>
