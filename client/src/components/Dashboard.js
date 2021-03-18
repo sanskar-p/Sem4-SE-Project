@@ -186,15 +186,15 @@ export default function Dashboard() {
     }
 
     return(
-        <div style={{'display': 'flex', 'flexDirection': 'column','alignItems': 'center'}}>
+        <div style={{'backgroundColor': '#004', 'color': 'white','display': 'flex', 'flexDirection': 'column','alignItems': 'center'}}>
             <h2>valid pH range:</h2>
             <h1 style={{'fontSize': '6rem'}}>{lowRange} - {highRange}</h1>
             
             <div style={{'display': 'flex', 'flexDirection': 'row'}}>
-                <Button style={{'margin':'0.5rem','color': 'white', 'backgroundColor': 'black'}} variant="primary" onClick={handleShowRange}>
+                <Button style={{'margin':'0.5rem', 'color': 'black', 'backgroundColor': '#EEF'}} variant="primary" onClick={handleShowRange}>
                     Update valid range
                 </Button>
-                <Button style={{'margin':'0.5rem','color': 'white', 'backgroundColor': 'black'}} variant="primary" onClick={handleShowAddCooler}>
+                <Button style={{'margin':'0.5rem', 'color': 'black', 'backgroundColor': '#EEF'}} variant="primary" onClick={handleShowAddCooler}>
                     Add new cooler
                 </Button>
             </div>

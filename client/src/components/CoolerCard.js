@@ -39,10 +39,12 @@ export default function CoolerCard({deets, low, high}){
 
     const checkRange = () => {
         if(ph < low || ph > high){
-            setCardColor('#FFCCCC');
+            // setCardColor('#FFCCCC'); //red
+            setCardColor('red');
             console.log(`ph of ${deets.coolerName} is out of range`)
         }
-        else setCardColor('#E5FFCC')
+        // else setCardColor('#E5FFCC') //green
+        else setCardColor('#9F9')
     }
 
     useEffect(() => {
@@ -66,7 +68,7 @@ export default function CoolerCard({deets, low, high}){
 
     return( 
         <div>
-            <Card style={{'margin':'0.5rem','alignItems': 'center', 'width': '18rem', 'height': '15rem', 'backgroundColor': cardColor}}>
+            <Card style={{'margin':'0.5rem','alignItems': 'center', 'width': '18rem', 'height': '15rem', 'borderWidth': '3px', 'borderColor': cardColor, 'color': 'white', 'backgroundColor': '#003'}}>
             {/* <Card.Img style={{'height': '7rem'}} variant="top" src="https://i.pinimg.com/474x/16/a8/3e/16a83e8583e19aacb560aae90c813e4a.jpg" /> */}
             <Card.Body>
                 <Card.Title style={{'fontSize': '3rem'}}>{deets.coolerName}</Card.Title>
@@ -75,8 +77,8 @@ export default function CoolerCard({deets, low, high}){
 				</Card.Body>
 
 				<Card.Body style={{'padding': '0.7rem 0 0.7rem 0', 'width': '100%','display': 'flex', 'flexDirection': 'row', 'justifyContent': 'space-evenly'}}>
-					<Button onClick={updatepH} style={{'width': '7rem','color': 'white', 'backgroundColor': 'black'}} variant="primary">update pH</Button>
-					<Button onClick={goToCoolerDetails} style={{'width': '7rem', 'color': 'white', 'backgroundColor': 'black'}}>all details</Button>
+					<Button onClick={updatepH} style={{'width': '7rem','color': 'black', 'backgroundColor': '#EEF'}} variant="primary">update pH</Button>
+					<Button onClick={goToCoolerDetails} style={{'width': '7rem', 'color': 'black', 'backgroundColor': '#EEF'}}>all details</Button>
 				{/* </div> */}
                 </Card.Body>
             </Card>
