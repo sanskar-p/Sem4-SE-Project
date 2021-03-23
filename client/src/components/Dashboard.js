@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {Button, Modal} from 'react-bootstrap'
+import Select from 'react-select';
 import SERVER_URL from '../utils/constants';
 
 import CoolerCard from './CoolerCard';
@@ -14,12 +15,7 @@ export default function Dashboard() {
 
     //all coolers from db
     const [coolers, updateCoolers] = useState({});
-    // let coolers = [];
-    // const [drinksaphe, setDrinksaphe] = useState({});
-
-    //modal states
-    const [showRangeModal, setShowRangeModal] = useState(false);
-    const [showAddCoolerModal, setShowAddCoolerModal] = useState(false);
+    const [coolerNames, setCoolerNames] = useState([]);
 
     //range form values
     const[formLow, setFormLow] = useState(7);
@@ -29,6 +25,39 @@ export default function Dashboard() {
     const [coolerName, setCoolerName] = useState();
     const [coolerLoc, setCoolerLoc] = useState();
 
+    //deleteCooler form values
+    const [coolerToDelete, setCoolerToDelete] = useState();
+
+
+    //modal states and handlers
+    const [showRangeModal, setShowRangeModal] = useState(false);
+
+    const handleCloseRange = () => setShowRangeModal(false);
+    const handleShowRange = () => setShowRangeModal(true);
+
+    const [showAddCoolerModal, setShowAddCoolerModal] = useState(false);
+
+    const handleCloseAddCooler = () => setShowAddCoolerModal(false);
+    const handleShowAddCooler = () => setShowAddCoolerModal(true);
+
+    const [showDeleteCoolerModal, setShowDeleteCoolerModal] = useState(false);
+
+    const handleCloseDeleteCooler = () => {
+        setCoolerNames([]);
+        setShowDeleteCoolerModal(false)
+    };
+    
+    const handleShowDeleteCooler = () => {
+
+        //populating coolerNames array for dropdown
+        // setCoolerNames([]);
+        coolers.list.map(cooler => {
+            coolerNames.push({'value': cooler._id, 'label': cooler.coolerName})
+        })
+        //populating end
+
+        setShowDeleteCoolerModal(true)
+    };
 
     let rangeUpdateErr = false;
 
@@ -93,12 +122,6 @@ export default function Dashboard() {
         getCoolers();
     }, []) //check frequency of rendering?
 
-    //modal actions
-    const handleCloseRange = () => setShowRangeModal(false);
-    const handleShowRange = () => setShowRangeModal(true);
-    const handleCloseAddCooler = () => setShowAddCoolerModal(false);
-    const handleShowAddCooler = () => setShowAddCoolerModal(true);
-
 
     //addCooler form submit actions
     const addCooler = event => {
@@ -134,6 +157,35 @@ export default function Dashboard() {
                 })
                 .catch(err => console.log('addCooler error', err))
         }
+    }
+
+    //deleteCooler form submit actions
+    const handleDelete = event => {
+        event.preventDefault();
+
+        axios.post(`${SERVER_URL}/dashboard/deleteCooler`, querystring.stringify({id: coolerToDelete})
+        , {
+            headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        credentials: 'include',
+        withCredentials: true
+        }
+        )
+        .then(res => {
+            if(res.status === 200){
+                // localStorage.setItem('username', res.data.username);
+                console.log("frontend knows cooler is deleted, data:", res.data);
+
+                //deleting in frontend
+                coolers.list.splice(res.data.idx, 1);
+
+                handleCloseDeleteCooler()
+                // history.push('/login')
+            }
+            console.log('deleteCooler response:',res)
+        })
+        .catch(err => console.log('deleteCooler error', err))
     }
 
 
@@ -186,7 +238,7 @@ export default function Dashboard() {
     }
 
     return(
-        <div style={{'backgroundColor': '#004', 'color': 'white','display': 'flex', 'flexDirection': 'column','alignItems': 'center'}}>
+        <div style={{'minHeight': '100vh','backgroundColor': '#004', 'color': 'white','display': 'flex', 'flexDirection': 'column','alignItems': 'center', 'paddingTop': '1rem'}}>
             <h2>valid pH range:</h2>
             <h1 style={{'fontSize': '6rem'}}>{lowRange} - {highRange}</h1>
             
@@ -196,6 +248,9 @@ export default function Dashboard() {
                 </Button>
                 <Button style={{'margin':'0.5rem', 'color': 'black', 'backgroundColor': '#EEF'}} variant="primary" onClick={handleShowAddCooler}>
                     Add new cooler
+                </Button>
+                <Button style={{'margin':'0.5rem', 'color': 'black', 'backgroundColor': '#EEF'}} variant="primary" onClick={handleShowDeleteCooler}>
+                    Delete a cooler
                 </Button>
             </div>
             
@@ -211,7 +266,7 @@ export default function Dashboard() {
             {/* add new cooler modal */}
             <Modal show={showAddCoolerModal} onHide={handleCloseAddCooler}>
                 <Modal.Header closeButton>
-                <Modal.Title>Edit Range</Modal.Title>
+                <Modal.Title>Add A New Cooler</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <p>Enter details of new cooler</p>
@@ -236,6 +291,25 @@ export default function Dashboard() {
                             <button type="submit">Add cooler!</button>
                         </div>
                     </form>
+                    {/* <p>{rangeUpdateErr[0]}</p> */}
+                    {/* {rangeUpdateErr.length == 0 && <p>no errors</p>}
+                    {rangeUpdateErr.length > 0 && rangeUpdateErr.map(al => {console.log('fafaf'); return <p>{al}</p>;})} */}
+                </Modal.Body>
+            </Modal>
+
+            <Modal show={showDeleteCoolerModal} onHide={handleCloseDeleteCooler}>
+                <Modal.Header closeButton>
+                <Modal.Title>Delete A Cooler</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Select the cooler you want to delete.</p>
+                    <Select
+                        options = {coolerNames}
+                        onChange = {opt => setCoolerToDelete(opt.value)}
+                    />
+                    <div>
+                        <button type="submit" onClick = {handleDelete}>Delete it</button>
+                    </div>
                     {/* <p>{rangeUpdateErr[0]}</p> */}
                     {/* {rangeUpdateErr.length == 0 && <p>no errors</p>}
                     {rangeUpdateErr.length > 0 && rangeUpdateErr.map(al => {console.log('fafaf'); return <p>{al}</p>;})} */}

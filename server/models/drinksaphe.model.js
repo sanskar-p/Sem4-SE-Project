@@ -20,6 +20,8 @@ const coolerSchema = new Schema({
         type: Number,
         default: 1
     }
+}, {
+    timestamps: true
 })
 
 // const rangeSchema = new

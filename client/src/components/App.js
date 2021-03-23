@@ -36,7 +36,8 @@ function App(){
 	return (
 		<loggedInContext.Provider value={loggedIn}>
 		<div className = "wholeApp">
-			{/* <h1>App Home</h1> */}
+			<h1 style={{'backgroundColor': '#004', 'color': 'white', 'margin': '0', 'padding':'0.5rem 0 1rem 2rem'}}>DrinksapHe - your cooler maintenance dashboard</h1>
+			<hr style={{'backgroundColor': 'white', 'color': 'white', 'margin': '0'}}></hr>
 			{/* <button onClick = {setLoggedIn(false)} >log out</button> */}
 			{/* {loggedIn ? <p>currently logged in</p> : <p>not logged in</p>} */}
 			<BrowserRouter>
