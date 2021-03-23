@@ -72,7 +72,7 @@ router.post('/', (req, res) => {
 		template: 'alert',
 		message: {
 			from: process.env.EMAIL,
-			to: 'iit2019205@iiita.ac.in, iit2019219@iiita.ac.in'
+			to: 'iit2019205@iiita.ac.in'
 		},
 		locals: {name: deets.coolerName, currentpH, lastCheckedTime: deets.location}
 	})

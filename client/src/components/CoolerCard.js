@@ -30,9 +30,11 @@ export default function CoolerCard({deets, low, high}){
                     setPh(res.data.currentpH);
 
                     //send email?
+
+                    console.log('ph low high', res.data.currentpH, low, high);
                     if(type === 'periodic' && (ph < low || ph > high)){
-                        console.log('sending an email');
-                        sendAlertEmail();
+                        console.log('sending an email', res.data.currentpH, low, high);
+                        sendAlertEmail(res.data.currentpH);
                     }
                 }
                 // console.log('update ph response:',res.data.currentpH)
@@ -44,9 +46,9 @@ export default function CoolerCard({deets, low, high}){
 		return history.push(`/cooler/${deets._id}`);
 	}
 
-    const sendAlertEmail = () => {
+    const sendAlertEmail = (curpH) => {
             
-        axios.post(`${SERVER_URL}/alertEmail`, {deets, currentpH: ph})
+        axios.post(`${SERVER_URL}/alertEmail`, {deets, currentpH: curpH})
             .then(res => console.log('email sent frontend ', res))
             .catch(err => console.log('email error frontend ', err))
     }
@@ -68,7 +70,7 @@ export default function CoolerCard({deets, low, high}){
         const interval = setInterval(() => {
             console.log('auto update phs')
             updatepH('periodic'); //ph is currently getting updated every 1 hour
-        }, 3600000) //1 hour in miliseconds
+        }, 3600000) //1 hour in miliseconds 
 
         return () => clearInterval(interval); //unmount function - clears interval to prevent memory leaks
     }, [])
