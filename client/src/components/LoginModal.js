@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import querystring from 'querystring';
 import { useHistory } from 'react-router';
-
+import '../styles/LoginModal.css';
 import SERVER_URL from '../utils/constants';
 
 //CURRENTLY JUST A NEW PAGE. HAVE TO MAKE IT A  MODAL.
@@ -37,29 +37,34 @@ export default function LoginModal(){
     }
 
     return(
-        <div>
-            <h1>login</h1>
-            <form onSubmit = {handleSubmit}>
-                <label>
-                    <p>username</p>
-                    <input 
-                        type="text" 
-                        placeholder="enter username"
-                        onChange = {event => setUsername(event.target.value)}    
-                    />
-                </label>
-                <label>
-                    <p>password</p>
-                    <input 
-                        type="password" 
+        <div class="container">
+          <div class= "item" id="item1"><h1>drinksa<b>pH</b>e</h1></div>
+            <div class="item" id="item2">
+              <form onSubmit = {handleSubmit}>
+                  <label>
+                    <div class="in" id="in1">
+                      <input
+                          type="text"
+                          placeholder="enter username"
+                          onChange = {event => setUsername(event.target.value)}
+                      /></div>
+
+
+                  </label>
+                  <label>
+                    <div class="in" id="in2">
+                      <input
+                        type="password"
                         placeholder="enter password"
-                        onChange = {event => setPassword(event.target.value)} />
-                </label>
-                <div>
-                    <button type="submit">submit</button>
-                    <a>Forgot Password</a>
-                </div>
-            </form>
+                        onChange = {event => setPassword(event.target.value)} /></div>
+
+                  </label>
+                  <div class="subbtn">
+                      <button type="submit">submit</button>
+                      <a>Forgot Password</a>
+                  </div>
+              </form>
+            </div>
         </div>
     )
 }
