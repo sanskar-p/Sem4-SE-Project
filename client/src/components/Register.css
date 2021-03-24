@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body{
+  background-color: '#004';
+  font-family: 'Merriweather', serif;
+  border: 3px solid white;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.heading {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.myinput{
+  display: block;
+  background-image:linear-gradient(to right, rgba(0,0,128,0.6), rgba(0,0,128,0.9)); 
+  /*background-color: white;*/
+  color: white;
+  /* display: inline-block; */
+  /* position: absolute; */
+    /* right: 300px; */
+    /* top :200px; */
+    border: 1px solid #000033;
+    width: 250px;
+    margin :10px;
+    height: 40px;
+    border-radius: 0px;
+}
+.button1{
+        margin :10px;
+        padding-right: 15px;
+        padding-left: 15px;
+        border-radius: 0px;
+        font-family: 'Merriweather', serif;
+        margin:'0.5rem';
+        color: 'black';
+        background-color: '#EEF'
+        
+        /* border: 3px solid #007580; */
+}
+.button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(128,128,128,0.24),0 17px 50px 0 rgba(128,128,128,0.19);
+  }
+
+  .tile
+  {
+      height:40rem;
+      width: 50vmax;
+      background-color: #000033;
+      text-align: center;
+      margin: 2rem;
+      padding : 2rem;
+  }

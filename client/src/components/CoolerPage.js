@@ -31,13 +31,17 @@ export default function CoolerPage() {
     }, [])
 
     return(
-        <div>
-            <h1>Cooler {cooler.coolerName}</h1>
+        <div  style={{'minHeight': '100vh','backgroundColor': '#004', 'color': 'white','display': 'flex', 'flexDirection': 'column','alignItems': 'center', 'paddingTop': '1rem'}}>
+           
+           <div class= "tile">
+           <h1>Cooler {cooler.coolerName}</h1>
             {/* <p>name: {cooler.coolerName}</p> */}
-            <p>location: {cooler.location}</p>
-            <p>current pH: {cooler.currentpH}</p>
-            <p>highest pH: {cooler.highestpH}</p>
-            <p>description: very nice cooler</p>
+            <br></br>
+            <p>Location: {cooler.location}</p>
+            <p>Current pH: {cooler.currentpH}</p>
+            <p>Highest pH: {cooler.highestpH}</p>
+            <p>Description: very nice cooler</p>
+            </div>
         </div>
         
     )

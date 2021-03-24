@@ -3,6 +3,8 @@ import axios from 'axios';
 import SERVER_URL from '../utils/constants';
 import querystring from 'querystring';
 import { useHistory } from 'react-router';
+import { FormGroup } from 'react-bootstrap';
+import './Register.css'
 
 // axios.defaults.withCredentials = true;
 
@@ -40,30 +42,42 @@ export default function Register(){
     }
 
     return(
-        <div>
-            <h1>Register</h1>
+        <div style={{'minHeight': '100vh','backgroundColor': '#004', 'color': 'white','display': 'flex', 'flexDirection': 'column','alignItems': 'center', 'paddingTop': '1rem'}}>
+          
+          <div class="tile">
+            <h1 class="heading">Register</h1>
             <form onSubmit = {handleSubmit}>
+                <FormGroup>
                 <label>
-                    <p>email</p>
-                    <input type="text" onChange = {event => setEmail(event.target.value)} />
+                    <p>Email</p>
+                    <input class="myinput" type="text" onChange = {event => setEmail(event.target.value)} />
                 </label>
+                </FormGroup>
+                <FormGroup>
                 <label>
-                    <p>username</p>
-                    <input type="text" onChange = {event => setUsername(event.target.value)} />
+                    <p>Username</p>
+                    <input class="myinput" type="text" onChange = {event => setUsername(event.target.value)} />
                 </label>
+                </FormGroup>
+                <FormGroup>
                 <label>
-                    <p>password</p>
-                    <input type="password" onChange = {event => setPassword(event.target.value)} />
+                    <p>Password</p>
+                    <input class="myinput" type="password" onChange = {event => setPassword(event.target.value)} />
                 </label>
+                </FormGroup>
+                <FormGroup>
                 <label>
-                    <p>confirm password</p>
-                    <input type="password2" onChange = {event => setPassword2(event.target.value)} />
+                    <p>Confirm password</p>
+                    <input class="myinput" type="password2" onChange = {event => setPassword2(event.target.value)} />
                 </label>
+                </FormGroup>
                 <div>
-                    <button type="submit">submit</button>
-                    <a>Forgot Password</a>
+                    <button class="button1" type="submit" >submit</button>
+                    <a>Forgot Password ?</a>
                 </div>
             </form>
+
+            </div>
         </div>
     )
 }
