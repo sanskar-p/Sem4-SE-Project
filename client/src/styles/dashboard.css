@@ -1,0 +1,59 @@
+.campus{
+    background-image: url(../assets/img/campus.jpg);
+}
+.header{
+    border: 2px solid red;
+    height: 500px;
+    background-color: white;
+}
+.body{
+    padding-top: 150px;
+    padding-bottom: 127px;
+    background-color: #004; 
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+.editPop{
+    padding-top: 24px;
+   background-color : #ccffff;
+}
+.textInput{
+    background-color: #e6ffff;
+    color: rgb(12, 1, 1);
+    border: 1px solid black;
+}
+.modalBody{
+    padding-left: 40px;
+}
+.btn{
+    margin: 0.5rem;
+    color: black;
+    background-color: #EEF;
+    border: none;
+}
+.subBtn{
+    padding-left: 186px;
+    margin-top: 24px;
+    margin-bottom: 26px;
+    background-color: #ccffff;
+    color: rgb(4, 87, 119);
+    border-radius : 4px;
+}
+.submitBtn{
+    border-radius: 59px;
+    padding: 7px 23px 9px 18px;
+}
+.btn1{
+    border: none;
+    font-size: 1rem;
+    color: white;
+    background-color: rgb(1, 1, 66);
+}
+
+#footer{
+    border: 2px solid red;
+    height: 200px;
+}
