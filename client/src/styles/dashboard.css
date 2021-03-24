@@ -1,12 +1,12 @@
-.campus{
-    background-image: url(../assets/img/campus.jpg);
-}
+/* .campus{
+    /* background-image: url(../assets/img/campus.jpg); */
+/* }  */
 .header{
     border: 2px solid red;
     height: 500px;
     background-color: white;
 }
-.body{
+.cardBody{
     padding-top: 150px;
     padding-bottom: 127px;
     background-color: #004; 
@@ -28,13 +28,13 @@
 .modalBody{
     padding-left: 40px;
 }
-.btn{
+.modalBtn{
     margin: 0.5rem;
     color: black;
     background-color: #EEF;
     border: none;
 }
-.subBtn{
+.modalSubBtn{
     padding-left: 186px;
     margin-top: 24px;
     margin-bottom: 26px;
@@ -42,18 +42,35 @@
     color: rgb(4, 87, 119);
     border-radius : 4px;
 }
-.submitBtn{
+.modalSubmitBtn{
     border-radius: 59px;
     padding: 7px 23px 9px 18px;
 }
-.btn1{
+.modalBtn1{
     border: none;
     font-size: 1rem;
     color: white;
     background-color: rgb(1, 1, 66);
 }
 
+.selectOpt{
+    padding: 9px 180px 6px 138px;
+    background-color: #ccffff;
+}
 #footer{
     border: 2px solid red;
     height: 200px;
+}
+.dashFooter{
+    height: 150px;
+
+}
+.dashCopyright{
+    height: 20px;
+    border: 2px solid green;
+    display: flex;
+    /* margin-left: 450px; */
+    /* padding-left: 2px; */
+    flex-flow: row wrap;
+    justify-content: center;
 }

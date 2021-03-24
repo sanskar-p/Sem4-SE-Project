@@ -37,12 +37,13 @@ export default function LoginModal(){
     }
 
     return(
-        <div class="container">
-          <div class= "item" id="item1"><h1>drinksa<b>pH</b>e</h1></div>
-            <div class="item" id="item2">
+      <body className="login_body">
+        <div class="loginContainer">
+          <div class= "loginItem" id="loginItem1"><h1>drinksa<b>pH</b>e</h1></div>
+            <div class="loginItem" id="loginItem2">
               <form onSubmit = {handleSubmit}>
                   <label>
-                    <div class="in" id="in1">
+                    <div class="loginIn" id="loginIn1">
                       <input
                           type="text"
                           placeholder="enter username"
@@ -52,19 +53,20 @@ export default function LoginModal(){
 
                   </label>
                   <label>
-                    <div class="in" id="in2">
+                    <div class="loginIn" id="loginIn2">
                       <input
                         type="password"
                         placeholder="enter password"
                         onChange = {event => setPassword(event.target.value)} /></div>
 
                   </label>
-                  <div class="subbtn">
+                  <div class="loginSubBtn">
                       <button type="submit">submit</button>
                       <a>Forgot Password</a>
                   </div>
               </form>
             </div>
         </div>
+        </body>
     )
 }

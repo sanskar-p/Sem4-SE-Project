@@ -1,11 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
-body{
+login_body{
   background-color: #1e212d;
   font-family: 'Ubuntu Mono', monospace;
   color: white;
 }
-.container{
+.loginContainer{
   height: 600px;
   border: 3px solid white;
   width: 100%;
@@ -16,19 +16,19 @@ body{
   justify-content: space-evenly;
   align-items: center;
 }
-.item {
+.loginItem {
   /* border: 3px solid white; */
   padding: 5px;
   margin : 10px;
   height: 200px;
 }
-#item1{
+#loginItem1{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   width: 350px;
 }
-#item2{
+#loginItem2{
   width: 300px;
 }
 input{
@@ -45,7 +45,7 @@ input{
     height: 40px;
     border-radius: 6px;
 }
-.subbtn button{
+.loginSubBtn button{
 margin :10px;
 padding-right: 15px;
 padding-left: 15px;
@@ -54,14 +54,14 @@ border-radius: 10px;
    background-color: #007580;
   /* border: 3px solid #007580; */
 }
-.in {
+.loginIn {
   /* position : absolute; */
   /* display: block; */
 }
-#in1{
+#loginIn1{
   /* top: 5px; */
 }
-#in2{
+#loginIn2{
   /* top:20px; */
 }
 /* .container{
