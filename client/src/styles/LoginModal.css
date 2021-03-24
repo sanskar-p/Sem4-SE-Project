@@ -1,0 +1,89 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+body{
+  background-color: #1e212d;
+  font-family: 'Ubuntu Mono', monospace;
+  color: white;
+}
+.container{
+  height: 600px;
+  border: 3px solid white;
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  /* margin: 0;
+  margin-right: 0; */
+  justify-content: space-evenly;
+  align-items: center;
+}
+.item {
+  /* border: 3px solid white; */
+  padding: 5px;
+  margin : 10px;
+  height: 200px;
+}
+#item1{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 350px;
+}
+#item2{
+  width: 300px;
+}
+input{
+  display: block;
+  background-color: #1e212d;
+  color: white;
+  /* display: inline-block; */
+  /* position: absolute; */
+    /* right: 300px; */
+    /* top :200px; */
+    border: 3px solid #007580;
+    width: 250px;
+    margin :10px;
+    height: 40px;
+    border-radius: 6px;
+}
+.subbtn button{
+margin :10px;
+padding-right: 15px;
+padding-left: 15px;
+border-radius: 10px;
+
+   background-color: #007580;
+  /* border: 3px solid #007580; */
+}
+.in {
+  /* position : absolute; */
+  /* display: block; */
+}
+#in1{
+  /* top: 5px; */
+}
+#in2{
+  /* top:20px; */
+}
+/* .container{
+  display: flex;
+  border: 3px solid black;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content: center;
+  position:absolute;
+  height:500px;
+  width: 100%;
+
+}
+.item{
+  height: 300px;
+  width: 300px;
+  border: 2px solid tomato;
+  justify-content: center;
+  align-items: center;
+}*/
+ #item1 h1{
+   text-align: center;
+  font-size: 4em;
+  /* padding-right: 100px; */
+}
