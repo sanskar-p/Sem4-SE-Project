@@ -1,0 +1,239 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+body {
+  margin:0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #ffffff;
+}
+div{
+  float:none;
+}
+  
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+
+
+.inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+  }
+  h1 {
+    font-size:24px;
+  }
+}
+
+
+.mid h2{
+    width: 440px;
+    /* position: absolute; */
+    display:block;
+    color: white;
+    text-align: left;
+    margin: -56px auto;
+    margin-left: 363px;
+    border: none;
+    height: 50px;
+    font-size: 30px;
+}
+.navbar{
+    /* float: left; */
+    color: white;
+    border: 2px solid rgb(60, 91, 186) ;
+    display: block;
+    overflow: hidden;
+    /* background-color: white; */
+    /* margin-left: 370px; */
+    margin-top: 50px;
+    padding: 10px 2px;
+    border-radius: 40px;
+}
+
+.navbar h2{
+    text-align: center;
+    font-size: 25px;
+}
+
+.navbar a{
+    float: left;
+    font-size: 21px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin: 2px;
+    padding: 2px 26px;
+}
+.dropdown{
+    float: left;
+    overflow: hidden;
+}
+.dropdown .dropbtn{
+    background-color: inherit;
+    outline: none;
+    margin: 0;
+color: white;
+font-family: inherit;
+font-size: 21px;
+border: none;
+margin-top: 2px;
+padding-top: 2px;
+}
+.navbar a:hover, .dropdown:hover .dropbtn{
+    background-color:grey;
+}
+.dropbtn{
+    padding-top: 2px;
+    cursor: pointer;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+    color: white;
+    padding: 2px 2px;
+    background-color: black;
+
+}
+.dropdown-content a{
+  float: none;
+  text-align: left;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+    cursor: pointer;
+}
+
+.containerbox{
+    border: 2px solid blue;
+    margin:50px ;
+    padding: 5px;
+    color: white;
+    height: 500px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+img{
+    float: center;
+    position: relative; 
+    height: 332px;
+    width: 350px;
+}
+
+.button {
+  position: relative;
+  float:inline-end
+  background-color: #BFD6EB;
+  border:none;
+  color:black;
+  padding:15px 32px;
+  text-align:center;
+  text-decoration: none;
+  display:inline-block;
+  font-size:16px;
+  margin:4px 2px;
+  cursor:pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.footer{
+    background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+    height: 200px;
+    color: white;
+    border: 2px solid green;
+    margin-top: 25px;
+    padding: 2px;
+}
+
+
+.center
+{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

@@ -6,6 +6,7 @@ import Dashboard from './Dashboard';
 import Settings from './Settings';
 import LoginModal from './LoginModal';
 import Register from './Register';
+import CoolerPage from './CoolerPage';
 import axios from 'axios';
 import SERVER_URL from '../utils/constants';
 
@@ -34,25 +35,30 @@ function App(){
 
 	return (
 		<loggedInContext.Provider value={loggedIn}>
-		<div>
-			{/* <h1>App Home</h1> */}
+		<div className = "wholeApp">
+			<h1 style={{'backgroundColor': '#004', 'color': 'white', 'margin': '0', 'padding':'0.5rem 0 1rem 2rem'}}>DrinksapHe - your cooler maintenance dashboard</h1>
+			<hr style={{'backgroundColor': 'white', 'color': 'white', 'margin': '0'}}></hr>
 			{/* <button onClick = {setLoggedIn(false)} >log out</button> */}
-			{loggedIn ? <p>currently logged in</p> : <p>not logged in</p>}
+			{/* {loggedIn ? <p>currently logged in</p> : <p>not logged in</p>} */}
 			<BrowserRouter>
 				<Switch>
-					<Route path = '/login'>
+					<Route exact path = '/'>
+						<Dashboard />
+					</Route>
+					<Route exact path = '/login'>
 						<LoginModal />
 					</Route>
-					<Route path = '/register'>
+					<Route exact path = '/register'>
 						<Register />
 					</Route>
-					<Route path = '/settings'>
+					<Route exact path = '/settings'>
 						<Settings />
 					</Route>
-					<Route path = '/'>
-						<Dashboard />
-						{/* <h1>Dashboard</h1> */}
+					<Route exact path = '/cooler/:id'>
+						<CoolerPage />
 					</Route>
+					
+
 				</Switch>
 			</BrowserRouter>
 		</div>

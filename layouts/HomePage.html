@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <link rel="stylesheet" href="HomePage.css">
+   </head>
+
+  <body> 
+        <!--Header with navigation bar-->
+        <div class="header">
+                <div >
+                    <h1 class="heading">DrinkSapHe </h1>
+                </div>
+                
+                <h2>Welcome to dashboard</h2>
+
+                <div class="mid">
+                        <nav class="navbar">
+            
+                            <ul>
+                                <a href="#">Home</a>
+                                <a href="#">Login</a>
+                                <a href="#">About Us</a>
+                                <div class="dropdown">
+                                    <button class="dropbtn">Settings
+                                        <i class="fa fa-caret-down"></i>
+                                    </button>
+                                    <div class="dropdown-content">
+                                        <a href="#">Password Change</a>
+                                        <a href="#">pH interval check</a>
+                                        <a href="#">Add cooler</a>
+                                        <a href="#">Set pH limit</a>
+                                    </div>
+                                </div>
+            
+            
+                            </ul>
+            
+                        </nav>
+                    </div>
+            
+                
+                <!--Waves Container-->
+                <div>
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+                </svg>
+                </div>
+                <!--Waves end-->    
+        </div>
+        <!--Header ends-->
+                
+        <!--Cooler containers starts-->
+                
+             <div class="container card">
+                 
+                   <div class="containerbox">
+                       <ul style="list-style-type:none;">
+                        <li><img src="stainless-steel-water-cooler-500x500.jpg" ></li>
+                        <li><button class="button button2" onclick="checkpH()">Check current pH</button></li>
+                        <li><button class="button button2" onclick="details()">See full details</button></li>
+                        </ul>
+                        
+                       
+                    </div>
+             </div>
+        <!--cooler containers end-->
+                
+            
+        <!--Footer Report Section-->
+        <div class="footer">
+            <ul class="center" style="list-style-type:none;">
+            <li><h2 >Report a Problem</h2></li>
+            <li><button class=" button button2">Report</button></li>
+            <li><br></li>
+            <li> DrinkSapHe | IIIT Allahabad | 2021 </li>
+            </ul>
+        </div>
+        <!--Footer ends-->
+
+        <script src="HomePage.js"></script>
+
+    </body>
+
+</html>

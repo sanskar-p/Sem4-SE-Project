@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const isLoggedInRouter = require('./routes/isLoggedIn');
 const dashboardRouter = require('./routes/dashboard');
+const alertEmailRouter = require('./routes/alertEmail');
 
 const app = express();
 // app.use(cors())
@@ -21,6 +23,8 @@ app.use(
     })
   );
 
+//use environmental variables throughout the app
+dotenv.config()
 
 //mongodb connection
 var MONGODB_URI = "";
@@ -35,7 +39,7 @@ console.log('db uri', MONGODB_URI);
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection
-db.once('open', () => console.log("db connection established successfully"));
+db.once('open', () => console.log("db connection established successfully "));
 db.on('err', err => console.log('error with db', err));
 //mongodb connection end
 
@@ -44,6 +48,7 @@ app.use('/login', loginRouter)
 app.use('/register', registerRouter)
 app.use('/loggedin', isLoggedInRouter)
 app.use('/dashboard', dashboardRouter)
+app.use('/alertEmail', alertEmailRouter)
 
 
 // const Drinksaphe = require('./models/drinksaphe.model');

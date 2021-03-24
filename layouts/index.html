@@ -1,321 +1,177 @@
-<html>
-  <head>
-  <title> DrinkSaphe</title>
-	   <style type="text/css">
-	   
-	   @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+<!DOCTYPE html>
+<html lang="en">
 
-			*{
-				margin: 0px;
-				padding: 0px;
-			}
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-			body{
-				font-family: 'Exo', sans-serif;
-			}
+	<title> DrinkSaphe</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
 
 
-			.context {
-				width: 100%;
-				position: absolute;
-				top:50vh;
-				
-			}
+	<div class="zoomin">
 
-			.context h1{
-				text-align: center;
-				color: #fff;
-				font-size: 50px;
-			}
+		<div id="topbar">
+			<h1> DrinkSaphe</h1>
+			<p>Welcome to the dashboard ! </p>
+		</div>
 
-
-			.area{
-				background: #4e54c8;  
-				background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
-				width: 100%;
-				height:100vh;
-				
-			   
-			}
-
-			.circles{
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
-			}
-
-			.circles li{
-				position: absolute;
-				display: block;
-				list-style: none;
-				width: 20px;
-				height: 20px;
-				background: rgba(255, 255, 255, 0.2);
-				animation: animate 25s linear infinite;
-				bottom: -150px;
-				
-			}
-
-			.circles li:nth-child(1){
-				left: 25%;
-				width: 80px;
-				height: 80px;
-				animation-delay: 0s;
-			}
+		<div id="topbar">
+			<a href="login.html" target="_blank" class="zoom"><button class="button button1" position=relative
+					float=right>Login</button>
+			</a>
 
 
-			.circles li:nth-child(2){
-				left: 10%;
-				width: 20px;
-				height: 20px;
-				animation-delay: 2s;
-				animation-duration: 12s;
-			}
+			<!-- drop down for settings and other features -->
+			<div class="dropdown">
+				<button onclick="myFunction()" class="dropbtn">
+					Settings
+				</button>
+				<div class="dropdown-content" id="myDropdown">
+					<a href="#Password Change">Password Change</a>
+					<a href="#pH inteval check">pH inteval check</a>
+					<a href="#Add Cooler">Add Cooler</a>
+					<a href="#Set pH limit">Set pH limit</a>
+					<a href="#Set Alert time">Set Alert time</a>
+				</div>
+			</div>
+		</div>
 
-			.circles li:nth-child(3){
-				left: 70%;
-				width: 20px;
-				height: 20px;
-				animation-delay: 4s;
-			}
+		<div class="coolertile" style="position:relative;float:left;">
+			<img src="wcicon.jpg" height="130" width="400">
+			<h3>Cooler 1</h3>
+			<p><span class="tiletext"> Last pH = x </span></p>
+			<p> Location - CC3
+			<p>
+			<p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current
+						pH</button></a></p>
+			<p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full
+						details</button></a></p>
+		</div>
 
-			.circles li:nth-child(4){
-				left: 40%;
-				width: 60px;
-				height: 60px;
-				animation-delay: 0s;
-				animation-duration: 18s;
-			}
+		<div class="coolertile" style="position:relative;float:left;">
+			<img src="wcicon.jpg" height="130" width="400">
+			<h3>Cooler 2</h3>
+			<p><span class="tiletext"> Last pH = x </span></p>
+			<p> Location - CC3
+			<p>
+			<p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current
+						pH</button></a></p>
+			<p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full
+						details</button></a></p>
 
-			.circles li:nth-child(5){
-				left: 65%;
-				width: 20px;
-				height: 20px;
-				animation-delay: 0s;
-			}
+		</div>
 
-			.circles li:nth-child(6){
-				left: 75%;
-				width: 110px;
-				height: 110px;
-				animation-delay: 3s;
-			}
-
-			.circles li:nth-child(7){
-				left: 35%;
-				width: 150px;
-				height: 150px;
-				animation-delay: 7s;
-			}
-
-			.circles li:nth-child(8){
-				left: 50%;
-				width: 25px;
-				height: 25px;
-				animation-delay: 15s;
-				animation-duration: 45s;
-			}
-
-			.circles li:nth-child(9){
-				left: 20%;
-				width: 15px;
-				height: 15px;
-				animation-delay: 2s;
-				animation-duration: 35s;
-			}
-
-			.circles li:nth-child(10){
-				left: 85%;
-				width: 150px;
-				height: 150px;
-				animation-delay: 0s;
-				animation-duration: 11s;
-			}
+		<div class="coolertile" style="position:relative;float:left;">
+			<img src="wcicon.jpg" height="130" width="400">
+			<h3>Cooler 3</h3>
+			<p><span class="tiletext"> Last pH = x </span></p>
+			<p> Location - CC3
+			<p>
+			<p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current
+						pH</button></a></p>
+			<p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full
+						details</button></a></p>
 
 
+		</div>
 
-			@keyframes animate {
+		<div class="coolertile" style="position:relative;float:left;">
+			<img src="wcicon.jpg" height="130" width="400">
+			<h3>Cooler 4</h3>
+			<p><span class="tiletext"> Last pH = x </span></p>
+			<p> Location - CC3
+			<p>
+			<p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current
+						pH</button></a></p>
+			<p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full
+						details</button></a></p>
 
-				0%{
-					transform: translateY(0) rotate(0deg);
-					opacity: 1;
-					border-radius: 0;
+
+		</div>
+
+		<div class="coolertile" style="position:relative;float:left;">
+			<img src="wcicon.jpg" height="130" width="400">
+			<h3>Cooler 5</h3>
+			<p><span class="tiletext"> Last pH = x </span></p>
+			<p> Location - CC3
+			<p>
+			<p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current
+						pH</button></a></p>
+			<p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full
+						details</button></a></p>
+
+
+		</div>
+
+		<div class="coolertile" style="position:relative;float:left;">
+			<img src="wcicon.jpg" height="130" width="400">
+			<h3>Cooler 6</h3>
+			<p><span class="tiletext"> Last pH = x </span></p>
+			<p> Location - CC3
+			<p>
+			<p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current
+						pH</button></a></p>
+			<p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full
+						details</button></a></p>
+
+
+		</div>
+
+
+	</div>
+
+	<div class="area">
+		<ul class="circles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+	</div>
+
+	<div id="bottombar">
+
+		<a href="login.html" target="_blank" class="zoom"><button class="button button1" float=right>Report an
+				issue</button></a>
+		<h3> Contact us</h3>
+		<p> contact details</p>
+
+	</div>
+
+	<script>
+		function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+		window.onclick = function (event) {
+			if (!event.target.matches('.dropbtn')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
 				}
-
-				100%{
-					transform: translateY(-1000px) rotate(720deg);
-					opacity: 0;
-					border-radius: 50%;
-				}
-
 			}
-	   
-	   
-	   
-	   
-	   
-	   #topbar{
-		         color:white;
-		         background-color:#008CBA;
-				 padding:0px 100px 0.4px 100px;
-		  }
-		  
-		  
-	   #bottombar{
-		         color:white;
-		         background-color:#008CBA;
-				 padding:0px 100px 0.4px 100px;
-		  }
-		  
-		  .coolertile {
-		   width:440;
-		   padding:8px;
-		   margin:20px;
-		   border-radius: 0px;
-           border: 2px solid #008CBA;
+		}
+	</script>
 
-		   }
-		   
-		   .tiletext{
-		   color:#262628;
-		   font-weight:bold;
-		   }
-		   
-		   .zoomin button {
-				 
-				  -webkit-transition: all 2s ease;
-				  -moz-transition: all 2s ease;
-				  -ms-transition: all 2s ease;
-				  transition: all 2s ease;
-				}
-				.zoomin button:hover {
-				  width: 300px;
-				  height: 50px;
-				}
-		   
-		   .button {
-			  border: none;
-			  color: white;
-			  padding: 15px 32px;
-			  text-align: center;
-			  text-decoration: none;
-			  display: inline-block;
-			  font-size: 16px;
-			  margin: 4px 2px;
-			  cursor: pointer;
-			}
 
-		.button1 {background-color: #4CAF50;} /* Green */
-		.button2 {background-color: #008CBA;} /* Blue */
-		  
-		</style>
-  </head>
-  
- <body>
- 
 
-  <div class="zoomin">
-  
- <div id="topbar" >
-	  <h1> DrinkSaphe</h1>
-	  <p>Welcome to the dashboard !  </p>
-	  </div>
-	  
-	  <div  id="topbar">
-	  <a href="login.html" target="_blank" class="zoom"><button class="button button1" position=relative float=right>Login</button></a>
-	  </div>
-	  
-	  <div class="coolertile" style="position:relative;float:left;">
-	  <img src="wcicon.jpg" height="130" width="400">
-	  <h3>Cooler 1</h3>
-	  <p><span class="tiletext"> Last pH = x </span></p>
-	  <p> Location - CC3<p>
-	  <p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current pH</button></a></p>
-	  <p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full details</button></a></p>
-	  </div>
-	  
-	  <div class="coolertile" style="position:relative;float:left;">
-	  <img src="wcicon.jpg" height="130" width="400">
-	  <h3>Cooler 2</h3>
-	  	  <p><span class="tiletext"> Last pH = x </span></p>
-	  <p> Location - CC3<p>
-	  <p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current pH</button></a></p>
-	  <p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full details</button></a></p>
-	  
-	  </div>
-	  
-	  <div class="coolertile" style="position:relative;float:left;">
-	  <img src="wcicon.jpg" height="130" width="400">
-	  <h3>Cooler 3</h3>
-	  	  <p><span class="tiletext"> Last pH = x </span></p>
-	  <p> Location - CC3<p>
-	  <p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current pH</button></a></p>
-	  <p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full details</button></a></p>
-	 
-	
-	  </div>
-	  
-	  <div class="coolertile" style="position:relative;float:left;">
-	  <img src="wcicon.jpg" height="130" width="400">
-	  <h3>Cooler 4</h3>
-	  	  <p><span class="tiletext"> Last pH = x </span></p>
-	  <p> Location - CC3<p>
-	  <p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current pH</button></a></p>
-	  <p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full details</button></a></p>
-	  
-	
-	  </div>
-	  
-	  <div class="coolertile" style="position:relative;float:left;">
-	  <img src="wcicon.jpg" height="130" width="400">
-	  <h3>Cooler 5</h3>
-	  	  <p><span class="tiletext"> Last pH = x </span></p>
-	  <p> Location - CC3<p>
-	  <p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current pH</button></a></p>
-	  <p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full details</button></a></p>
-	  
-	
-	  </div>
-	  
-	  <div class="coolertile" style="position:relative;float:left;">
-	  <img src="wcicon.jpg" height="130" width="400">
-	  <h3>Cooler 6</h3>
-	  	  <p><span class="tiletext"> Last pH = x </span></p>
-	  <p> Location - CC3<p>
-	  <p><a href="checkph.html" target="_blank" class="zoom"><button class="button button2">Check current pH</button></a></p>
-	  <p><a href="cooler.html" target="_blank" class="zoom"><button class="button button1">See full details</button></a></p>
-	  
-	
-	  </div>
-	  
-	  
-	  </div>
-	  
-	   <div class="area" >
-            <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-  
-          </div>
- 
-          <div id="bottombar" >
-	  
-	  <a href="login.html" target="_blank" class="zoom"><button class="button button1" float=right>Report an issue</button></a>
-	  <h3> Contact us</h3>
-	  <p> contact details</p>
-	  
-	  </div>
- </body>
+
+</body>
+
 </html>

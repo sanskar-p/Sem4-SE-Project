@@ -29,11 +29,43 @@ router.post('/range', (req, res) => {
 //range routes end
 
 //cooler routes
+router.post('/getACooler', (req, res) => {
+    const {id} = req.body;
+
+    let requiredCooler;
+
+    Drinksaphe.findOne({"name": "drinksaphe"})
+        .then(db => {
+            // let idx = -1;
+            for(let i=0; i<db.coolers.length; i++){
+                // console.log(db.coolers[i]._id.toString(),id.toString())
+                if(db.coolers[i]._id.toString() === id.toString()){
+                    console.log('i',i);
+                    requiredCooler = db.coolers[i]
+                }
+            }
+            // console.log('cooler idx', idx);
+
+            if(requiredCooler._id !== undefined){
+                console.log('required details:', requiredCooler);
+                res.send(requiredCooler)
+            }
+            else{
+                res.send('cooler not found');
+            }
+        })
+        // .then(data => {
+        //     console.log('sending', data)
+        //     res.send(data)
+        // })
+        // .catch(err => console.log('error while sending cooler deets', err))
+})
+
 router.get('/getCoolers', (req, res) => {
     Drinksaphe.findOne({"name": "drinksaphe"})
         .then(db => {
             const coolerObj = {list: db.coolers};
-            console.log('cooler get res', coolerObj);
+            console.log('cooler get res');
             res.send(coolerObj)
         })
         .catch(err => console.log('cooler get err', err));
@@ -59,10 +91,40 @@ router.post('/addCooler', (req, res) => {
         })
         .catch(err => console.log('cannot find drinksaphe', err));
 })
+
+router.post('/deleteCooler', (req, res) => {
+    const {id} = req.body;
+    
+    Drinksaphe.findOne({"name": "drinksaphe"})
+        .then(db => {
+            //finding index of our cooler
+            let idx = -1;
+            for(let i=0; i<db.coolers.length; i++){
+                if(db.coolers[i]._id.toString() === id.toString()){
+                    console.log('i',i);
+                    idx = i;
+                }
+            }
+
+            //deleting
+            db.coolers.splice(idx, 1);
+
+            //saving changes to db
+            db.save()
+                .then(data => {
+                    console.log('updated and saved', data.coolers[idx])
+                    res.send({idx})
+                })
+                .catch(err => console.log('err while saving', err))    
+        })
+
+})
 //cooler routes end
 
 //pH routes
 router.post('/updatepH', (req, res) => {
+    const {id} = req.body;
+
     const currentpH = waterQuality[Math.floor(Math.random()*waterQuality.length)].pH
     console.log('new pH', currentpH);
     
@@ -72,7 +134,7 @@ router.post('/updatepH', (req, res) => {
             //finding index of our cooler
             let idx = -1;
             for(let i=0; i<db.coolers.length; i++){
-                if(db.coolers[i]._id.toString() === req.body.id.toString()){
+                if(db.coolers[i]._id.toString() === id.toString()){
                     console.log('i',i);
                     idx = i;
                 }
@@ -89,7 +151,7 @@ router.post('/updatepH', (req, res) => {
             //saving changes to db
             db.save()
                 .then(data => {
-                    console.log('updated and saved', data)
+                    console.log('updated and saved', data.coolers[idx])
                     // res.send(data)
                 })
                 .catch(err => console.log('err while saving', err))    
