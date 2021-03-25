@@ -386,7 +386,7 @@ export default function Dashboard() {
             </Modal>
 
 
-            <footer id="footer">
+            <footer id="dashFooterId">
                 <div className="dashFooter">
 
                 </div>

@@ -1,11 +1,11 @@
 /* .campus{
     /* background-image: url(../assets/img/campus.jpg); */
 /* }  */
-.header{
+/* .header{
     border: 2px solid red;
     height: 500px;
     background-color: white;
-}
+} */
 .cardBody{
     padding-top: 150px;
     padding-bottom: 127px;
@@ -57,8 +57,8 @@
     padding: 9px 180px 6px 138px;
     background-color: #ccffff;
 }
-#footer{
-    border: 2px solid red;
+#dashFooterId{
+    /* border: 2px solid red; */
     height: 200px;
 }
 .dashFooter{
@@ -67,7 +67,7 @@
 }
 .dashCopyright{
     height: 20px;
-    border: 2px solid green;
+    /* border: 2px solid green;  */
     display: flex;
     /* margin-left: 450px; */
     /* padding-left: 2px; */

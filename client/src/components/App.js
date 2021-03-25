@@ -11,14 +11,14 @@ import axios from 'axios';
 import SERVER_URL from '../utils/constants';
 
 // changes
-import '../assets/vendor/bootstrap/css/bootstrap.min.css';
-import '../assets/vendor/animate.css/animate.min.css';
-import '../assets/vendor/icofont/icofont.min.css';
-import '../assets/vendor/boxicons/css/boxicons.min.css';
-import '../assets/vendor/venobox/venobox.css';
-import '../assets/vendor/owl.carousel/assets/owl.carousel.min.css';
-import '../assets/vendor/aos/aos.css';
-import '../assets/css/style.css';
+// import '../assets/vendor/bootstrap/css/bootstrap.min.css';
+// import '../assets/vendor/animate.css/animate.min.css';
+// import '../assets/vendor/icofont/icofont.min.css';
+// import '../assets/vendor/boxicons/css/boxicons.min.css';
+// import '../assets/vendor/venobox/venobox.css';
+// import '../assets/vendor/owl.carousel/assets/owl.carousel.min.css';
+// import '../assets/vendor/aos/aos.css';
+// import '../assets/css/style.css';
 import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
 import { CardImg } from 'react-bootstrap';
 // changes end 
