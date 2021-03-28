@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
 const bcrypt = require('bcryptjs');
 
 //user model
 const User = require('../models/user.model');
+//userSession model
+const UserSession = require('../models/userSession.model');
 
 router.get('/', (req, res) => {
     res.send({token: 'token12345'});
@@ -46,21 +47,29 @@ router.post('/', (req, res, next) => {
 
         else{
             bcrypt.compare(password, user.password, (err, isMatch) => {
-                // if (err) {
-                //     console.log(err);
-                //     res.sendStatus(500);
-                //     return;
-                // }
-
                 if(isMatch){
                     console.log('logged in successfully');
-                    res.send({
-                        success: true,
-                        user
-                    })
-                    return;
-                }
+                    
+                    const session = new UserSession();
+                    session.userId = user._id;
+                    session.save((err, data) => {
+                        if(err){ 
+                            console.log('err in saving session ', err);
+                            res.send({
+                                success: false,
+                                errors: ['server error']
+                            })
+                        }
+                        else{
+                            res.send({
+                                success: true,
+                                token: data._id
+                            })
+                        }
+                        
 
+                    })
+                }
                 else if(!isMatch){
                     res.send({
                         success: false,

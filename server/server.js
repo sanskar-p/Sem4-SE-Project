@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
 const registerRouter = require('./routes/register');
 const isLoggedInRouter = require('./routes/isLoggedIn');
 const dashboardRouter = require('./routes/dashboard');
@@ -45,6 +46,7 @@ db.on('err', err => console.log('error with db', err));
 
 
 app.use('/login', loginRouter)
+app.use('/logout', logoutRouter)
 app.use('/register', registerRouter)
 app.use('/loggedin', isLoggedInRouter)
 app.use('/dashboard', dashboardRouter)

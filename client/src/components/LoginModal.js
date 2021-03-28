@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import querystring from 'querystring';
 import { useHistory } from 'react-router';
 import '../styles/LoginModal.css';
 import SERVER_URL from '../utils/constants';
+import {setInStorage, getFromStorage} from '../utils/storage';
+
+import {tokenContext} from './App'
 
 //CURRENTLY JUST A NEW PAGE. HAVE TO MAKE IT A  MODAL.
 
@@ -13,6 +16,8 @@ export default function LoginModal(){
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [formErr, updateFormErr] = useState({});
+
+    const [token, setToken] = useContext(tokenContext);
 
     const history = useHistory();
 
@@ -30,7 +35,9 @@ export default function LoginModal(){
             .then(res => {
               if(res.data.success){
                   console.log("frontend knows it is logged in with 200, data:", res.data);
-                  history.push('/')
+                  setInStorage('drinksaphe', { token: res.data.token });
+                  setToken(res.data.token);
+                  history.push('/');
               }
               else{
                   updateFormErr(res.data);

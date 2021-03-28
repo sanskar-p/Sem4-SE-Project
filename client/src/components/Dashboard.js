@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {Button, Modal} from 'react-bootstrap'
 import Select from 'react-select';
 
@@ -7,10 +7,14 @@ import SERVER_URL from '../utils/constants';
 
 import CoolerCard from './CoolerCard';
 
+import {tokenContext} from './App'
+
 import querystring from 'querystring';
 import '../styles/dashboard.css';
 
 export default function Dashboard() {
+	const [token, setToken] = useContext(tokenContext);
+
     // const[range, updateRange] = useState({low: 5, high: 5})
     const [lowRange, setLowRange] = useState();      //not sure if i should default to 7 or no
     const [highRange, setHighRange] = useState();
@@ -247,24 +251,22 @@ export default function Dashboard() {
 
     return (
         <div>
-            <div class="body" style={{backgroundImage: "url(/campus.jpg)", 'backgroundSize': 'cover', 'display':'flex', 'alignItems': 'center', 'flexDirection': 'column'}}>
+            <div class="body" style={{'color': 'white', 'backgroundColor': '#005', 'backgroundSize': 'cover', 'display':'flex', 'alignItems': 'center', 'flexDirection': 'column'}}>
                 <h2>Valid pH Range:</h2>
                 <h1 style={{ 'fontSize': '6rem' }}>{lowRange} - {highRange}</h1>
 
-                <div style={{ 'display': 'flex', 'flexDirection': 'row' }}>
+                {token && <div style={{ 'display': 'flex', 'flexDirection': 'row' }}>
                     <Button class="btn" variant="primary" onClick={handleShowRange}>
                         Update valid range
-
-                </Button>
+                    </Button>
                     <Button className="btn" variant="primary" onClick={handleShowAddCooler}>
                         Add new cooler
-                </Button>
+                    </Button>
+                    <Button className="btn" variant="primary" onClick={handleShowDeleteCooler}>
+                        Delete a cooler
+                    </Button>
 
-                <Button className="btn" variant="primary" onClick={handleShowDeleteCooler}>
-                    Delete a cooler
-                </Button>
-
-                </div>
+                </div>}
 
 
 
