@@ -35,6 +35,7 @@ export default function NavigationBar({history}) {
 					localStorage.removeItem('drinksaphe')
 					setToken(false);
 					// if(window.location.pathname !== '/login') history.push('/login');
+    				window.location.reload();
 					console.log('logged out successfully')
 				}
 				else{

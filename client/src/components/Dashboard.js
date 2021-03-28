@@ -255,7 +255,7 @@ export default function Dashboard() {
                 <h2>Valid pH Range:</h2>
                 <h1 style={{ 'fontSize': '6rem' }}>{lowRange} - {highRange}</h1>
 
-                {token && <div style={{ 'display': 'flex', 'flexDirection': 'row' }}>
+                {token && <div className="dashboardControls">
                     <Button class="btn" variant="primary" onClick={handleShowRange}>
                         Update valid range
                     </Button>
