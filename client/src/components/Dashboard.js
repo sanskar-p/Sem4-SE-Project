@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Modal } from 'react-bootstrap'
+import {Button, Modal} from 'react-bootstrap'
 import Select from 'react-select';
 
 import SERVER_URL from '../utils/constants';
@@ -9,7 +9,6 @@ import CoolerCard from './CoolerCard';
 
 import querystring from 'querystring';
 import '../styles/dashboard.css';
-// import '../public/campus.jpg';
 
 export default function Dashboard() {
     // const[range, updateRange] = useState({low: 5, high: 5})
@@ -31,6 +30,9 @@ export default function Dashboard() {
     //deleteCooler form values
     const [coolerToDelete, setCoolerToDelete] = useState();
 
+    //report form values
+    const [reportFormState, updateEeportFormState] = useState({email: '', grievance: ''})
+
 
     //modal states and handlers
     const [showRangeModal, setShowRangeModal] = useState(false);
@@ -49,13 +51,13 @@ export default function Dashboard() {
         setCoolerNames([]);
         setShowDeleteCoolerModal(false)
     };
-
+    
     const handleShowDeleteCooler = () => {
 
         //populating coolerNames array for dropdown
         // setCoolerNames([]);
         coolers.list.map(cooler => {
-            coolerNames.push({ 'value': cooler._id, 'label': cooler.coolerName })
+            coolerNames.push({'value': cooler._id, 'label': cooler.coolerName})
         })
         //populating end
 
@@ -166,29 +168,29 @@ export default function Dashboard() {
     const handleDelete = event => {
         event.preventDefault();
 
-        axios.post(`${SERVER_URL}/dashboard/deleteCooler`, querystring.stringify({ id: coolerToDelete })
-            , {
-                headers: {
-                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-                },
-                credentials: 'include',
-                withCredentials: true
-            }
+        axios.post(`${SERVER_URL}/dashboard/deleteCooler`, querystring.stringify({id: coolerToDelete})
+        , {
+            headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        credentials: 'include',
+        withCredentials: true
+        }
         )
-            .then(res => {
-                if (res.status === 200) {
-                    // localStorage.setItem('username', res.data.username);
-                    console.log("frontend knows cooler is deleted, data:", res.data);
+        .then(res => {
+            if(res.status === 200){
+                // localStorage.setItem('username', res.data.username);
+                console.log("frontend knows cooler is deleted, data:", res.data);
 
-                    //deleting in frontend
-                    coolers.list.splice(res.data.idx, 1);
+                //deleting in frontend
+                coolers.list.splice(res.data.idx, 1);
 
-                    handleCloseDeleteCooler()
-                    // history.push('/login')
-                }
-                console.log('deleteCooler response:', res)
-            })
-            .catch(err => console.log('deleteCooler error', err))
+                handleCloseDeleteCooler()
+                // history.push('/login')
+            }
+            console.log('deleteCooler response:',res)
+        })
+        .catch(err => console.log('deleteCooler error', err))
     }
 
 
@@ -241,36 +243,26 @@ export default function Dashboard() {
     }
 
 
-
+   
 
     return (
         <div>
-            {/* <header class="header">
-                <div id="campus">
-                    <img src="../public/campus.jpg" alt="campus image" />
-                    {/* <img src = {campus} alt = "campus image" /> */}
-                {/* </div> */}
-            {/* </header> */} 
-
-
-            {/* important code */}
-
-            <div class="cardBody">
+            <div class="body" style={{backgroundImage: "url(/campus.jpg)", 'backgroundSize': 'cover', 'display':'flex', 'alignItems': 'center', 'flexDirection': 'column'}}>
                 <h2>Valid pH Range:</h2>
                 <h1 style={{ 'fontSize': '6rem' }}>{lowRange} - {highRange}</h1>
 
                 <div style={{ 'display': 'flex', 'flexDirection': 'row' }}>
-
-                    <Button className="modalBtn" variant="primary" onClick={handleShowRange}>
+                    <Button class="btn" variant="primary" onClick={handleShowRange}>
                         Update valid range
-                   </Button>
-                    <Button className="modalBtn" variant="primary" onClick={handleShowAddCooler}>
-                        Add new cooler
-                   </Button>
 
-                    <Button className="modalBtn" variant="primary" onClick={handleShowDeleteCooler}>
-                        Delete a cooler
-                   </Button>
+                </Button>
+                    <Button className="btn" variant="primary" onClick={handleShowAddCooler}>
+                        Add new cooler
+                </Button>
+
+                <Button className="btn" variant="primary" onClick={handleShowDeleteCooler}>
+                    Delete a cooler
+                </Button>
 
                 </div>
 
@@ -311,8 +303,8 @@ export default function Dashboard() {
                                     />
                                 </div>
                             </label>
-                            <div class=" modalBtn modalSubBtn">
-                                <button type="submit" class="modalSubmitBtn modalBtn1">Add cooler!</button>
+                            <div class=" btn subBtn">
+                                <button type="submit" class="submitBtn btn1">Add cooler!</button>
                             </div>
                         </form>
                         {/* <p>{rangeUpdateErr[0]}</p> */}
@@ -351,8 +343,8 @@ export default function Dashboard() {
                                     />
                                 </div>
                             </label>
-                            <div class="modalBtn modalSubBtn">
-                                <button type="submit" class="modalSubmitBtn modalBtn1">Update!</button>
+                            <div class="btn subBtn">
+                                <button type="submit" class="submitBtn btn1">Update!</button>
                             </div>
                         </form>
                         {/* <p>{rangeUpdateErr[0]}</p> */}
@@ -363,21 +355,20 @@ export default function Dashboard() {
 
             </div>
 
-            {/* delete modal  */}
+           {/* delete modal  */}
 
             <Modal show={showDeleteCoolerModal} onHide={handleCloseDeleteCooler}>
-                <Modal.Header closeButton style={{ 'background': '#00cccc' }}>
-                    <Modal.Title>Delete A Cooler</Modal.Title>
+                <Modal.Header closeButton>
+                <Modal.Title>Delete A Cooler</Modal.Title>
                 </Modal.Header>
-                <Modal.Body class="editPop">
-                    <p style={{ 'margin-left': '111px' }}>Select the cooler you want to delete.</p>
+                <Modal.Body>
+                    <p>Select the cooler you want to delete.</p>
                     <Select
-                        options={coolerNames}
-                        onChange={opt => setCoolerToDelete(opt.value)}
-                        className="selectOpt"
+                        options = {coolerNames}
+                        onChange = {opt => setCoolerToDelete(opt.value)}
                     />
-                    <div className="modalBtn modalSubBtn" style={{ 'paddingLeft': '180px' }}>
-                        <button type="submit" onClick={handleDelete} class="modalSubmitBtn modalBtn1">Delete it</button>
+                    <div>
+                        <button type="submit" onClick = {handleDelete}>Delete it</button>
                     </div>
                     {/* <p>{rangeUpdateErr[0]}</p> */}
                     {/* {rangeUpdateErr.length == 0 && <p>no errors</p>}
@@ -385,18 +376,9 @@ export default function Dashboard() {
                 </Modal.Body>
             </Modal>
 
-
-            <footer id="dashFooterId">
-                <div className="dashFooter">
-
-                </div>
-
-                <div className="dashCopyright">
-                    &copy; Copyright &ensp; <strong>DrinksapHe</strong> &ensp;. All rights reserved
-                 </div>
-                <div className="dashCopyright">
-                    Designed by .......
-                 </div>
+           
+                    <footer id="footer">
+        
             </footer>
         </div>
     )

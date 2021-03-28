@@ -1,13 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-body{
-  background-color: '#004';
-  font-family: 'Merriweather', serif;
-  border: 3px solid white;
-  width: 100%;
-  justify-content: space-evenly;
+.register-page{
+  display: flex;
   align-items: center;
+  justify-content: center;
+  color: white;
+  min-height: 100vh;
+  background-color: #000025;
+  padding: 0;
+  margin: 0;
+
 }
 .heading {
     font-family: 'Bebas Neue', cursive;
@@ -46,10 +49,11 @@ body{
 
   .tile
   {
-      height:40rem;
+      /* height: 60rem; */
+      minHeight:40rem;
       width: 50vmax;
       background-color: #000033;
       text-align: center;
-      margin: 2rem;
+      margin-top: 4rem;
       padding : 2rem;
   }

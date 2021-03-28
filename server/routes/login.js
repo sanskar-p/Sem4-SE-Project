@@ -12,35 +12,60 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res, next) => {
     console.log('login req in backend', req.body);
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     let errors = [];
 
-    //check required
-    if(!name || !password){
-        errors.push({msg: 'please type email and password'})
-    }
+    const emailFormat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    User.findOne({username: req.body.username})
+    if (!email) {
+		errors.push('please enter an email')
+	}
+	else if(!email.match(emailFormat)){
+		errors.push('please enter a valid email')
+	}
+	if (!password) {
+		errors.push('please enter a password')
+	}
+
+    if(errors.length > 0){
+		res.send({
+			success: false,
+			errors
+		})
+	}
+
+    User.findOne({email})
     .then((user) => {
-        if(!user) console.log('no such user exists');
+        if(!user){
+            res.send({
+                success: false,
+                errors: ['email is either incorrect or does not exist']
+            })
+        }
 
         else{
             bcrypt.compare(password, user.password, (err, isMatch) => {
-                if (err) {
-                    console.log(err);
-                    res.sendStatus(500);
-                    return;
-                }
+                // if (err) {
+                //     console.log(err);
+                //     res.sendStatus(500);
+                //     return;
+                // }
 
-                else if(isMatch){
+                if(isMatch){
                     console.log('logged in successfully');
-                    res.send(user);
+                    res.send({
+                        success: true,
+                        user
+                    })
                     return;
                 }
 
                 else if(!isMatch){
-                    console.log('wrong password');
+                    res.send({
+                        success: false,
+                        errors: ['incorrect password']
+                    })
                 }
             })
         }

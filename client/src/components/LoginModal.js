@@ -10,8 +10,9 @@ import SERVER_URL from '../utils/constants';
 // axios.defaults.withCredentials = true;
 
 export default function LoginModal(){
-    const [username, setUsername] = useState();
+    const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [formErr, updateFormErr] = useState({});
 
     const history = useHistory();
 
@@ -19,7 +20,7 @@ export default function LoginModal(){
         console.log("handling login submit");
         event.preventDefault();
         axios
-            .post(`${SERVER_URL}/login`, querystring.stringify({username: username, password:password})
+            .post(`${SERVER_URL}/login`, querystring.stringify({email: email, password:password})
             ,{headers: {
               'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
             },
@@ -27,18 +28,29 @@ export default function LoginModal(){
             withCredentials: true
             })
             .then(res => {
-                if(res.status === 200){
-                    // localStorage.setItem('username', res.data.username);
-                    history.push('/')
-                }
+              if(res.data.success){
+                  console.log("frontend knows it is logged in with 200, data:", res.data);
+                  history.push('/')
+              }
+              else{
+                  updateFormErr(res.data);
+              }
                 console.log('login response:',res)
             })
             .catch(err => console.log('login error', err))
     }
 
+	const renderErrors = () => {
+        if(formErr.errors !== undefined){
+            // if(!formErr.success)
+                return formErr.errors.map(formEr => <p style={{'color': 'red', 'marginBottom': '0', 'fontSize': '0.9rem'}}>{formEr}</p>)
+            // }
+        }
+    }
+
     return(
-      <body className="login_body">
-        <div class="loginContainer">
+      <body className="login_body" style={{'minHeight': '100%'}}>
+        <div class="loginContainer" style={{'minHeight': '100vh'}}>
           <div class= "loginItem" id="loginItem1"><h1>drinksa<b>pH</b>e</h1></div>
             <div class="loginItem" id="loginItem2">
               <form onSubmit = {handleSubmit}>
@@ -46,8 +58,8 @@ export default function LoginModal(){
                     <div class="loginIn" id="loginIn1">
                       <input
                           type="text"
-                          placeholder="enter username"
-                          onChange = {event => setUsername(event.target.value)}
+                          placeholder="enter email"
+                          onChange = {event => setEmail(event.target.value)}
                       /></div>
 
 
@@ -60,6 +72,7 @@ export default function LoginModal(){
                         onChange = {event => setPassword(event.target.value)} /></div>
 
                   </label>
+				  {renderErrors()}
                   <div class="loginSubBtn">
                       <button type="submit">submit</button>
                       <a>Forgot Password</a>
