@@ -8,6 +8,7 @@ import Dashboard from './Dashboard';
 import Settings from './Settings';
 import LoginModal from './LoginModal';
 import Register from './Register';
+import Profile from './Profile';
 import CoolerPage from './CoolerPage';
 import {setInStorage, getFromStorage} from '../utils/storage';
 
@@ -15,6 +16,7 @@ const tokenContext =  createContext([{}, () => {}]);
 
 function App() {
 	const[token, setToken] = useState()
+	const [wait, setWait] = useState(true)
 
 	// const [loggedIn, setLoggedIn] = useState(false);
 
@@ -25,6 +27,7 @@ function App() {
 	useEffect(() => {
 		const tokenObj = getFromStorage('drinksaphe');
 		if(tokenObj && tokenObj.token) setToken(tokenObj.token)
+		setWait(false)
 		console.log('token', token);	
 
 		// if(!token) history.push('/login')
@@ -38,7 +41,7 @@ function App() {
 		// }
 		// loggedInStatus();
 		// console.log('logged in status', loggedIn);
-	}, [])
+	}, [token])
 
 	return (
 		<tokenContext.Provider value={[token, setToken]}>
@@ -71,6 +74,25 @@ function App() {
 						<Route exact path='/cooler/:id'>
 							<CoolerPage />
 						</Route>
+						{/* <Route 
+							exact path='/profile'
+							render= { () => 
+								wait ? (<p>loading</p>)
+								: (token ? <Profile /> : <Redirect to="/login"> )
+							}
+						/> */}
+						<Route 
+							exact path='/profile'
+							render={()=>wait?(<img src="/temploader.jpg" />)
+							:(token?(
+							<Profile/>
+							)
+							:(<Redirect to="/login" />))
+						} />
+							
+							{/* { ? <Redirect to='/' /> : <Profile />} */}
+							{/* <Profile /> */}
+						{/* </Route> */}
 
 
 					</Switch>

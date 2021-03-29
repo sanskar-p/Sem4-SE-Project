@@ -35,7 +35,8 @@ export default function Register(){
             .then(res => {
                 if(res.data.success){
                     console.log("frontend knows it is registered with 200, data:", res.data);
-                    history.push('/login')
+                    updateFormErr(res.data)
+                    setTimeout(() => history.push('/login'), 1500) //redirect after 1.5 seconds
                 }
                 else{
                     updateFormErr(res.data);
@@ -45,11 +46,14 @@ export default function Register(){
             .catch(err => console.log('register error', err))
     }
 
-    const renderErrors = () => {
+    const renderRes = () => {
         if(formErr.errors !== undefined){
-            // if(!formErr.success)
+            if(!formErr.success){
                 return formErr.errors.map(formEr => <p style={{'color': 'red', 'marginBottom': '0', 'fontSize': '0.9rem'}}>{formEr}</p>)
-            // }
+            }
+        }
+        else if(formErr.success){
+            return <p style={{'color': 'green', 'marginBottom': '0', 'fontSize': '0.9rem'}}>Registered successfully. Redirecting to login :)</p>
         }
     }
 
@@ -58,7 +62,6 @@ export default function Register(){
           
           <div className="tile">
 
-          {/* {formErrAlerts()} */}
             <h1 className="heading">Register</h1>
             <form onSubmit = {handleSubmit}>
                 <FormGroup>
@@ -85,7 +88,7 @@ export default function Register(){
                     <input className="myinput" type="password" onChange = {event => setPassword2(event.target.value)} />
                 </label>
                 </FormGroup>
-                {renderErrors()}
+                {renderRes()}
                 <div>
                     <button className="button1" type="submit" >submit</button>
                     <a>Forgot Password ?</a>

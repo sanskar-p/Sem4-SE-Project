@@ -7,10 +7,6 @@ const User = require('../models/user.model');
 //userSession model
 const UserSession = require('../models/userSession.model');
 
-router.get('/', (req, res) => {
-    res.send({token: 'token12345'});
-})
-
 router.post('/', (req, res, next) => {
     console.log('login req in backend', req.body);
     const { email, password } = req.body;

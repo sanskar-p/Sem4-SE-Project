@@ -63,6 +63,7 @@ export default function NavigationBar({history}) {
 								<NavDropdown.Item href="#action/3.3">Set alert time</NavDropdown.Item>
 							</NavDropdown>
 							}
+							{token && <Nav.Link href="profile">Profile</Nav.Link>}
 							<Nav.Link href="/">About Us</Nav.Link>
 							{token && <Nav.Link onClick={handleLogout} >Logout</Nav.Link>}
 						</Nav>

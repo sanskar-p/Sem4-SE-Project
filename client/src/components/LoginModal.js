@@ -15,7 +15,7 @@ import {tokenContext} from './App'
 export default function LoginModal(){
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const [formErr, updateFormErr] = useState({});
+    const [formRes, updateFormRes] = useState({});
 
     const [token, setToken] = useContext(tokenContext);
 
@@ -37,22 +37,24 @@ export default function LoginModal(){
                   console.log("frontend knows it is logged in with 200, data:", res.data);
                   setInStorage('drinksaphe', { token: res.data.token });
                   setToken(res.data.token);
-                  history.push('/');
+                  updateFormRes(res.data);
+                  setTimeout(() => history.push('/'), 1500) //redirect after 1.5 secs
               }
               else{
-                  updateFormErr(res.data);
+                  updateFormRes(res.data);
               }
                 console.log('login response:',res)
             })
             .catch(err => console.log('login error', err))
     }
 
-	const renderErrors = () => {
-        if(formErr.errors !== undefined){
-            // if(!formErr.success)
-                return formErr.errors.map(formEr => <p style={{'color': 'red', 'marginBottom': '0', 'fontSize': '0.9rem'}}>{formEr}</p>)
-            // }
+	const renderRes = () => {
+        if(formRes.errors !== undefined){
+                return formRes.errors.map(formEr => <p style={{'color': 'red', 'marginBottom': '0', 'fontSize': '0.9rem'}}>{formEr}</p>)
         }
+        else if(formRes.success){
+          return <p style={{'color': 'green', 'marginBottom': '0', 'fontSize': '0.9rem'}}>Logged in successfully. Redirecting to dashboard :)</p>
+      }
     }
 
     return(
@@ -79,7 +81,7 @@ export default function LoginModal(){
                         onChange = {event => setPassword(event.target.value)} /></div>
 
                   </label>
-				  {renderErrors()}
+				          {renderRes()}
                   <div class="loginSubBtn">
                       <button type="submit">submit</button>
                       <a>Forgot Password</a>

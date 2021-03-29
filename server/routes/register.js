@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
           	console.log("user already exists", user);
 			res.send({
 				success: false,
-				errors: 'user already exist'
+				errors: ['user already exists']
 			});
       	}else {
           console.log("creating new user");
