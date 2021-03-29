@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
 
 //user model
 const User = require('../models/user.model');
@@ -9,7 +8,7 @@ const UserSession = require('../models/userSession.model');
 
 router.post('/', (req, res, next) => {
     const {token} = req.body;
-    
+
     UserSession.findById(token)
     .then((session) => {
         if(session.isDeleted){

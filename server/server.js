@@ -7,6 +7,7 @@ const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const registerRouter = require('./routes/register');
 const userDataRouter = require('./routes/userData');
+const updateProfileRouter = require('./routes/updateProfile');
 const isLoggedInRouter = require('./routes/isLoggedIn');
 const dashboardRouter = require('./routes/dashboard');
 const alertEmailRouter = require('./routes/alertEmail');
@@ -50,6 +51,7 @@ app.use('/login', loginRouter)
 app.use('/logout', logoutRouter)
 app.use('/register', registerRouter)
 app.use('/getUserData', userDataRouter)
+app.use('/updateProfile', updateProfileRouter)
 app.use('/loggedin', isLoggedInRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/alertEmail', alertEmailRouter)

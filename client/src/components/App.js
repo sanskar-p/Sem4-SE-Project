@@ -56,7 +56,7 @@ function App() {
 				{/* {loggedIn ? <p>currently logged in</p> : <p>not logged in</p>} */}
 
 				<NavigationBar />
-				{token ? <p style={{'marginTop': '5rem'}}>logged in {token}</p> : <p style={{'marginTop': '5rem'}}>logged out</p>}
+				{/* {token ? <p style={{'marginTop': '5rem'}}>logged in {token}</p> : <p style={{'marginTop': '5rem'}}>logged out</p>} */}
 				<BrowserRouter>
 					<Switch>
 						<Route exact path='/login'>
