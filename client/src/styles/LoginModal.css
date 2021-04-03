@@ -31,7 +31,7 @@
 #loginItem2{
   width: 300px;
 }
-input{
+.login-text-input{
   display: block;
   background-color: #1e212d;
   color: white;

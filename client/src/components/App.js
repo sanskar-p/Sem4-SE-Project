@@ -16,12 +16,13 @@ const tokenContext =  createContext([{}, () => {}]);
 function App() {
 	const[token, setToken] = useState()
 	const [wait, setWait] = useState(true)
-
+//start
 	// const [loggedIn, setLoggedIn] = useState(false);
 
 	// const getLoggedInStatus = () => {
 	// 	return axios.post(`${SERVER_URL}/loggedin`)
 	// }
+	//end
 
 	useEffect(() => {
 		const tokenObj = getFromStorage('drinksaphe');

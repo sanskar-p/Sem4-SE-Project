@@ -69,6 +69,7 @@ export default function LoginModal(){
                           type="text"
                           placeholder="enter email"
                           onChange = {event => setEmail(event.target.value)}
+                          className="login-text-input"
                       /></div>
 
 
@@ -78,7 +79,7 @@ export default function LoginModal(){
                       <input
                         type="password"
                         placeholder="enter password"
-                        onChange = {event => setPassword(event.target.value)} /></div>
+                        onChange = {event => setPassword(event.target.value)} className="login-text-input" /></div>
 
                   </label>
 				          {renderRes()}
