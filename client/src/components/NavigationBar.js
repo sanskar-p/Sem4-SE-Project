@@ -55,7 +55,7 @@ export default function NavigationBar({history}) {
 						<Nav className="mr-auto, justify-content-end">				
 							<Nav.Link href="/">Home</Nav.Link>
 							{!token && <Nav.Link href="login">Login</Nav.Link>}
-							{!token && <Nav.Link href="register">Register</Nav.Link>}
+							{/* {!token && <Nav.Link href="register">Register</Nav.Link>} */}
 							{token &&
 							<NavDropdown title="Settings" id="basic-nav-dropdown">
 								<NavDropdown.Item href="#action/3.1">Password Change</NavDropdown.Item>

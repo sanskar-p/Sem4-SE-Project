@@ -7,6 +7,7 @@ import {Button} from 'react-bootstrap';
 import Alert from 'react-bootstrap/Alert'
 
 import UpdatePassModal from './ProfileComps/UpdatePassModal'
+import NewUserModal from './ProfileComps/AddNewUserModal'
 
 import {tokenContext} from './App'
 
@@ -14,12 +15,23 @@ export default function Profile() {
 	const [token, setToken] = useContext(tokenContext);
     const [userData, setUserData] = useState({})
     const [errorMsg, setErrorMsg] = useState('')
-
-    const [passSuccess, showPassSuccess] = useState(true);
+    
+    //update password stuff
+    const [passSuccess, showPassSuccess] = useState(false);
     const [showPassModal, setShowPassModal] = useState(false);
 
     const handleClosePass = () => setShowPassModal(false);
-    const handleShowPass = () => setShowPassModal(true);
+    const handleShowPass = () => setShowPassModal(true);    
+    //update password stuff end
+
+    //add new user stuff
+    const [newUserSuccess, showNewUserSuccess] = useState(false);
+    const [showNewUserModal, setShowNewUserModal] = useState(false);
+
+    const handleCloseNewUser = () => setShowNewUserModal(false);
+    const handleShowNewUser = () => setShowNewUserModal(true);   
+    //add new user stuff end 
+
 
     const getUserData = () => {
         axios.post(`${SERVER_URL}/getUserData`, querystring.stringify({token})
@@ -52,21 +64,35 @@ export default function Profile() {
     return(
         <div style={{'display': 'flex', 'alignItems': 'center', 'flexDirection': 'column'}}>
             {passSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="pass" variant="success" onClose={() => showPassSuccess(false)}>Password updated successfully</Alert> }
+            {newUserSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="newuser" variant="success" onClose={() => showNewUserSuccess(false)}>New user created successfully</Alert> }
 
             <h1>Profile</h1>
-            {userData &&
-                <div>
-                    <p>username: {userData.username}</p>
-                    <p>email: {userData.email}</p>
-                    <p>date of creation: {userData.createdAt}</p>
-                    <p>description: {userData.description || <p>no description found</p>} </p>
-                </div> 
+            {!userData ? <p>Loading details...</p>
+                :
+                <>
+                    <h4>User Details:</h4>
+                    <div>
+                        <p>username: {userData.username}</p>
+                        <p>email: {userData.email}</p>
+                        <p>date of creation: {userData.createdAt}</p>
+                        <p>description: {userData.description || <p>no description found</p>} </p>
+                    </div>
+                    
+                    <h4>{userData.username === 'admin' ? 'Admin' : 'User'} operations:</h4>
+                    <Button className="btn" variant="primary" onClick={handleShowNewUser}>Create a new user</Button>
+                    <NewUserModal token={token} showNewUserModal={showNewUserModal} handleCloseNewUser={handleCloseNewUser} showNewUserSuccess={showNewUserSuccess} />
+                    
+
+                    <Button className="btn" variant="primary" onClick={handleShowPass}>Update Password</Button>
+                    <UpdatePassModal token={token} showPassModal={showPassModal} handleClosePass={handleClosePass} showPassSuccess={showPassSuccess} />
+                    
+                    <Button>Update description</Button>
+                </> 
+                               
             }
-            <Button className="btn" variant="primary" onClick={handleShowPass}>
-                Update Password
-            </Button>
-            <UpdatePassModal token={token} showPassModal={showPassModal} handleClosePass={handleClosePass} showPassSuccess={showPassSuccess} />
-        
+            
+            
+
             {errorMsg && <p>{errorMsg}</p>}
         </div>
     )

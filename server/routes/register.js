@@ -15,6 +15,12 @@ router.post('/', (req, res) => {
 	if (!username) {
 		errors.push('username cannot be blank')
 	}
+	else if(username.length < 5){
+		errors.push('username length  should be 5 or more characters')
+	}
+	else if(username === 'admin'){
+		errors.push('username cannot be admin')
+	}
 	if (!email) {
 		errors.push('email cannot be blank')
 	}

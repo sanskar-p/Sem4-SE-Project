@@ -7,7 +7,6 @@ import NavigationBar from './NavigationBar';
 import Dashboard from './Dashboard';
 import Settings from './Settings';
 import LoginModal from './LoginModal';
-import Register from './Register';
 import Profile from './Profile';
 import CoolerPage from './CoolerPage';
 import {setInStorage, getFromStorage} from '../utils/storage';
@@ -65,9 +64,9 @@ function App() {
 						<Route exact path='/'>
 							<Dashboard />								
 						</Route>
-						<Route exact path='/register'>
+						{/* <Route exact path='/register'>
 							<Register />
-						</Route>
+						</Route> */}
 						<Route exact path='/settings'>
 							<Settings />
 						</Route>
