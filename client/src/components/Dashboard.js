@@ -1,19 +1,19 @@
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react';
-import {Button, Modal} from 'react-bootstrap'
+import { Button, Modal } from 'react-bootstrap'
 import Select from 'react-select';
 
 import SERVER_URL from '../utils/constants';
 
 import CoolerCard from './CoolerCard';
 
-import {tokenContext} from './App'
+import { tokenContext } from './App'
 
 import querystring from 'querystring';
 import '../styles/dashboard.css';
 
 export default function Dashboard() {
-	const [token, setToken] = useContext(tokenContext);
+    const [token, setToken] = useContext(tokenContext);
 
     // const[range, updateRange] = useState({low: 5, high: 5})
     const [lowRange, setLowRange] = useState();      //not sure if i should default to 7 or no
@@ -35,7 +35,7 @@ export default function Dashboard() {
     const [coolerToDelete, setCoolerToDelete] = useState();
 
     //report form values
-    const [reportFormState, updateEeportFormState] = useState({email: '', grievance: ''})
+    const [reportFormState, updateEeportFormState] = useState({ email: '', grievance: '' })
 
 
     //modal states and handlers
@@ -55,13 +55,13 @@ export default function Dashboard() {
         setCoolerNames([]);
         setShowDeleteCoolerModal(false)
     };
-    
+
     const handleShowDeleteCooler = () => {
 
         //populating coolerNames array for dropdown
         // setCoolerNames([]);
         coolers.list.map(cooler => {
-            coolerNames.push({'value': cooler._id, 'label': cooler.coolerName})
+            coolerNames.push({ 'value': cooler._id, 'label': cooler.coolerName })
         })
         //populating end
 
@@ -172,29 +172,29 @@ export default function Dashboard() {
     const handleDelete = event => {
         event.preventDefault();
 
-        axios.post(`${SERVER_URL}/dashboard/deleteCooler`, querystring.stringify({id: coolerToDelete})
-        , {
-            headers: {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-        },
-        credentials: 'include',
-        withCredentials: true
-        }
-        )
-        .then(res => {
-            if(res.status === 200){
-                // localStorage.setItem('username', res.data.username);
-                console.log("frontend knows cooler is deleted, data:", res.data);
-
-                //deleting in frontend
-                coolers.list.splice(res.data.idx, 1);
-
-                handleCloseDeleteCooler()
-                // history.push('/login')
+        axios.post(`${SERVER_URL}/dashboard/deleteCooler`, querystring.stringify({ id: coolerToDelete })
+            , {
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+                },
+                credentials: 'include',
+                withCredentials: true
             }
-            console.log('deleteCooler response:',res)
-        })
-        .catch(err => console.log('deleteCooler error', err))
+        )
+            .then(res => {
+                if (res.status === 200) {
+                    // localStorage.setItem('username', res.data.username);
+                    console.log("frontend knows cooler is deleted, data:", res.data);
+
+                    //deleting in frontend
+                    coolers.list.splice(res.data.idx, 1);
+
+                    handleCloseDeleteCooler()
+                    // history.push('/login')
+                }
+                console.log('deleteCooler response:', res)
+            })
+            .catch(err => console.log('deleteCooler error', err))
     }
 
 
@@ -247,22 +247,22 @@ export default function Dashboard() {
     }
 
 
-   
+
 
     return (
         <div>
-            <div class="body" style={{'color': 'white', 'backgroundColor': '#005', 'backgroundSize': 'cover', 'display':'flex', 'alignItems': 'center', 'flexDirection': 'column'}}>
+            <div className="cardBody" >
                 <h2>Valid pH Range:</h2>
                 <h1 style={{ 'fontSize': '6rem' }}>{lowRange} - {highRange}</h1>
 
                 {token && <div className="dashboardControls">
-                    <Button class="btn" variant="primary" onClick={handleShowRange}>
+                    <Button className="dashBtn" variant="primary" onClick={handleShowRange}>
                         Update valid range
                     </Button>
-                    <Button className="btn" variant="primary" onClick={handleShowAddCooler}>
+                    <Button className="dashBtn" variant="primary" onClick={handleShowAddCooler}>
                         Add new cooler
                     </Button>
-                    <Button className="btn" variant="primary" onClick={handleShowDeleteCooler}>
+                    <Button className="dashBtn" variant="primary" onClick={handleShowDeleteCooler}>
                         Delete a cooler
                     </Button>
 
@@ -290,7 +290,7 @@ export default function Dashboard() {
                                         type="text"
                                         placeholder="for ex: cooler1"
                                         onChange={event => setCoolerName(event.target.value)}
-                                        class="textInput"
+                                        class="dashTextInput"
                                     />
                                 </div>
                             </label>
@@ -301,12 +301,12 @@ export default function Dashboard() {
                                         type="text"
                                         placeholder="for ex: in front of room 5448"
                                         onChange={event => setCoolerLoc(event.target.value)}
-                                        class="textInput"
+                                        class="dashTextInput"
                                     />
                                 </div>
                             </label>
-                            <div class=" btn subBtn">
-                                <button type="submit" class="submitBtn btn1">Add cooler!</button>
+                            <div className=" modalBtn subBtn">
+                                <button type="submit" className="submitBtn modalBtn1">Add cooler!</button>
                             </div>
                         </form>
                         {/* <p>{rangeUpdateErr[0]}</p> */}
@@ -330,7 +330,7 @@ export default function Dashboard() {
                                         type="text"
                                         placeholder="for ex: 6.9"
                                         onChange={event => setFormLow(event.target.value)}
-                                        class="textInput"
+                                        class="dashTextInput"
                                     />
                                 </div>
                             </label>
@@ -341,12 +341,12 @@ export default function Dashboard() {
                                         type="text"
                                         placeholder="for ex: 6.9"
                                         onChange={event => setFormHigh(event.target.value)}
-                                        class="textInput"
+                                        class="dashTextInput"
                                     />
                                 </div>
                             </label>
-                            <div class="btn subBtn">
-                                <button type="submit" class="submitBtn btn1">Update!</button>
+                            <div class="modalBtn subBtn">
+                                <button type="submit" className="submitBtn modalBtn1">Update!</button>
                             </div>
                         </form>
                         {/* <p>{rangeUpdateErr[0]}</p> */}
@@ -355,33 +355,104 @@ export default function Dashboard() {
                     </Modal.Body>
                 </Modal>
 
+                {/* delete modal  */}
+
+                <Modal show={showDeleteCoolerModal} onHide={handleCloseDeleteCooler}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Delete A Cooler</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Select the cooler you want to delete.</p>
+                        <Select
+                            options={coolerNames}
+                            onChange={opt => setCoolerToDelete(opt.value)}
+                        />
+                        <div>
+                            <button type="submit" onClick={handleDelete} className="submitBtn modalBtn1">Delete it</button>
+                        </div>
+                        {/* <p>{rangeUpdateErr[0]}</p> */}
+                        {/* {rangeUpdateErr.length == 0 && <p>no errors</p>}
+                    {rangeUpdateErr.length > 0 && rangeUpdateErr.map(al => {console.log('fafaf'); return <p>{al}</p>;})} */}
+                    </Modal.Body>
+                </Modal>
             </div>
 
-           {/* delete modal  */}
 
-            <Modal show={showDeleteCoolerModal} onHide={handleCloseDeleteCooler}>
-                <Modal.Header closeButton>
-                <Modal.Title>Delete A Cooler</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>Select the cooler you want to delete.</p>
-                    <Select
-                        options = {coolerNames}
-                        onChange = {opt => setCoolerToDelete(opt.value)}
-                    />
-                    <div>
-                        <button type="submit" onClick = {handleDelete}>Delete it</button>
+            <div>
+                <footer id="dashFooterId">
+                    <div className="report">
+                        <div className="dash-right dash-box">
+                            <h6>Report</h6>
+
+                            <div className="dash-footer-content">
+                                <form action="#">
+                                    <div className="dash-report">
+                                        <div style={{ 'display': 'flex' }}>
+                                            <input type="email"
+                                                placeholder="Enter email " required
+                                                className="dash-report-input" />
+                                        </div>
+
+                                        <div style={{ 'display': 'inline' }}>
+                                            <textarea rows="2" columns="25" placeholder="Your Message" size="10"
+                                                className="dash-report-textarea" required></textarea>
+                                        </div>
+                                        <div style={{ 'display': 'inline-block' }}>
+                                            <button type="submit" className="dashBtn dash-report-btn">Send</button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                    {/* <p>{rangeUpdateErr[0]}</p> */}
-                    {/* {rangeUpdateErr.length == 0 && <p>no errors</p>}
-                    {rangeUpdateErr.length > 0 && rangeUpdateErr.map(al => {console.log('fafaf'); return <p>{al}</p>;})} */}
-                </Modal.Body>
-            </Modal>
 
-           
-                    <footer id="footer">
-        
-            </footer>
+                    <div className="dashAboutUs">
+                        <div className="dash-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7206.531301993903!2d81.76718472516806!3d25.429380735154687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398533530cce2e67%3A0xbf1514c2084929b7!2sIndian%20Institute%20of%20Information%20Technology%2C%20Jhalwa%2C%20Prayagraj%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1617375028597!5m2!1sen!2sin" width="600" height="450" style={{ "border": "0" }} allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+
+
+                        <div className="dash-left dash-box">
+                            <h6>Members(Github)</h6>
+                            <ul className="git-list">
+                                <li>
+                                    <a href="https://github.com/anshumanbhardwaj1370" target="_blank"> Anshuman Bhardwaj </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/cremento" target="_blank"> Vanshika Garg </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/sanskar-p" target="_blank"> Sanskar Patro </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/curiouskid26" target="_blank"> Gitika Yadav </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div className="dash-mid dash-box">
+                            <h6>Mail Us</h6>
+                            <ul className="dash-mail-id">
+                                <li><a href="iit2019227@iiita.ac.in">iit2019227@iiita.ac.in </a></li>
+                                <li><a href="iit2019216@iiita.ac.in">iit2019216@iiita.ac.in </a></li>
+                                <li> <a href="iit2019205@iiita.ac.in">iit2019205@iiita.ac.in </a></li>
+                                <li><a href="iit2019219@iiita.ac.in">iit2019219@iiita.ac.in </a></li>
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+
+                    <div className="dash-copyright">
+                        &copy; drinksapHe. All rights reserved | Created by Group of IIITA Students
+                    </div>
+
+
+                </footer>
+            </div>
         </div>
     )
 }
