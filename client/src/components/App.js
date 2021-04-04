@@ -9,6 +9,7 @@ import Settings from './Settings';
 import LoginModal from './LoginModal';
 import Profile from './Profile';
 import CoolerPage from './CoolerPage';
+import Footer from './Footer';
 import {setInStorage, getFromStorage} from '../utils/storage';
 
 const tokenContext =  createContext([{}, () => {}]);
@@ -97,6 +98,7 @@ function App() {
 
 					</Switch>
 				</BrowserRouter>
+				<Footer />
 			</div>
 		</tokenContext.Provider>
 	);

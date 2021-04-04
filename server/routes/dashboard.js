@@ -23,6 +23,7 @@ router.post('/range', (req, res) => {
     Drinksaphe.updateOne({"name": "drinksaphe"}, {"rangeLow": low, "rangeHigh": high})
     .then(data => {
         console.log('range update backend response:', data);
+        res.send({success: true});
     })
     .catch(err => console.log('range update backend err:', err));
 })
