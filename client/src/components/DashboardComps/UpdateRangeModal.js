@@ -9,6 +9,7 @@ export default function UpdateRangeModal({setLowRange, setHighRange, showModal, 
     const [formLow, setFormLow] = useState(7);
     const [formHigh, setFormHigh] = useState(7);
 
+    const [formRes, updateFormRes] = useState({});
 
     const doUpdateRange = event => {
         event.preventDefault()
@@ -24,17 +25,27 @@ export default function UpdateRangeModal({setLowRange, setHighRange, showModal, 
                 }
             )
             .then(res => {
+                console.log(res);
                 if (res.data.success) {
                     console.log("frontend knows range is updated, data:", res.data);
                     setLowRange(formLow)
                     setHighRange(formHigh)
                     handleClose();
                     showSuccess(true);
+                    updateFormRes(res.data);
                 }
-                console.log('range response:', res)
+                else{
+                    updateFormRes(res.data);
+                }
             })
             .catch(err => console.log('range error', err))
 
+    }
+
+    const renderRes = () => {
+        if(formRes.errors !== undefined){
+            return formRes.errors.map(formEr => <p style={{'color': 'red', 'marginBottom': '0', 'fontSize': '0.9rem'}}>{formEr}</p>)
+        }
     }
 
     return (
@@ -67,6 +78,7 @@ export default function UpdateRangeModal({setLowRange, setHighRange, showModal, 
                                     />
                                 </div>
                             </label>
+				            <div class="modalBody">{renderRes()}</div>
                             <div class="modalBtn subBtn">
                                 <button type="submit" className="submitBtn modalBtn1">Update!</button>
                             </div>

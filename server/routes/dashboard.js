@@ -17,8 +17,37 @@ router.get('/range', (req, res) => {
 
 router.post('/range', (req, res) => {
     console.log('range req in backend', req.body);
+    let {low, high} = req.body;
 
-    const {low, high} = req.body;
+    // console.log('type', typeof(low))
+
+    low = low.trim();
+    high = high.trim();
+    let lowNum = Number.parseFloat(low);
+    let highNum = Number.parseFloat(high);
+
+
+    console.log('nums ', lowNum, highNum, lowNum>highNum)
+
+    let errors = [];
+    
+    if(isNaN(lowNum) || isNaN(highNum))
+        errors.push('Invalid format. Please enter decimal numbers only.')
+
+    else if(lowNum < 0 || lowNum > 14 || highNum < 0 || highNum > 14)
+        errors.push('values should be between 0 and 14')
+    
+    else if(lowNum > highNum){
+        errors.push('low value should be less than the high value')
+    }
+
+    if(errors.length > 0){
+        console.log('got errors')
+        return res.send({
+            success: false,
+            errors
+        })
+    }
 
     Drinksaphe.updateOne({"name": "drinksaphe"}, {"rangeLow": low, "rangeHigh": high})
     .then(data => {
