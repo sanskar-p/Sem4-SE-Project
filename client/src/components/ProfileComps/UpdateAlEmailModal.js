@@ -38,26 +38,27 @@ export default function UpdateAlEmailModal({token, updateAlEmail, showAlEmailMod
 
     return(
         <Modal show={showAlEmailModal} onHide={handleCloseAlEmail}>
-                    <Modal.Header closeButton style={{ 'background': '#00cccc' }}>
-                        <Modal.Title>Change alert email</Modal.Title>
+                    <Modal.Header closeButton className="new-header">
+                        <Modal.Title className="new-title">Change alert email</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body class="editPop">
+                    <Modal.Body className="newModal">
                         {/* <p style={{ 'margin-left': '111px' }}>Type the updated values of the Pass</p> */}
-                        <form onSubmit={doUpdateAlEmail}>
+                        <form onSubmit={doUpdateAlEmail} className="new-form">
                             <label>
-                                <p class="modalBody">New Email</p>
-                                <div class="modalBody">
+                                <p className="new-modal-para">
+                                <i className="fa fa-envelope"></i>
                                     <input
                                         // type="email"
                                         // value={formVals.newPass}
                                         onChange={event => setAlertEmail(event.target.value)}
-                                        className="textInput"
+                                        placeholder="Enter New Email"
                                     />
-                                </div>
+                                    </p>
+                                
                             </label>
-                            <div class="modalBody">{renderRes()}</div>
-                            <div class="btn subBtn">
-                                <Button type="submit" class="submitBtn btn1">Update!</Button>
+                            <div >{renderRes()}</div>
+                            <div>
+                                <Button type="submit" className="new-btn">Update!</Button>
                             </div>
                         </form>
                     </Modal.Body>

@@ -15,6 +15,7 @@ import DeleteCoolerModal from './DashboardComps/DeleteCoolerModal'
 
 import '../styles/dashboard.css';
 
+
 export default function Dashboard() {
     const [token, setToken] = useContext(tokenContext);
 

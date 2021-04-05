@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import SERVER_URL from '../../utils/constants';
 import querystring from 'querystring';
-import {Button, Modal, Form} from 'react-bootstrap';
+import { Button, Modal, Form } from 'react-bootstrap';
+import '../../styles/AddCoolerModal.css';
+import '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
-export default function AddCoolerModal({showModal, handleClose, coolers, getCoolers, showSuccess}){
+export default function AddCoolerModal({ showModal, handleClose, coolers, getCoolers, showSuccess }) {
 
-	const [deets, setDeets] = useState({name: '', loc: ''})
+    const [deets, setDeets] = useState({ name: '', loc: '' })
 
-	const addCooler = event => {
+    const addCooler = event => {
         event.preventDefault()
         console.log('cooler form stuff', deets.name, deets.loc);
 
@@ -33,49 +35,50 @@ export default function AddCoolerModal({showModal, handleClose, coolers, getCool
                         getCoolers();
                         console.log('coolers array: ', coolers.list);
                         handleClose();
-						showSuccess(true);
+                        showSuccess(true);
                     }
                     console.log('addCooler response:', res)
                 })
                 .catch(err => console.log('addCooler error', err))
         }
     }
-    
-    return(
+
+    return (
         <Modal show={showModal} onHide={handleClose}>
-            <Modal.Header closeButton style={{ 'background': '#00cccc' }}>
-                <Modal.Title>Add Cooler Details</Modal.Title>
+            <Modal.Header closeButton className="update-range-modal-header">
+                <Modal.Title className="update-range-modal-title">Add Cooler Details</Modal.Title>
             </Modal.Header>
-            <Modal.Body class="editPop">
-                <p style={{ 'margin-left': '142px' }}>Enter details of new cooler</p>
-                <Form onSubmit={addCooler}>
+            <Modal.Body className="update-range-modalModal">
+                <p className="update-range-modal-text">Enter details of new cooler</p>
+                <Form onSubmit={addCooler} className="update-range-modal-form">
                     <label>
-                        <p class="modalBody">Cooler Name</p>
-                        <div class="modalBody">
+                        <div className="update-range-modal-div"  >
+                            Cooler Name :
 							<input
-								type="text"
-								placeholder="for ex: cooler1"
-								onChange={event => setDeets({...deets, name: event.target.value})}
-								className="dashTextInput"
-							/>
-                    	</div>
+                                type="text"
+                                placeholder="for ex: cooler1"
+                                onChange={event => setDeets({ ...deets, name: event.target.value })}
+                                size="20"
+                                className="update-range-modalText-input update-range-modal-para" />
+                        </div>
                     </label>
                     <label>
-                        <p class="modalBody">Cooler Location</p>
-                       <div class="modalBody">
+                        <div className="update-range-modal-div" >
+                            Cooler Location :
                             <input
                                 type="text"
                                 placeholder="for ex: in front of room 5448"
-								onChange={event => setDeets({...deets, loc: event.target.value})}
-                                class="dashTextInput"
+                                onChange={event => setDeets({ ...deets, loc: event.target.value })}
+                                size="30"
+                                className="update-range-modalText-input  update-range-modal-para"
                             />
                         </div>
                     </label>
-                    <div className=" modalBtn subBtn">
-                        <Button type="submit" className="submitBtn modalBtn1">Add cooler!</Button>
+                    <div>
+                        <button type="submit" className="update-range-modal-btn">Add cooler!</button>
                     </div>
-                    </Form>
-			</Modal.Body>
+                </Form>
+            </Modal.Body>
         </Modal>
     )
 }

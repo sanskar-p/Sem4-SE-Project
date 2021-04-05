@@ -64,6 +64,7 @@ export default function NavigationBar({history}) {
 							</NavDropdown>
 							}
 							{token && <Nav.Link href="/profile">Profile</Nav.Link>}
+							<Nav.Link href="/footer.js">Report</Nav.Link>
 							<Nav.Link href="/#aboutSection">About Us</Nav.Link>
 							{token && <Nav.Link onClick={handleLogout} >Logout</Nav.Link>}
 						</Nav>

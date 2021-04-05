@@ -12,7 +12,7 @@ export default function Footer() {
                     <h3>Feedback</h3>
                 </div>
 
-                <div className="">
+                <div className="report-box">
                     <form action="#">
                         <div>
                             <input type="text" placeholder="Enter your Name"
@@ -68,7 +68,7 @@ export default function Footer() {
                         <ul className="dash-mail-id">
                             <li> <i className="fa fa-envelope"></i><a href="iit2019227@iiita.ac.in">&ensp; iit2019227@iiita.ac.in </a></li>
                             <li> <i className="fa fa-envelope"></i><a href="iit2019216@iiita.ac.in">&ensp; iit2019216@iiita.ac.in </a></li>
-                            <li> <i className="fa fa-envelope"></i> <a href="iit2019205@iiita.ac.in">&ensp; iit2019205@iiita.ac.in </a></li>
+                            <li> <i className="fa fa-envelope"></i><a href="iit2019205@iiita.ac.in">&ensp; iit2019205@iiita.ac.in </a></li>
                             <li> <i className="fa fa-envelope"></i><a href="iit2019219@iiita.ac.in">&ensp; iit2019219@iiita.ac.in </a></li>
                         </ul>
                     </div>

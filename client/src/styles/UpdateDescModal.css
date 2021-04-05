@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+.new-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.new-title{
+    /* padding-left: 9rem; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Varela Round';
+    font-size: 1.7rem;
+    /* color: lightblue; */
+    color: rgb(29, 6, 240);
+
+}
+.newModal{
+    font-family: 'Varela Round';
+    font-size: 1rem;
+}
+.update-desc{
+    font-family: 'Varela Round';
+}
+.new-form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+.new-btn{
+    padding: 0.3em 3em 0.3em 3em;
+    border-radius: 2em;
+    font-size: 1.3em;
+    /* background-color: khaki; */
+    background-color: rgb(29, 6, 240);
+    border: none;
+    color: white;
+}

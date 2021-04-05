@@ -3,6 +3,8 @@ import axios from 'axios';
 import SERVER_URL from '../../utils/constants';
 import querystring from 'querystring';
 import {Button, Modal, Form} from 'react-bootstrap';
+import '../../styles/UpdateRangeModal.css';
+import '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
 export default function UpdateRangeModal({setLowRange, setHighRange, showModal, handleClose, showSuccess}){
     
@@ -50,37 +52,40 @@ export default function UpdateRangeModal({setLowRange, setHighRange, showModal, 
 
     return (
         <Modal show={showModal} onHide={handleClose}>
-                    <Modal.Header closeButton style={{ 'background': '#00cccc' }}>
-                        <Modal.Title>Edit Range</Modal.Title>
+                    <Modal.Header closeButton className="dash-user-modal-header">
+                        <Modal.Title className="dash-user-modal-title">Edit Range</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body class="editPop">
-                        <p style={{ 'margin-left': '111px' }}>Type the updated values of the range</p>
-                        <form onSubmit={doUpdateRange}>
+                    <Modal.Body className="dash-user-modalModal">
+                        <p className="dash-user-modal-text">Type the updated values of the range</p>
+                        <form onSubmit={doUpdateRange} className="dash-user-modal-form">
                             <label>
-                                <p class="modalBody">Low</p>
-                                <div class="modalBody">
+                                <div className="dash-user-modal-div"  >
+                                Low :
                                     <input
                                         type="text"
                                         placeholder="for ex: 6.9"
                                         onChange={event => setFormLow(event.target.value)}
-                                        class="dashTextInput"
+                                        // size="15"
+                                        className="dash-user-modalText-input dash-user-modal-para"
                                     />
                                 </div>
                             </label>
                             <label>
-                                <p class="modalBody">High</p>
-                                <div class="modalBody">
+                                
+                                <div className="dash-user-modal-div" >
+                                    High :
                                     <input
                                         type="text"
                                         placeholder="for ex: 6.9"
                                         onChange={event => setFormHigh(event.target.value)}
-                                        class="dashTextInput"
+                                        // size="15"
+                                        className="dash-user-modalText-input dash-user-modal-para"
                                     />
                                 </div>
                             </label>
-				            <div class="modalBody">{renderRes()}</div>
-                            <div class="modalBtn subBtn">
-                                <button type="submit" className="submitBtn modalBtn1">Update!</button>
+				            <div >{renderRes()}</div>
+                            <div >
+                                <button type="submit" className="dash-user-modal-btn">Update!</button>
                             </div>
                         </form>
                     </Modal.Body>
