@@ -3,6 +3,8 @@ import axios from 'axios';
 import SERVER_URL from '../../utils/constants';
 import querystring from 'querystring';
 import {Button, Modal, Form} from 'react-bootstrap';
+import '../../styles/UpdateDescModal.css';
+import '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
 export default function NewUserModal({token, curDesc, updateDesc, showDescModal, handleCloseDesc, showDescSuccess}){
     const [desc, setDesc] = useState('');
@@ -40,13 +42,13 @@ export default function NewUserModal({token, curDesc, updateDesc, showDescModal,
 
     return (
         <Modal show={showDescModal} onHide={handleCloseDesc}>
-            <Modal.Header closeButton style={{ 'background': '#00cccc' }}>
-                <Modal.Title>Update Description</Modal.Title>
+            <Modal.Header closeButton className="new-header">
+                <Modal.Title className="new-title">Update Description</Modal.Title>
             </Modal.Header>
-            <Modal.Body className="editPop modalBody">
-                <form onSubmit = {doUpdateDesc}>
+            <Modal.Body className="newModal">
+                <form onSubmit = {doUpdateDesc} className="new-form">
                     <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <label>Type description</label>
+                        <label className="update-desc">Type description</label>
                         <Form.Control 
                             as="textarea" 
                             rows={3} 
@@ -54,8 +56,8 @@ export default function NewUserModal({token, curDesc, updateDesc, showDescModal,
                             onChange={event => {setDesc(event.target.value)}} />
                     </Form.Group>
                     <div>{renderRes()}</div>
-                    <div className="btn subBtn">
-                        <Button className="submitBtn btn1" type="submit" >Add!</Button>
+                    <div>
+                        <button type="submit" className="new-btn">Add!</button>
                     </div>
                 </form>
             </Modal.Body>

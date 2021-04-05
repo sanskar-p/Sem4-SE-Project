@@ -4,6 +4,7 @@ import SERVER_URL from '../../utils/constants';
 import querystring from 'querystring';
 import {Button, Modal, Form} from 'react-bootstrap';
 import Select from 'react-select';
+import '../../styles/DeleteCoolerModal.css';
 
 export default function AddCoolerModal({showModal, handleClose, coolers, coolerNames, showSuccess}){
 
@@ -38,17 +39,18 @@ export default function AddCoolerModal({showModal, handleClose, coolers, coolerN
 
     return (
     <Modal show={showModal} onHide={handleClose}>
-        <Modal.Header closeButton>
-            <Modal.Title>Delete A Cooler</Modal.Title>
+        <Modal.Header closeButton className="delete-modal-header">
+            <Modal.Title className="delete-modal-title">Delete A Cooler</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-            <p>Select the cooler you want to delete.</p>
+        <Modal.Body className="delete-modalModal">
+            <p className="delete-modal-text">Select the cooler you want to delete.</p>
             <Select
                 options={coolerNames}
                 onChange={opt => setCoolerToDelete(opt.value)}
+                className="delete-modal-para"
             />
             <div>
-                <button type="submit" onClick={handleDelete} className="submitBtn modalBtn1">Delete it</button>
+                <button type="submit" onClick={handleDelete} className="delete-modal-btn">Delete it</button>
             </div>
         </Modal.Body>
     </Modal>

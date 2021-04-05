@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+/* font for modal-> font-family: 'Varela Round', sans-serif; */
 .cardBody{
     padding-top: 150px;
     padding-bottom: 127px;
@@ -27,41 +29,37 @@
     margin: 0.5rem;
     min-width: 11rem;
 }
-.editPop{
-    padding-top: 24px;
-   background-color : #ccffff;
+.modal-body{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family: 'Varela Round', sans-serif;
 }
-.dashTextInput{
-    background-color: #e6ffff;
-    color: rgb(12, 1, 1);
-    border: 1px solid black;
+.modal-title{
+    margin-left: 2rem;
 }
-.modalBody{
-    padding-left: 40px;
+.modal-para{
+    margin-left: 5rem;
 }
-.modalBtn{
-    margin: 0.5rem;
-    color: black;
-    background-color: #EEF;
-    border: none;
+.modal-para-val-left{
+    display: inline;
+    margin-left: 6rem;
 }
-.modalSubBtn{
-    padding-left: 186px;
-    margin-top: 24px;
-    margin-bottom: 26px;
-    background-color: #ccffff;
-    color: rgb(4, 87, 119);
-    border-radius : 4px;
+.modal-para-val-right{
+    display: inline;
+    margin-left: 4rem;
 }
-.modalSubmitBtn{
-    border-radius: 59px;
-    padding: 7px 23px 9px 18px;
+.modal-dash-input{
+    display: inline;
+    margin-right: 5rem;
+    margin-left: 2rem;
 }
-.modalBtn1{
-    border: none;
-    font-size: 1rem;
-    color: white;
-    background-color: rgb(1, 1, 66);
+.modal-submit{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 12rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .selectOpt{
@@ -84,15 +82,21 @@
     /* border: 2px solid green; */
     background-color: white;
     color: black;
-    min-height: 65vh;
+    margin-bottom: 1rem
+    /* min-height: 65vh; */
 }
 @import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
 
 #dash-report h3{
     display: inline;
     margin-left: 4rem;
-    font-family: 'Dela Gothic One', cursive;
+    font-family: 'Dela Gothic One', cursive; 
     font-size: 3rem;
+}
+.report-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .report-input{
     margin-top: 6rem;
@@ -147,6 +151,7 @@
     width: 100vw;
     text-align: center;
     padding-top: 2rem;
+    font-family: 'Dela Gothic One', cursive;
 }
 
 .footer, .contact {
@@ -169,6 +174,8 @@
 
 .github > h6, .mails > h6{
     margin-left: 4em;
+    font-family: 'Dela Gothic One', cursive;
+
 }
 .github a, .mails a{
     color: black;

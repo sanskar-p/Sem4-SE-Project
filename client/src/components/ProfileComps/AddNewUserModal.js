@@ -3,6 +3,8 @@ import axios from 'axios';
 import SERVER_URL from '../../utils/constants';
 import querystring from 'querystring';
 import {Button, Modal, FormGroup} from 'react-bootstrap';
+import '../../styles/AddNewUserModal.css';
+import '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
 export default function NewUserModal({token, showNewUserModal, handleCloseNewUser, showNewUserSuccess}){
     const [username, setUsername] = useState();
@@ -50,38 +52,49 @@ export default function NewUserModal({token, showNewUserModal, handleCloseNewUse
 
     return (
         <Modal show={showNewUserModal} onHide={handleCloseNewUser}>
-            <Modal.Header closeButton style={{ 'background': '#00cccc' }}>
-                        <Modal.Title>Create A New User</Modal.Title>
+            <Modal.Header closeButton className="new-header">
+                        <Modal.Title className="new-title"><b>Create A New User Account</b></Modal.Title>
             </Modal.Header>
-            <Modal.Body className="editPop modalBody">
-                <form onSubmit = {handleSubmit}>
+            <Modal.Body className="newModal">
+                <form onSubmit = {handleSubmit} className="new-form">
                     <FormGroup>
                     <label>
-                        <p>Email</p>
-                        <input className="textInput" type="text" onChange = {event => setEmail(event.target.value)} />
+                        <p className="new-modal-para">
+                        <i className="fa fa-envelope"></i>
+                        <input  type="text" onChange = {event => setEmail(event.target.value)} placeholder="Email Address" 
+                        className="newText-input"/>
+                        </p>
                     </label>
                     </FormGroup>
                     <FormGroup>
                     <label>
-                        <p>Username</p>
-                        <input className="textInput" type="text" onChange = {event => setUsername(event.target.value)} />
+                        <p className="new-modal-para">
+                            <i className="fa fa-user"> </i>
+                        <input type="text" onChange = {event => setUsername(event.target.value)} 
+                        placeholder="Username"/>
+                        </p>
                     </label>
                     </FormGroup>
                     <FormGroup>
                     <label>
-                        <p>Password</p>
-                        <input className="textInput" type="password" onChange = {event => setPassword(event.target.value)} />
+                        <p className="new-modal-para">
+                            <i className="fa fa-lock"></i>
+                        <input type="password" onChange = {event => setPassword(event.target.value)} placeholder="Password"
+                        className="newText-input" />
+                        </p>
                     </label>
                     </FormGroup>
                     <FormGroup>
                     <label>
-                        <p>Confirm password</p>
-                        <input className="textInput" type="password" onChange = {event => setPassword2(event.target.value)} />
+                        <p className="new-modal-para">
+                        <i className="fa fa-check"></i>
+                        <input type="password" onChange = {event => setPassword2(event.target.value)} placeholder="Re-Enter Password"/>
+                        </p>
                     </label>
                     </FormGroup>
                     <div>{renderRes()}</div>
-                    <div className="btn subBtn">
-                        <Button className="submitBtn btn1" type="submit" >Add!</Button>
+                    <div>
+                        <Button className="new-btn" type="submit"><span>ADD!</span></Button>
                     </div>
                 </form>
             </Modal.Body>
