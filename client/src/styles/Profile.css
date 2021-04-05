@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     background-color: #004;
     /* min-height: 90vh; */
     /* max-height: 200vh; */

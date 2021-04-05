@@ -16,7 +16,7 @@
     align-items: center;
     min-height: 100vh;
     /* position: absolute; */
-    width: 207.1vh;
+    min-width: 100vw;
 }
 
 
@@ -79,44 +79,59 @@
 #dashFooterId{
     /* position: fixed; */
     bottom: 0px;
-    width: 207.1vh;
+    min-width: 100vw;
     /* background-color: white; */
-    background-color: black;
+    background-color: rgb(10, 8, 44);
     color: white;
     /* position: absolute; */
 }
 
-.report{
-    background-color: rgb(16, 176, 250);
-    min-height: 25vh;
-    min-width: 95vh;
-}
-.report h6{
+#dash-report{
     display: flex;
-    justify-content: center;
+    border: 2px solid green;
+    background-color: white;
+    color: black;
+    min-height: 65vh;
 }
-.dash-report{
-    display: flex;
-    flex-basis: 50%;
-    margin: 6vh 4vh 3vh 40vh;
- 
-    /* padding: 2em 2em 2em 2em; */
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+#dash-report h3{
+    display: inline;
+    margin-left: 4rem;
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 3rem;
 }
-.dash-report-input{
-    /* padding: 2em 2em 2em 2em; */
-    margin-right: 8vh;
-    max-height: 5vh;
-    border-radius: 10px;
+.report-input{
+    margin-top: 6rem;
+    margin-left: -17rem;
+    display: inline-flex;
+    /* border: none; */
+    /* padding-right: 1rem; */
+    /* min-width: 10vw; */
+    border:1px solid grey;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
 }
-.dash-report-textarea{
-    margin-right: 3vh;
-    max-height: 15vh;
-    border-radius: 8px;
+.report-email{
+    margin-top: 2rem;
 }
-.dash-report-btn{
-    max-height: 4vh;
-    padding: 1vh 3vh 4vh 3vh;
-    margin-left: 5vh;
+.report-text{
+    margin-top: 2rem;
+    margin-left: -17rem;
+    color:black;
+    display: inline-flex;
+    border:1px solid grey;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+.report-btn{
+    color: white;
+    background-color: black;
+    margin-top: 1rem;
+    margin-left: -15rem;
+    border-radius: 2px;
+    border: none;
 }
 .dashAboutUs{
     display: flex;
@@ -127,10 +142,11 @@
     padding: 10px 50px;
     /* border: 2px solid red; */
 }
-.dash-map{
-    margin-top: 1vh;
-    margin-left: 1vh;
+.dash-map iframe{
+    /* margin-top: 1vh; */
+    /* margin-left: 1vh; */
     /* border: 2px solid green; */
+    min-width: 100vw;
 }
 .dash-box h6{
     font-size: 1.125 rem;
