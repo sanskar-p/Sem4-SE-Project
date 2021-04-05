@@ -1,7 +1,6 @@
 
 .cardBody{
-    padding-top: 150px;
-    padding-bottom: 127px;
+    padding: 2rem 0 2rem 0;
     background-color: #004; 
     color: white;
     display: flex;
@@ -22,7 +21,7 @@
 
 .dashboardControls .dashBtn {
     color: black;
-    background-color: #007bff;
+    background-color: rgb(254, 240, 255);
     border: 0;
     margin: 0.5rem;
     min-width: 11rem;
@@ -69,11 +68,11 @@
     background-color: #ccffff;
 }
 
-#aboutSection{
+/* #aboutSection{
     bottom: 0px;
     background-color: rgb(10, 8, 44);
     color: white;
-}
+} */
 
 
 #dash-report{

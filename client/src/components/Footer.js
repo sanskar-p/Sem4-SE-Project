@@ -5,7 +5,7 @@ import '../styles/dashboard.css';
 
 export default function Footer() {
     return (
-        <footer id=" aboutSection">
+        <footer id="aboutSection">
             {/* dashFooterId */}
             <div id="dash-report">
                 <div>
