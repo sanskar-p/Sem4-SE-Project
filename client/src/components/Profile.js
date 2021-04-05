@@ -11,6 +11,7 @@ import NewUserModal from './ProfileComps/AddNewUserModal';
 import UpdateDescModal from './ProfileComps/UpdateDescModal';
 
 import {tokenContext} from './App';
+import '../styles/Profile.css';
 
 export default function Profile() {
 	const [token, setToken] = useContext(tokenContext);
@@ -75,10 +76,10 @@ export default function Profile() {
     }, [token])
 
     return(
-        <div style={{'display': 'flex', 'alignItems': 'center', 'flexDirection': 'column'}}>
-            {passSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="pass" variant="success" onClose={() => showPassSuccess(false)}>Password updated successfully</Alert> }
-            {newUserSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="newuser" variant="success" onClose={() => showNewUserSuccess(false)}>New user created successfully</Alert> }
-            {descSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="pass" variant="success" onClose={() => showDescSuccess(false)}>Description updated successfully</Alert> }
+        <div className="profBox">
+            {passSuccess && <Alert className="alert-notification" dismissible key="pass" variant="success" onClose={() => showPassSuccess(false)}>Password updated successfully</Alert> }
+            {newUserSuccess && <Alert className="alert-notification" dismissible key="newuser" variant="success" onClose={() => showNewUserSuccess(false)}>New user created successfully</Alert> }
+            {descSuccess && <Alert className="alert-notification" dismissible key="pass" variant="success" onClose={() => showDescSuccess(false)}>Description updated successfully</Alert> }
             
             <h1>Profile</h1>
             {!userData ? <p>Loading details...</p>
@@ -86,21 +87,24 @@ export default function Profile() {
                 <>
                     <h4>User Details:</h4>
                     <div>
-                        <p>username: {userData.username}</p>
-                        <p>email: {userData.email}</p>
-                        <p>date of creation: {userData.createdAt}</p>
-                        <p>description: {userData.desc || <p>no description found</p>} </p>
+                        <p className="prof-para">username: <p className="prof-para-val"> {userData.username}</p></p>
+                        <p className="prof-para">email: <p className="prof-para-val">{userData.email}</p></p>
+                        {/* <p className="prof-para">email <div><input type="text" /></div> </p> */}
+                        <p className="prof-para">date of creation: <p className="prof-para-val">{userData.createdAt} </p></p>
+                        <p className="prof-para">description: {userData.desc || <p className="prof-para-val">no description found</p>} </p>
                     </div>
                     
                     <h4>{userData.username === 'admin' ? 'Admin' : 'User'} operations:</h4>
-                    <Button className="btn" variant="primary" onClick={handleShowNewUser}>Create a new user</Button>
+                    <div className="prof-btn-controls">
+                    <Button variant="primary" onClick={handleShowNewUser} className="prof-btn">Create a new user</Button>
                     <NewUserModal token={token} showNewUserModal={showNewUserModal} handleCloseNewUser={handleCloseNewUser} showNewUserSuccess={showNewUserSuccess} />
                     
 
-                    <Button className="btn" variant="primary" onClick={handleShowPass}>Update Password</Button>
+                    <Button variant="primary" onClick={handleShowPass} style={{display:'inline-block'}} className="prof-btn">Update Password</Button>
                     <UpdatePassModal token={token} showPassModal={showPassModal} handleClosePass={handleClosePass} showPassSuccess={showPassSuccess} />
                     
-                    <Button className="btn" variant="primary" onClick={handleShowDesc}>Update Description</Button>
+                    <Button variant="primary" onClick={handleShowDesc} className="prof-btn">Update Description</Button>
+                    </div>
                     <UpdateDescModal 
                         token={token} 
                         curDesc={userData.desc}

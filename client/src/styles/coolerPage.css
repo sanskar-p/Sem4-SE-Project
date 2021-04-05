@@ -1,0 +1,25 @@
+.cooler-det{
+    min-height: 95vh;
+    background-color: #004;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+}
+.coolerDetails{
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+}
+.cooler-page-para{
+    display: flex;
+    flex-direction: row;
+    color: rgb(211, 208, 208);
+}
+.cooler-page-para-val{
+    margin-left: 1rem;
+    background-color: #003;
+    color: rgb(156, 154, 154);
+    border-radius: 2px;
+}
