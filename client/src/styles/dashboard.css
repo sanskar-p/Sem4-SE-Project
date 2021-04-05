@@ -16,7 +16,7 @@
     align-items: center;
     min-height: 100vh;
     /* position: absolute; */
-    width: 207.1vh;
+    /* width: 207.1vh; */
 }
 
 
@@ -76,10 +76,10 @@
     background-color: #ccffff;
 }
 
-#dashFooterId{
+#aboutSection{
     /* position: fixed; */
     bottom: 0px;
-    width: 207.1vh;
+    /* width: 207.1vh; */
     /* background-color: white; */
     background-color: black;
     color: white;
@@ -89,7 +89,7 @@
 .report{
     background-color: rgb(16, 176, 250);
     min-height: 25vh;
-    min-width: 95vh;
+    max-width: 100vw;
 }
 .report h6{
     display: flex;
@@ -97,8 +97,10 @@
 }
 .dash-report{
     display: flex;
-    flex-basis: 50%;
-    margin: 6vh 4vh 3vh 40vh;
+    align-items: center;
+    justify-content: center;
+    /* flex-basis: 50%; */
+    /* margin: 6vh 4vh 3vh 40vh; */
  
     /* padding: 2em 2em 2em 2em; */
 }
@@ -109,8 +111,8 @@
     border-radius: 10px;
 }
 .dash-report-textarea{
-    margin-right: 3vh;
-    max-height: 15vh;
+    /* margin-right: 3vh; */
+    height: 90%;
     border-radius: 8px;
 }
 .dash-report-btn{
@@ -118,44 +120,43 @@
     padding: 1vh 3vh 4vh 3vh;
     margin-left: 5vh;
 }
-.dashAboutUs{
+
+.footer{
     display: flex;
-   
-}
-.dashAboutUs .dash-box{
-    flex-basis: 70%;
-    padding: 10px 50px;
-    /* border: 2px solid red; */
-}
-.dash-map{
-    margin-top: 1vh;
-    margin-left: 1vh;
-    /* border: 2px solid green; */
-}
-.dash-box h6{
-    font-size: 1.125 rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-left: 40px;
-}
-.dash-box .git-list{
-    list-style: none;
-    margin: 20px 0 0 0;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.dash-box .dash-mail-id{
-    list-style: none;
-    margin: 20px 0 0 0;
+.footer > h1{
+    width: 100vw;
+    text-align: center;
+    padding-top: 2rem;
 }
-.dash-box .dash-footer-content{
-    margin: 20px 0 0 0 ;
+
+.footer iframe{
+    margin: 3rem;
+    max-height: 20rem;
 }
- 
-.dash-copyright{
+
+.footer .contact {
+    /* min-width: 50vw; */
+    /* padding: 2em; */
+    margin: 1em;
     display: flex;
-    bottom: 0px;
-    /* margin: auto;  */
-    /* text-align: center; */
-    margin-left: 48vh;
-    /* bottom: 0; */
-} 
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.mails, .github {
+    padding: 1em;
+}
+
+.footer .copyright{
+    text-align: center;
+    margin: 0 auto;
+    width: 100vw;
+    padding: 0 1em 3em 1em;
+}
