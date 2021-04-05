@@ -1,11 +1,4 @@
-/* .campus{
-    /* background-image: url(../assets/img/campus.jpg); */
-/* }  */
-/* .header{
-    border: 2px solid red;
-    height: 500px;
-    background-color: white;
-} */
+
 .cardBody{
     padding-top: 150px;
     padding-bottom: 127px;
@@ -16,7 +9,7 @@
     align-items: center;
     min-height: 100vh;
     /* position: absolute; */
-    min-width: 100vw;
+    /* width: 207.1vh; */
 }
 
 
@@ -76,24 +69,25 @@
     background-color: #ccffff;
 }
 
-#dashFooterId{
-    /* position: fixed; */
+#aboutSection{
     bottom: 0px;
-    min-width: 100vw;
-    /* background-color: white; */
     background-color: rgb(10, 8, 44);
     color: white;
-    /* position: absolute; */
 }
+
 
 #dash-report{
     display: flex;
-    border: 2px solid green;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    /* border: 2px solid green; */
     background-color: white;
     color: black;
     min-height: 65vh;
 }
 @import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+
 #dash-report h3{
     display: inline;
     margin-left: 4rem;
@@ -104,9 +98,7 @@
     margin-top: 6rem;
     margin-left: -17rem;
     display: inline-flex;
-    /* border: none; */
-    /* padding-right: 1rem; */
-    /* min-width: 10vw; */
+    flex-wrap: wrap;
     border:1px solid grey;
     border-top-style: none;
     border-left-style: none;
@@ -120,12 +112,15 @@
     margin-left: -17rem;
     color:black;
     display: inline-flex;
+    flex-wrap: wrap;
     border:1px solid grey;
     border-top-style: none;
     border-left-style: none;
     border-right-style: none;
 }
 .report-btn{
+    display: flex;
+    flex-wrap: wrap;
     color: white;
     background-color: black;
     margin-top: 1rem;
@@ -133,45 +128,65 @@
     border-radius: 2px;
     border: none;
 }
-.dashAboutUs{
-    display: flex;
-   
-}
-.dashAboutUs .dash-box{
-    flex-basis: 70%;
-    padding: 10px 50px;
-    /* border: 2px solid red; */
-}
+
+
 .dash-map iframe{
-    /* margin-top: 1vh; */
-    /* margin-left: 1vh; */
+    display: flex;
     /* border: 2px solid green; */
-    min-width: 100vw;
+    flex-wrap: wrap;
+    width: 100vw;
 }
-.dash-box h6{
-    font-size: 1.125 rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-left: 40px;
-}
-.dash-box .git-list{
-    list-style: none;
-    margin: 20px 0 0 0;
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.dash-box .dash-mail-id{
-    list-style: none;
-    margin: 20px 0 0 0;
+.footer > h1{
+    width: 100vw;
+    text-align: center;
+    padding-top: 2rem;
 }
-.dash-box .dash-footer-content{
-    margin: 20px 0 0 0 ;
-}
- 
-.dash-copyright{
+
+.footer, .contact {
+    /* min-width: 50vw; */
+    /* padding: 2em; */
+    margin: 1em;
     display: flex;
-    bottom: 0px;
-    /* margin: auto;  */
-    /* text-align: center; */
-    margin-left: 48vh;
-    /* bottom: 0; */
-} 
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+}
+
+.mails, .github{
+    padding: 1em;
+    flex-direction: column;
+    /* border: 2px solid yellow; */
+}
+
+.github > h6, .mails > h6{
+    margin-left: 4em;
+}
+.github a, .mails a{
+    color: black;
+}
+.github a:hover{
+    color: rgb(94, 93, 93);
+}
+
+.git-list,.dash-mail-id{
+    list-style: none;
+    /* margin: 20px 0 0 0; */
+    /* flex-direction: column; */
+    /* border: 2px solid blue; */
+}
+.footer .copyright{
+    text-align: center;
+    margin: 0 auto;
+    width: 100vw;
+    padding: 0 1em 0 1em;
+    /* border: 2px solid green; */
+}
