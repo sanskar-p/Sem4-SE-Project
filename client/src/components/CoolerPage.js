@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import SERVER_URL from '../utils/constants';
 import querystring from 'querystring';
 import '../styles/coolerPage.css';
+// import '../../public/cooler.jpg';
 export default function CoolerPage() {
     const { id } = useParams()
 
@@ -34,8 +35,10 @@ export default function CoolerPage() {
         <div className="cooler-det">
 
             <div class="tile">
+
                 <h1 className="cooler-page-para-val" style={{borderRadius:'10px'}}> &ensp; {cooler.coolerName}</h1>
                 {/* <p>name: {cooler.coolerName}</p> */}
+                {/* <img src={'/cooler.jpg'} alt="error" /> */}
                 <br></br>
                 <div className="coolerDetails">
                     <p className="cooler-page-para">Location: <p className="cooler-page-para-val">{cooler.location}</p></p>
