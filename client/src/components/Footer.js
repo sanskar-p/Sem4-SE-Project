@@ -12,7 +12,7 @@ export default function Footer() {
                     <h3>Feedback</h3>
                 </div>
 
-                <div className="report-left report-box">
+                <div className="">
                     <form action="#">
                         <div>
                             <input type="text" placeholder="Enter your Name"

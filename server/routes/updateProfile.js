@@ -42,6 +42,59 @@ router.post('/desc', (req, res) => {
 })
 //update pass route end
 
+//update alert email route
+router.post('/alEmail', (req, res) => {
+    const {token, alertEmail} = req.query;
+
+    let errors = [];
+	const emailFormat = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!alertEmail) {
+		errors.push('email cannot be blank')
+	}
+	else if(!alertEmail.match(emailFormat)){
+		errors.push('please enter a valid email')
+	}
+
+    if(errors.length > 0){
+        console.log('error in format')
+		return res.send({
+			success: false,
+			errors
+		})
+	}
+
+    UserSession.findById(token)
+    .then((session) => {
+        if(session.isDeleted){
+            res.send({
+                success: false,
+                errors: ['server error, apparently user logged out']
+            })
+        }
+
+        else{
+            User.findById(session.userId)
+                .then(user => {
+                    console.log('userdeets ', user)
+                    user.alertEmail = alertEmail
+                    user.save()
+                        .then(()=>{
+                            res.send({success: true})
+                        })
+                })
+                .catch(err =>{
+                    console.error('userdata fetch error')
+                    res.send({
+                        success: false,
+                        errors: ['server error']
+                    })
+                })
+        }
+    })
+})
+//update alert email route end
+
 //update pass route
 router.post('/pass', (req, res, next) => {
     const {token} = req.query;

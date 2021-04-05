@@ -77,25 +77,25 @@
 
 #dash-report{
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    /* border: 2px solid green; */
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 4rem 0 4rem 0;
     background-color: white;
     color: black;
-    min-height: 65vh;
+    /* min-height: 65vh; */
 }
 @import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
 
 #dash-report h3{
-    display: inline;
-    margin-left: 4rem;
-    font-family: 'Dela Gothic One', cursive;
+    /* margin-left: 4rem; */
+    /* font-family: 'Dela Gothic One', cursive; */
     font-size: 3rem;
 }
 .report-input{
-    margin-top: 6rem;
-    margin-left: -17rem;
+    margin-top: 2rem;
+    margin-left: 3rem;
     display: inline-flex;
     flex-wrap: wrap;
     border:1px solid grey;
@@ -107,8 +107,7 @@
     margin-top: 2rem;
 }
 .report-text{
-    margin-top: 2rem;
-    margin-left: -17rem;
+    margin-left: 3rem;
     color:black;
     display: inline-flex;
     flex-wrap: wrap;
@@ -122,8 +121,8 @@
     flex-wrap: wrap;
     color: white;
     background-color: black;
-    margin-top: 1rem;
-    margin-left: -15rem;
+    margin-top: 1.5rem;
+    margin-left: 3rem;
     border-radius: 2px;
     border: none;
 }
