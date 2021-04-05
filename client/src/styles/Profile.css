@@ -5,8 +5,7 @@
     flex-direction: column;
     /* border: 2px solid blue; */
     background-color: #004;
-    /* min-height: 90vh; */
-    /* max-height: 200vh; */
+    padding: 2rem 0 7rem 0;
 }
 .profBox > h1,h4{
     color: white;
@@ -30,7 +29,7 @@
 .prof-para-val{
     color: rgb(156, 154, 154);
     margin-top: 1rem;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     /* border-bottom: 2px solid green; */
     background-color:#003;
     border-radius:3px
@@ -38,11 +37,13 @@
 .prof-btn-controls {
     /* display: inline-block; */
     display: flex;
-    /* margin: 1rem 0 1rem 0; */
+    justify-content: center;
     flex-direction: row;
-    flex-wrap: row-wrap;
+    flex-wrap: wrap;
 }
 .prof-btn-controls .prof-btn{
     margin: 0.5rem;
     min-width: 11rem;
+    color: black;
+    background-color: rgb(254, 240, 255);
 }

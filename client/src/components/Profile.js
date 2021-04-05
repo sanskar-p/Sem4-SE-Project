@@ -9,6 +9,7 @@ import Alert from 'react-bootstrap/Alert';
 import UpdatePassModal from './ProfileComps/UpdatePassModal';
 import NewUserModal from './ProfileComps/AddNewUserModal';
 import UpdateDescModal from './ProfileComps/UpdateDescModal';
+import UpdateAlEmailModal from './ProfileComps/UpdateAlEmailModal';
 
 import {tokenContext} from './App';
 import '../styles/Profile.css';
@@ -33,6 +34,16 @@ export default function Profile() {
     const handleCloseNewUser = () => setShowNewUserModal(false);
     const handleShowNewUser = () => setShowNewUserModal(true);   
     //add new user stuff end 
+
+    //update alert email stuff
+    const [alEmailSuccess, showAlEmailSuccess] = useState(false);
+    const [showAlEmailModal, setShowAlEmailModal] = useState(false);
+
+    const handleCloseAlEmail = () => setShowAlEmailModal(false);
+    const handleShowAlEmail = () => setShowAlEmailModal(true); 
+    
+    const updateAlEmail = (alEmail) => setUserData({...userData, alertEmail: alEmail})
+    //update password stuff end
     
     //update desc stuff
     const [descSuccess, showDescSuccess] = useState(false);
@@ -79,7 +90,8 @@ export default function Profile() {
         <div className="profBox">
             {passSuccess && <Alert className="alert-notification" dismissible key="pass" variant="success" onClose={() => showPassSuccess(false)}>Password updated successfully</Alert> }
             {newUserSuccess && <Alert className="alert-notification" dismissible key="newuser" variant="success" onClose={() => showNewUserSuccess(false)}>New user created successfully</Alert> }
-            {descSuccess && <Alert className="alert-notification" dismissible key="pass" variant="success" onClose={() => showDescSuccess(false)}>Description updated successfully</Alert> }
+            {descSuccess && <Alert className="alert-notification" dismissible key="desc" variant="success" onClose={() => showDescSuccess(false)}>Description updated successfully</Alert> }
+            {alEmailSuccess && <Alert className="alert-notification" dismissible key="alemail" variant="success" onClose={() => showAlEmailSuccess(false)}>Alert email updated successfully</Alert> }
             
             <h1>Profile</h1>
             {!userData ? <p>Loading details...</p>
@@ -89,31 +101,39 @@ export default function Profile() {
                     <div>
                         <p className="prof-para">username: <p className="prof-para-val"> {userData.username}</p></p>
                         <p className="prof-para">email: <p className="prof-para-val">{userData.email}</p></p>
-                        {/* <p className="prof-para">email <div><input type="text" /></div> </p> */}
+                        <p className="prof-para">alert email: <p className="prof-para-val">{userData.alertEmail}</p></p>
                         <p className="prof-para">date of creation: <p className="prof-para-val">{userData.createdAt} </p></p>
                         <p className="prof-para">description: {userData.desc || <p className="prof-para-val">no description found</p>} </p>
                     </div>
                     
                     <h4>{userData.username === 'admin' ? 'Admin' : 'User'} operations:</h4>
                     <div className="prof-btn-controls">
-                    <Button variant="primary" onClick={handleShowNewUser} className="prof-btn">Create a new user</Button>
-                    <NewUserModal token={token} showNewUserModal={showNewUserModal} handleCloseNewUser={handleCloseNewUser} showNewUserSuccess={showNewUserSuccess} />
-                    
+                        <Button variant="primary" onClick={handleShowNewUser} className="prof-btn">Create a new user</Button>
+                        <NewUserModal token={token} showNewUserModal={showNewUserModal} handleCloseNewUser={handleCloseNewUser} showNewUserSuccess={showNewUserSuccess} />
+                        
 
-                    <Button variant="primary" onClick={handleShowPass} style={{display:'inline-block'}} className="prof-btn">Update Password</Button>
-                    <UpdatePassModal token={token} showPassModal={showPassModal} handleClosePass={handleClosePass} showPassSuccess={showPassSuccess} />
-                    
-                    <Button variant="primary" onClick={handleShowDesc} className="prof-btn">Update Description</Button>
+                        <Button variant="primary" onClick={handleShowPass} style={{display:'inline-block'}} className="prof-btn">Update Password</Button>
+                        <UpdatePassModal token={token} showPassModal={showPassModal} handleClosePass={handleClosePass} showPassSuccess={showPassSuccess} />
+                        
+                        <Button variant="primary" onClick={handleShowAlEmail} style={{display:'inline-block'}} className="prof-btn">Update Alert Email</Button>
+                        <UpdateAlEmailModal 
+                            token={token} 
+                            showAlEmailModal={showAlEmailModal}
+                            updateAlEmail={(alEmail)=>updateAlEmail(alEmail)}
+                            handleCloseAlEmail={handleCloseAlEmail} 
+                            showAlEmailSuccess={showAlEmailSuccess} 
+                        />
+
+                        <Button variant="primary" onClick={handleShowDesc} className="prof-btn">Update Description</Button>
+                        <UpdateDescModal 
+                            token={token} 
+                            curDesc={userData.desc}
+                            updateDesc={(desc)=>updateDesc(desc)} 
+                            showDescModal={showDescModal} 
+                            handleCloseDesc={handleCloseDesc} 
+                            showDescSuccess={showDescSuccess} 
+                        />
                     </div>
-                    <UpdateDescModal 
-                        token={token} 
-                        curDesc={userData.desc}
-                        updateDesc={(desc)=>updateDesc(desc)} 
-                        showDescModal={showDescModal} 
-                        handleCloseDesc={handleCloseDesc} 
-                        showDescSuccess={showDescSuccess} 
-                    />
-                    
                 </> 
                                
             }

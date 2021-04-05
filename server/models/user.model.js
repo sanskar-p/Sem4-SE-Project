@@ -26,6 +26,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minLength: 5
+    },
+    alertEmail: {
+        type: String,
+        trim: true
     }
 }, {
     timestamps: true

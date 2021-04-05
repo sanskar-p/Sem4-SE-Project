@@ -57,6 +57,7 @@ router.post('/', (req, res) => {
         const newUser = new User({
           username,
           email,
+		  alertEmail: email,
           password
         });
 
