@@ -136,11 +136,11 @@ export default function Dashboard() {
                 </div>
                 {/* <!--Header ends--> */}
 
-            <div className="cardBody content flex" >
+            <div className="cardBody " >
                 
             <h2>Valid pH Range:</h2>
             <h1 style={{ 'fontSize': '6rem' }}>{lowRange} - {highRange}</h1>
-            
+
                 {token && <div className="dashboardControls">
                     
                     <Button className="dashBtn" variant="primary" onClick={handleShowRange}>
