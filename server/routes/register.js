@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
 	
 
 	if(errors.length > 0){
-		res.send({
+		return res.send({
 			success: false,
 			errors
 		})
