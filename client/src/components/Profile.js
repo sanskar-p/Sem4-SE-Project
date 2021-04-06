@@ -108,9 +108,12 @@ export default function Profile() {
                     
                     <h4>{userData.username === 'admin' ? 'Admin' : 'User'} operations:</h4>
                     <div className="prof-btn-controls">
-                        <Button variant="primary" onClick={handleShowNewUser} className="prof-btn">Create a new user</Button>
-                        <NewUserModal token={token} showNewUserModal={showNewUserModal} handleCloseNewUser={handleCloseNewUser} showNewUserSuccess={showNewUserSuccess} />
-                        
+                    {userData.username === 'admin' &&
+                        <>
+                            <Button variant="primary" onClick={handleShowNewUser} className="prof-btn">Create a new user</Button>
+                            <NewUserModal token={token} showNewUserModal={showNewUserModal} handleCloseNewUser={handleCloseNewUser} showNewUserSuccess={showNewUserSuccess} />
+                        </>
+                    }
 
                         <Button variant="primary" onClick={handleShowPass} style={{display:'inline-block'}} className="prof-btn">Update Password</Button>
                         <UpdatePassModal token={token} showPassModal={showPassModal} handleClosePass={handleClosePass} showPassSuccess={showPassSuccess} />

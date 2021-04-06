@@ -9,8 +9,10 @@ const UserSession = require('../models/userSession.model');
 router.post('/', (req, res, next) => {
     const {token} = req.body;
 
+    console.log('token', token)
     UserSession.findById(token)
     .then((session) => {
+        console.log('session ', session)
         if(session.isDeleted){
             res.send({
                 success: false,
