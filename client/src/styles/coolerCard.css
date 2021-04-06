@@ -4,12 +4,16 @@
     width: 18rem;
     min-height: 15rem;
     border-width: 3px;
-    color: white;
-    background-color: #003;
+    color: black;
+    /* background-color: #003; */
+    border-radius: 40px;
+    background-color: #93dd9b;
+
 }
 .coolerCardTitle{
-    font-size: 3rem;
+    font-size: 2rem;
     height: 7rem;
+    text-align: center;
 }
 
 .coolerCardBody{
@@ -17,7 +21,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
 }
 .coolerCardBtn{
     width: 7rem;
