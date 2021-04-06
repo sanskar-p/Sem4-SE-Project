@@ -32,7 +32,7 @@
     /* border: 2px solid rgb(170, 231, 252); */
     border-radius: 2em;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    box-shadow: lavender;
+    /* box-shadow: lavender; */
 }
 .delete-modal-btn{
     padding: 0.3em 3em 0.3em 3em;

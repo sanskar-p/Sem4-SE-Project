@@ -56,7 +56,7 @@ export default function UpdateRangeModal({setLowRange, setHighRange, showModal, 
                         <Modal.Title className="dash-user-modal-title">Edit Range</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="dash-user-modalModal">
-                        <p className="dash-user-modal-text">Type the updated values of the range</p>
+                        <p className="dash-user-modal-text">Type the updated values of the range </p>
                         <form onSubmit={doUpdateRange} className="dash-user-modal-form">
                             <label>
                                 <div className="dash-user-modal-div"  >

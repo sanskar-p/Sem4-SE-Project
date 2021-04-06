@@ -48,12 +48,13 @@ export default function NewUserModal({token, curDesc, updateDesc, showDescModal,
             <Modal.Body className="newModal">
                 <form onSubmit = {doUpdateDesc} className="new-form">
                     <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <label className="update-desc">Type description</label>
+                        {/* <label className="update-desc">Type description</label> */}
                         <Form.Control 
                             as="textarea" 
                             rows={3} 
                             defaultValue={curDesc}
-                            onChange={event => {setDesc(event.target.value)}} />
+                            onChange={event => {setDesc(event.target.value)}} 
+                           placeholder="Type Description"/>
                     </Form.Group>
                     <div>{renderRes()}</div>
                     <div>
