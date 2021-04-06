@@ -241,6 +241,7 @@ body {
     margin-top: 2rem;
 }
 .report-text{
+    margin-top: 2rem;
     margin-left: 3rem;
     color:black;
     display: inline-flex;
@@ -249,7 +250,21 @@ body {
     border-top-style: none;
     border-left-style: none;
     border-right-style: none;
-}
+	height: 5rem;
+	overflow: hidden;
+	}
+
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+		line-height:8rem;
+	}
+	::-webkit-input-placeholder { /* Webkit */
+		line-height:8rem;
+	}
+	:-ms-input-placeholder { /* IE */
+		line-height:8rem;
+	}
+
+
 .report-btn{
     display: flex;
     flex-wrap: wrap;

@@ -11,6 +11,7 @@ const updateProfileRouter = require('./routes/updateProfile');
 const isLoggedInRouter = require('./routes/isLoggedIn');
 const dashboardRouter = require('./routes/dashboard');
 const alertEmailRouter = require('./routes/alertEmail');
+const feedbackRouter = require('./routes/feedback');
 
 const app = express();
 // app.use(cors())
@@ -55,5 +56,6 @@ app.use('/updateProfile', updateProfileRouter)
 app.use('/loggedin', isLoggedInRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/alertEmail', alertEmailRouter)
+app.use('/sendFeedback', feedbackRouter)
 
 app.listen(8080, () => console.log("server running at port 8080"))

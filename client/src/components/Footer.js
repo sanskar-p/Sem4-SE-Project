@@ -1,9 +1,45 @@
-import React from 'react';
-import { Button } from 'react-bootstrap'
+import React, { useState } from 'react';
+import axios from 'axios';
+import SERVER_URL from '../utils/constants';
+import querystring from 'querystring';
+
+import { Button } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/dashboard.css';
 
 export default function Footer() {
+
+    const [feedback, setFeedback] = useState({name: '', email: '', message: ''})
+    const [formRes, updateFormRes] = useState({});
+
+    const handleFeedbackSubmit = (event) => {
+        event.preventDefault();
+        console.log(feedback)
+        
+        axios.post(`${SERVER_URL}/sendFeedback`, null, { params: {feedback}})
+        .then(res => {
+            if (res.data.success) {
+                console.log("feedback sent:", res.data);
+                setFeedback({name: '', email: '', message: ''});
+                updateFormRes(res.data);
+            }
+            else {
+                updateFormRes(res.data);
+            }
+            console.log('feedback response:', res)
+        })
+        .catch(err => console.log('feedback error', err))
+    }
+
+    const renderRes = () => {
+        if (formRes.errors !== undefined) {
+            return formRes.errors.map(formEr => <p style={{ 'color': 'red', 'marginBottom': '0', 'fontSize': '0.9rem' }}>{formEr}</p>)
+        }
+        else if(formRes.success === true){
+            return <p style={{ 'color': 'green', 'marginBottom': '0', 'fontSize': '0.9rem' }}>we have received your feedback!</p>
+        }
+    }
+
     return (
         <footer id="reportSection">
             {/* dashFooterId */}
@@ -17,26 +53,42 @@ export default function Footer() {
             
                 <div className="report-box">
 
-                    <form action="#">
+                    <form onSubmit={handleFeedbackSubmit}>
                         <div>
-                            <input type="text" placeholder="Enter your Name"
+                            <input 
+                                type="text" 
+                                placeholder="Enter your Name"
                                 className="report-input"
                                 size="30"
-                                required />
+                                value = {feedback.name}
+                                onChange = {event => setFeedback({...feedback, name: event.target.value})}
+                            />
                         </div>
 
                         <div >
-                            <input type="Email" placeholder="Enter your Email Address"
+                            <input 
+                                type="text" placeholder="Enter your Email Address"
                                 className="report-input report-email"
                                 size="30"
-                                required />
+                                value = {feedback.email}
+                                onChange = {event => setFeedback({...feedback, email: event.target.value})}
+                            />
                         </div>
 
                         <div>
-                            <textarea placeholder="Enter your message" name="message" className="report-text" rows="4" cols="30" required> </textarea>
+                            <textarea 
+                                placeholder="Enter your message" 
+                                name="message" 
+                                className="report-text" 
+                                rows="4" 
+                                cols="30"
+                                value = {feedback.message}
+                                onChange = {event => setFeedback({...feedback, message: event.target.value})} 
+                            ></textarea>
                         </div>
 
-                        <Button className="report-btn" variant="primary">Send</Button>
+                        <div style={{'marginLeft': '3rem'}}>{renderRes()}</div>
+                        <Button type="submit" className="report-btn" variant="primary">Send</Button>
                     </form>
                 </div>
 
@@ -86,7 +138,6 @@ export default function Footer() {
                 </div>
 
                 <div className="copyright">
-                    {/* dash-copyright */}
                   &copy; drinksapHe. All rights reserved | Created by Group of IIITA Students
                </div>
 
