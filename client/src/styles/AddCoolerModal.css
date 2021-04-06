@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+
 .update-range-modal-header{
     display: flex;
     flex-direction: row;
@@ -14,7 +16,7 @@
     font-family: 'Varela Round', sans-serif;
     font-size: 1.7rem;
     /* color: lightblue; */
-    color: rgb(217, 240, 6);
+    color:#000062;
 
 }
 .update-range-modalModal{
@@ -44,7 +46,8 @@
     border: 2px solid rgb(170, 231, 252);
     border-radius: 2em;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    box-shadow: lavender;
+    /* box-shadow: lavender; */
+    box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem lavender;
 }
 .update-range-modalText-input{
     padding-top: 0.1rem;
@@ -61,8 +64,9 @@
     border-radius: 2em;
     font-size: 1.3em;
     /* background-color: khaki; */
-    background-color: rgb(29, 6, 240);
+    background-color: #000062;
     margin-left: 6em;
     border: none;
     color: white;
+    margin-top: 0.5rem;
 }

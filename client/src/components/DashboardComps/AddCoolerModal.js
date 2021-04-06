@@ -44,7 +44,7 @@ export default function AddCoolerModal({ showModal, handleClose, coolers, getCoo
     }
 
     return (
-        <Modal show={showModal} onHide={handleClose}>
+        <Modal show={showModal} onHide={handleClose} class="modalbox">
             <Modal.Header closeButton className="update-range-modal-header">
                 <Modal.Title className="update-range-modal-title">Add Cooler Details</Modal.Title>
             </Modal.Header>
@@ -53,13 +53,14 @@ export default function AddCoolerModal({ showModal, handleClose, coolers, getCoo
                 <Form onSubmit={addCooler} className="update-range-modal-form">
                     <label>
                         <div className="update-range-modal-div"  >
-                            Cooler Name :
+                            Cooler Name : &nbsp; &nbsp; 
 							<input
                                 type="text"
                                 placeholder="for ex: cooler1"
                                 onChange={event => setDeets({ ...deets, name: event.target.value })}
                                 size="20"
-                                className="update-range-modalText-input update-range-modal-para" />
+                                className="update-range-modalText-input update-range-modal-para"
+                               />
                         </div>
                     </label>
                     <label>

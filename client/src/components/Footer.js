@@ -7,12 +7,16 @@ export default function Footer() {
     return (
         <footer id="aboutSection">
             {/* dashFooterId */}
+          
+          <div id="dash-box">
+            
             <div id="dash-report">
-                <div>
+                 <div>
                     <h3>Feedback</h3>
                 </div>
-
+            
                 <div className="report-box">
+
                     <form action="#">
                         <div>
                             <input type="text" placeholder="Enter your Name"
@@ -36,8 +40,10 @@ export default function Footer() {
                     </form>
                 </div>
 
+            
             </div>
-
+            
+        </div>
             <div className="dash-map">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7206.531301993903!2d81.76718472516806!3d25.429380735154687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398533530cce2e67%3A0xbf1514c2084929b7!2sIndian%20Institute%20of%20Information%20Technology%2C%20Jhalwa%2C%20Prayagraj%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1617375028597!5m2!1sen!2sin" width="500" height="450" style={{ "border": "0" }} allowfullscreen="" loading="lazy"></iframe>
             </div>

@@ -8,8 +8,9 @@
     font-family: 'Varela Round', sans-serif;
     font-size: 1.7rem;
     /* color: lightblue; */
-    color: rgb(217, 240, 6);
-
+    /* color:#000062; */
+    /* color: rgb(0,0,137); */
+    color: #000076;
 }
 .new-header{
     display: flex;
@@ -33,7 +34,6 @@
 .new-modal-para{
     /* flex-direction: column; */
     align-items: center;
-    /* border: 2px solid rgb(170, 231, 252); */
     border-radius: 2em;
     padding: 0.5em 0.5em 0.5em 0.5em;
     box-shadow: 0.3rem 0.3rem 0.3rem 0.3rem lavender;
@@ -44,7 +44,6 @@
     /* color: khaki; */
     color: lightblue;
     /* color: rgb(29, 6, 240); */
-
 }
 input{
     /* padding: 1em 1em 1em 1em; */
@@ -57,6 +56,7 @@ input{
     border-radius: 2em;
     font-size: 1.3em;
     /* background-color: khaki; */
-    background-color: rgb(29, 6, 240);
+    /* background-color: #000062; */
+    background-color: #000076;
     border: none;
 }

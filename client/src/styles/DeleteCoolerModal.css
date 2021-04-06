@@ -14,7 +14,7 @@
     font-family: 'Varela Round', sans-serif;
     font-size: 1.7rem;
     /* color: lightblue; */
-    color: rgb(217, 240, 6);
+    color: #000062;
 
 }
 .delete-modalModal{
@@ -32,14 +32,14 @@
     /* border: 2px solid rgb(170, 231, 252); */
     border-radius: 2em;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    box-shadow: lavender;
+    /* box-shadow: lavender; */
 }
 .delete-modal-btn{
     padding: 0.3em 3em 0.3em 3em;
     border-radius: 2em;
     font-size: 1.3em;
     /* background-color: khaki; */
-    background-color: rgb(29, 6, 240);
+    background-color: #000062;
     margin-left: 6em;
     border: none;
     color: white;

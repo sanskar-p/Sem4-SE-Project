@@ -97,13 +97,13 @@ export default function Profile() {
                 <>
                     <div className="profile-main-box">
                         <h1>Profile</h1>
-                        <h4>User Details:</h4>
+                        <h4>User Details</h4>
                         <div className="prof-user-details">
-                            <p className="prof-para">username: <p className="prof-para-val">{userData.username}</p></p>
-                            <p className="prof-para">email: <p className="prof-para-val">{userData.email}</p></p>
-                            <p className="prof-para">alert email: <p className="prof-para-val">{userData.alertEmail}</p></p>
-                            <p className="prof-para">date of creation: <p className="prof-para-val">{userData.createdAt} </p></p>
-                            <p className="prof-para">description: {userData.desc || <p className="prof-para-val">no description found</p>} </p>
+                            <p className="prof-para">Username: <p className="prof-para-val">{userData.username}</p></p>
+                            <p className="prof-para">Email: <p className="prof-para-val">{userData.email}</p></p>
+                            <p className="prof-para">Alert Email: <p className="prof-para-val">{userData.alertEmail}</p></p>
+                            <p className="prof-para">Date of Creation: <p className="prof-para-val">{userData.createdAt} </p></p>
+                            <p className="prof-para">Description: {userData.desc || <p className="prof-para-val">No description found</p>} </p>
                         </div>
                     </div>
 

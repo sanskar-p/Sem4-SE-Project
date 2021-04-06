@@ -60,7 +60,8 @@ export default function CoolerCard({deets, low, high}){
             // sendAlertEmail();        //removed so that email will only be sent in periodic intervals instead of whenever somebody updates
             console.log(`ph of ${deets.coolerName} is out of range`)
         }
-        else setCardColor('#9F9')
+        else 
+        {setCardColor('green'); }
     }
 
     useEffect(() => {
@@ -78,12 +79,12 @@ export default function CoolerCard({deets, low, high}){
 
     return( 
         <div>
-            <Card style={{'borderColor': cardColor}} className="coolerCard">
+            <Card style={{'border-color': cardColor}} className="coolerCard">
             {/* <Card.Img style={{'height': '7rem'}} variant="top" src="https://i.pinimg.com/474x/16/a8/3e/16a83e8583e19aacb560aae90c813e4a.jpg" /> */}
                 <Card.Body>
                 <Card.Title className="coolerCardTitle">{deets.coolerName}</Card.Title>
-                <Card.Text>current pH: {ph || 'unavailable'}</Card.Text>
-                <Card.Text>location: {deets.location}</Card.Text>
+                <Card.Text className="coolerCardText">Current pH: {ph || 'unavailable'}</Card.Text>
+                <Card.Text className="coolerCardText">Location: {deets.location}</Card.Text>
 				</Card.Body>
 
 				<Card.Body>

@@ -106,9 +106,40 @@ export default function Dashboard() {
             {addCoolerSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="pass" variant="success" onClose={() => showAddCoolerSuccess(false)}>Cooler added successfully</Alert> }
             {deleteCoolerSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="pass" variant="success" onClose={() => showDeleteCoolerSuccess(false)}>Cooler deleted successfully</Alert> }
             
-            <div className="cardBody" >
-                <h2>Valid pH Range:</h2>
-                <h1 style={{ 'fontSize': '6rem' }}>{lowRange} - {highRange}</h1>
+            <div class="header">
+            <p class="myintro">“DrinkSapHe©” aims to improve the efficiency of water cooler maintenance process,
+             starting with water coolers of CC3, and perhaps later expanding to the other water
+              coolers of the campus of IIIT-Allahabad. Real-time reporting of water quality levels 
+              will reduce the time it takes to regularly check the quality manually. 
+              The in-built reporting feature makes it easier for students to report problems to the maintenance team.</p>
+            
+
+
+                {/* <!--Waves Container--> */}
+                <div>
+                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">  
+                 
+                <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlinkHref="#gentle-wave" x="48" y="7" fill="#dee2e6" />
+                </g>
+                </svg>
+                </div>
+                {/* <!--Waves end--> */}
+
+                </div>
+                {/* <!--Header ends--> */}
+
+            <div className="cardBody " >
+                
+            <h2>Valid pH Range:</h2>
+            <h1 style={{ 'fontSize': '6rem' }}>{lowRange} - {highRange}</h1>
 
                 {token && <div className="dashboardControls">
                     
@@ -150,6 +181,8 @@ export default function Dashboard() {
                 <div style={{ 'display': 'flex', 'flexFlow': 'row wrap', 'justifyContent': 'center' }}>
                     {renderCoolersList()}
                 </div>
+
+                
             </div>
         </div>
     )
