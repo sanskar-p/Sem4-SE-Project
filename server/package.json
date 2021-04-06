@@ -20,7 +20,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "initDrinksaphe": "node scripts/initDrinksaphe.js"
+    "initDrinksaphe": "node scripts/initDrinksaphe.js",
+    "createAdmin": "node scripts/createAdmin.js"
   },
   "author": "",
   "license": "ISC"
