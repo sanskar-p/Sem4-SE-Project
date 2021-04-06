@@ -32,11 +32,12 @@ export default function CoolerPage() {
     }, [])
 
     return (
+        
         <div className="cooler-det">
 
             <div class="tile">
 
-                <h1 className="cooler-page-para-val" style={{borderRadius:'10px'}}> &ensp; {cooler.coolerName}</h1>
+                <h1  style={{borderRadius:'10px', textAlign:"center"}}> &ensp; {cooler.coolerName}</h1>
                 {/* <p>name: {cooler.coolerName}</p> */}
                 {/* <img src={'/cooler.jpg'} alt="error" /> */}
                 <br></br>
@@ -48,6 +49,7 @@ export default function CoolerPage() {
                 </div>
             </div>
         </div>
+        
 
     )
 }

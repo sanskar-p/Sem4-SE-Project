@@ -60,7 +60,7 @@ export default function AddCoolerModal({ showModal, handleClose, coolers, getCoo
                                 onChange={event => setDeets({ ...deets, name: event.target.value })}
                                 size="20"
                                 className="update-range-modalText-input update-range-modal-para"
-                                 />
+                               />
                         </div>
                     </label>
                     <label>

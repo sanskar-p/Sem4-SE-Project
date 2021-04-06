@@ -15,9 +15,10 @@
     font-family: 'Varela Round';
     font-size: 1.7rem;
     /* color: lightblue; */
-    color: rgb(29, 6, 240);
+    /* color: rgb(29, 6, 240); */
 
 }
+
 .newModal{
     font-family: 'Varela Round';
     font-size: 1rem;
@@ -36,7 +37,7 @@
     border-radius: 2em;
     font-size: 1.3em;
     /* background-color: khaki; */
-    background-color: rgb(29, 6, 240);
+    /* background-color: rgb(29, 6, 240); */
     border: none;
     color: white;
 }
