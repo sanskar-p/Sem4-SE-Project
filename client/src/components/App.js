@@ -29,10 +29,10 @@ function App() {
 		const tokenObj = getFromStorage('drinksaphe');
 		if(tokenObj && tokenObj.token) setToken(tokenObj.token)
 		setWait(false)
-		console.log('token', token);	
+		console.log('token', token);
 
 		// if(!token) history.push('/login')
-		
+
 		// console.log('app.js logged in ', loggedIn)
 
 		// async function loggedInStatus() {
@@ -48,7 +48,7 @@ function App() {
 		<tokenContext.Provider value={[token, setToken]}>
 			{/* <button onClick = {setLoggedIn(false)} >log out</button> */}
 			{/* {loggedIn ? <p>currently logged in</p> : <p>not logged in</p>} */}
-			
+
 			<div className="wholeApp">
 				{/* <h1>App Home</h1> */}
 			{/* <h1 style={{'backgroundColor': '#004', 'color': 'white', 'margin': '0', 'padding':'0.5rem 0 1rem 2rem'}}>DrinksapHe - your cooler maintenance dashboard</h1>
@@ -64,7 +64,7 @@ function App() {
 							<LoginModal />
 						</Route>
 						<Route exact path='/'>
-							<Dashboard />								
+							<Dashboard />
 						</Route>
 						{/* <Route exact path='/register'>
 							<Register />
@@ -75,14 +75,14 @@ function App() {
 						<Route exact path='/cooler/:id'>
 							<CoolerPage />
 						</Route>
-						{/* <Route 
+						{/* <Route
 							exact path='/profile'
-							render= { () => 
+							render= { () =>
 								wait ? (<p>loading</p>)
 								: (token ? <Profile /> : <Redirect to="/login"> )
 							}
 						/> */}
-						<Route 
+						<Route
 							exact path='/profile'
 							render={()=>wait?(<img src="/temploader.jpg" />)
 							:(token?(
@@ -90,7 +90,7 @@ function App() {
 							)
 							:(<Redirect to="/login" />))
 						} />
-							
+
 							{/* { ? <Redirect to='/' /> : <Profile />} */}
 							{/* <Profile /> */}
 						{/* </Route> */}
