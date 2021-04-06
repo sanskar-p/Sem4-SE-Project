@@ -53,7 +53,8 @@ export default function NewUserModal({token, curDesc, updateDesc, showDescModal,
                             as="textarea" 
                             rows={3} 
                             defaultValue={curDesc}
-                            onChange={event => {setDesc(event.target.value)}} />
+                            onChange={event => {setDesc(event.target.value)}} 
+                           />
                     </Form.Group>
                     <div>{renderRes()}</div>
                     <div>

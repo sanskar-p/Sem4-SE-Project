@@ -33,10 +33,10 @@
 .new-modal-para{
     /* flex-direction: column; */
     align-items: center;
-    border: 2px solid rgb(170, 231, 252);
+    /* border: 2px solid rgb(170, 231, 252); */
     border-radius: 2em;
     padding: 0.5em 0.5em 0.5em 0.5em;
-    box-shadow: lavender;
+    box-shadow: 0.3rem 0.3rem 0.3rem 0.3rem lavender;
 }
 .new-modal-para i{
     font-size: 1.5em;

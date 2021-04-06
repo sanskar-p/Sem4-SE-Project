@@ -17,12 +17,14 @@ export default function Footer() {
                         <div>
                             <input type="text" placeholder="Enter your Name"
                                 className="report-input"
+                                size="30"
                                 required />
                         </div>
 
                         <div >
                             <input type="Email" placeholder="Enter your Email Address"
                                 className="report-input report-email"
+                                size="30"
                                 required />
                         </div>
 

@@ -4,12 +4,35 @@
     align-items: center;
     flex-direction: column;
     /* border: 2px solid blue; */
-    background-color: #004;
-    padding: 2rem 0 7rem 0;
+    /* background-color: #004; */
+    background-color: white;
+    padding: 6rem 0 7rem 0;
+}
+
+.profile-main-box{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items:center;
+    /* color: black; */
+    color: white;
+    background-color: #262626;
+    padding-top: 3em;
+    box-shadow:0.5rem 0.3rem 2rem 0.3rem #888888;
+    /* background-color: blueviolet; */
+    /* background-color: white; */
 }
 .profBox > h1,h4{
-    color: white;
-    /* font-family: 'Dela Gothic One', cursive; */
+    
+    /* color: white; */
+    /* color: black; */
+}
+.prof-user-details{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: left;
+    padding: 2em 5em 5em 6em;
 }
 .profBox > h1{
     font-size: 2rem;
@@ -22,16 +45,12 @@
 .prof-para{
     display: flex;
     align-items: center;
-    color: rgb(211, 208, 208);
-    /* flex-direction: column; */
-    /* border: 2px solid red ; */
+    color: white;
+    
 }
 .prof-para-val{
-    color: rgb(156, 154, 154);
+   
     margin-top: 1rem;
-    /* margin-left: 1rem; */
-    /* border-bottom: 2px solid green; */
-    background-color:#003;
     border-radius:3px
 }
 .prof-btn-controls {
