@@ -6,6 +6,34 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user.model');
 //userSession model
 const UserSession = require('../models/userSession.model');
+//drinksaphe model
+const Drinksaphe = require('../models/drinksaphe.model');
+
+//update alert interval route
+router.post('/alTime', (req, res) => {
+    const {token, alertTime} = req.query;
+
+    UserSession.findById(token)
+    .then((session) => {
+        if(session.isDeleted){
+            res.send({
+                success: false,
+                errors: ['server error, apparently user logged out']
+            })
+        }
+        else {
+            Drinksaphe.updateOne({"name": "drinksaphe"}, {"alertInterval": alertTime})
+                .then(data => {
+                    console.log('alert time update backend response:', data);
+                    res.send({success: true});
+                })
+                .catch(err => console.log('alert time update backend err:', err));
+        }
+    })
+
+    
+})
+//update alert interval route end
 
 //update desc route
 router.post('/desc', (req, res) => {

@@ -10,6 +10,7 @@ import UpdatePassModal from './ProfileComps/UpdatePassModal';
 import NewUserModal from './ProfileComps/AddNewUserModal';
 import UpdateDescModal from './ProfileComps/UpdateDescModal';
 import UpdateAlEmailModal from './ProfileComps/UpdateAlEmailModal';
+import UpdateTimeModal from './ProfileComps/UpdateTimeModal';
 
 import { tokenContext } from './App';
 import '../styles/Profile.css';
@@ -33,6 +34,14 @@ export default function Profile() {
 
     const handleCloseNewUser = () => setShowNewUserModal(false);
     const handleShowNewUser = () => setShowNewUserModal(true);
+    //add new user stuff end 
+
+    //add new user stuff
+    const [timeSuccess, showTimeSuccess] = useState(false);
+    const [showTimeModal, setShowTimeModal] = useState(false);
+
+    const handleCloseTime = () => setShowTimeModal(false);
+    const handleShowTime = () => setShowTimeModal(true);
     //add new user stuff end 
 
     //update alert email stuff
@@ -92,6 +101,8 @@ export default function Profile() {
             {newUserSuccess && <Alert className="alert-notification" dismissible key="newuser" variant="success" onClose={() => showNewUserSuccess(false)}>New user created successfully</Alert>}
             {descSuccess && <Alert className="alert-notification" dismissible key="desc" variant="success" onClose={() => showDescSuccess(false)}>Description updated successfully</Alert>}
             {alEmailSuccess && <Alert className="alert-notification" dismissible key="alemail" variant="success" onClose={() => showAlEmailSuccess(false)}>Alert email updated successfully</Alert>}
+            {timeSuccess && <Alert className="alert-notification" dismissible key="time" variant="success" onClose={() => showTimeSuccess(false)}>Alert email time interval updated successfully</Alert>}
+            
             {!userData ? <p>Loading details...</p>
                 :
                 <>
@@ -114,6 +125,9 @@ export default function Profile() {
                         <>
                             <Button variant="primary" onClick={handleShowNewUser} className="prof-btn">Create a new user</Button>
                             <NewUserModal token={token} showNewUserModal={showNewUserModal} handleCloseNewUser={handleCloseNewUser} showNewUserSuccess={showNewUserSuccess} />
+                            
+                            <Button variant="primary" onClick={handleShowTime} className="prof-btn">Update Alert Interval</Button>
+                            <UpdateTimeModal token={token} showTimeModal={showTimeModal} handleCloseTime={handleCloseTime} showTimeSuccess={showTimeSuccess} />                            
                         </>
                     }
 

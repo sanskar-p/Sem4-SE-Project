@@ -19,9 +19,12 @@ import '../styles/dashboard.css';
 export default function Dashboard() {
     const [token, setToken] = useContext(tokenContext);
 
-    // const[range, updateRange] = useState({low: 5, high: 5})
+    //range values from db
     const [lowRange, setLowRange] = useState();      //not sure if i should default to 7 or no
     const [highRange, setHighRange] = useState();
+
+    //alert time interval from db
+    const [alertInterval, setAlertInterval] = useState('');
 
     //all coolers from db
     const [coolers, updateCoolers] = useState({});
@@ -62,8 +65,8 @@ export default function Dashboard() {
     };
 
     //on render, get range from db
-    const getRange = () => {
-        axios.get(`${SERVER_URL}/dashboard/range`)
+    const getRangeAndInterval = () => {
+        axios.get(`${SERVER_URL}/dashboard/rangeAndInterval`)
             .then((res => {
                 console.log('res in frontend', res.data);
                 const newRange = res.data;
@@ -71,7 +74,9 @@ export default function Dashboard() {
 
                 setLowRange(res.data.low);
                 setHighRange(res.data.high);
-                console.log('range state: ', lowRange, highRange);
+                setAlertInterval(res.data.alertInterval);
+
+                console.log('range and interval state: ', lowRange, highRange, alertInterval);
             }))
             .catch(err => console.log('could not get range in frontend', err))
     }
@@ -89,13 +94,13 @@ export default function Dashboard() {
     }
 
     useEffect(() => {
-        getRange();
+        getRangeAndInterval();
         getCoolers();
     }, [])
 
     const renderCoolersList = () => {
         if (coolers.list !== undefined) {
-            return coolers.list.map(cooler => { return <CoolerCard deets={cooler} low={lowRange} high={highRange} /> })
+            return coolers.list.map(cooler => { return <CoolerCard deets={cooler} alertInterval={alertInterval} low={lowRange} high={highRange} /> })
         }
         else return <p>coolers not loading</p>
     }

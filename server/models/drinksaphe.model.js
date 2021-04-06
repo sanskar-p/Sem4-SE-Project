@@ -40,7 +40,10 @@ const drinksapheSchema = new Schema({
     rangeHigh: {
         type: Number,
         default: 7
-
+    },
+    alertInterval: {
+        type: String,
+        default: '01:00'
     },
     coolers: [coolerSchema]
 

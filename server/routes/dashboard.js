@@ -6,11 +6,11 @@ const Drinksaphe = require('../models/drinksaphe.model');
 const waterQuality = require('../../waterDataset/waterQuality.json')
 
 //range routes
-router.get('/range', (req, res) => {
+router.get('/rangeAndInterval', (req, res) => {
     Drinksaphe.find({"name": "drinksaphe"})
         .then(data => {
             console.log('range is', data[0].rangeLow, data[0].rangeHigh);
-            res.send({low: data[0].rangeLow, high: data[0].rangeHigh})
+            res.send({low: data[0].rangeLow, high: data[0].rangeHigh, alertInterval: data[0].alertInterval})
         })
         .catch(err => console.log('range get error: ', err));
 })

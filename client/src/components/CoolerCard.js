@@ -7,7 +7,7 @@ import SERVER_URL from '../utils/constants';
 import querystring from 'querystring';
 import '../styles/coolerCard.css';
 
-export default function CoolerCard({deets, low, high}){
+export default function CoolerCard({deets, alertInterval,low, high}){
     const history = useHistory();
 
     const [ph, setPh] = useState(deets.currentpH);
@@ -67,12 +67,19 @@ export default function CoolerCard({deets, low, high}){
     useEffect(() => {
         checkRange();
     }, [low, high, ph])
-
-    useEffect(() => {
+    
+    //converts alert time to miliseconds
+    function timeToMS(a){// time(HH:MM)
+            a = a.split(':')
+            return a[0]*3600000 + a[1]*60*1000;
+    }
+    useEffect(() => {        
+        // console.log('altime ',alertInterval,  timeToMS(alertInterval))
+        
         const interval = setInterval(() => {
             console.log('auto update phs')
             updatepH('periodic'); //ph is currently getting updated every 1 hour
-        }, 3600000) //1 hour in miliseconds 
+        }, timeToMS(alertInterval)) //x hour in miliseconds 
 
         return () => clearInterval(interval); //unmount function - clears interval to prevent memory leaks
     }, [])
