@@ -56,11 +56,4 @@ app.use('/loggedin', isLoggedInRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/alertEmail', alertEmailRouter)
 
-
-// const Drinksaphe = require('./models/drinksaphe.model');
-// app.post('/createdrinksaphe', (req, res) => {
-//   const newd = new Drinksaphe()
-//   newd.save().then(res => console.log('created', res)).catch(err => console.log('error in creating', err));
-// })
-
 app.listen(8080, () => console.log("server running at port 8080"))
