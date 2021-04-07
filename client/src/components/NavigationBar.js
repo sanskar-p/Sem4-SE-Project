@@ -54,7 +54,7 @@ export default function NavigationBar({history}) {
 					<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
 						<Nav className="mr-auto, justify-content-end">				
 							<Nav.Link href="/">Home</Nav.Link>
-							{!token && <Nav.Link href="login">Login</Nav.Link>}
+							{!token && <Nav.Link href="/login">Login</Nav.Link>}
 							{/* {!token && <Nav.Link href="register">Register</Nav.Link>} */}
 							{token &&
 							<NavDropdown title="Settings" id="basic-nav-dropdown">
