@@ -108,14 +108,15 @@ export default function Footer() {
                         <h6>Members (Github)</h6>
                         <ul className="git-list">
                             <li><i className="fa fa-github"></i>
+                                <a href="https://github.com/sanskar-p" target="_blank"> Sanskar Patro </a>
+                            </li>
+                            <li><i className="fa fa-github"></i>
                                 <a href="https://github.com/anshumanbhardwaj1370" target="_blank"> Anshuman Bhardwaj </a>
                             </li>
                             <li><i className="fa fa-github"></i>
                                 <a href="https://github.com/cremento" target="_blank"> Vanshika Garg </a>
                             </li>
-                            <li><i className="fa fa-github"></i>
-                                <a href="https://github.com/sanskar-p" target="_blank"> Sanskar Patro </a>
-                            </li>
+                            
                             <li><i className="fa fa-github"></i>
                                 <a href="https://github.com/curiouskid26" target="_blank"> Gitika Yadav </a>
                             </li>
@@ -126,10 +127,10 @@ export default function Footer() {
                     <div className="mails">
                         <h6>Mail Us</h6>
                         <ul className="dash-mail-id">
-                            <li> <i className="fa fa-envelope"></i><a href="iit2019227@iiita.ac.in">&ensp; iit2019227@iiita.ac.in </a></li>
-                            <li> <i className="fa fa-envelope"></i><a href="iit2019216@iiita.ac.in">&ensp; iit2019216@iiita.ac.in </a></li>
-                            <li> <i className="fa fa-envelope"></i><a href="iit2019205@iiita.ac.in">&ensp; iit2019205@iiita.ac.in </a></li>
-                            <li> <i className="fa fa-envelope"></i><a href="iit2019219@iiita.ac.in">&ensp; iit2019219@iiita.ac.in </a></li>
+                            <li> <i className="fa fa-envelope"></i><a href="mailto:iit2019205@iiita.ac.in">&ensp; iit2019205@iiita.ac.in </a></li>
+                            <li> <i className="fa fa-envelope"></i><a href="mailto:iit2019227@iiita.ac.in">&ensp; iit2019227@iiita.ac.in </a></li>
+                            <li> <i className="fa fa-envelope"></i><a href="mailto:iit2019216@iiita.ac.in">&ensp; iit2019216@iiita.ac.in </a></li>
+                            <li> <i className="fa fa-envelope"></i><a href="mailto:iit2019219@iiita.ac.in">&ensp; iit2019219@iiita.ac.in </a></li>
                         </ul>
                     </div>
 
