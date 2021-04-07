@@ -86,7 +86,7 @@ export default function CoolerCard({deets, alertInterval,low, high}){
 
     return( 
         <div>
-            <Card style={{'border-color': cardColor}} className="coolerCard">
+            <Card style={{'borderColor': cardColor}} className="coolerCard">
             {/* <Card.Img style={{'height': '7rem'}} variant="top" src="https://i.pinimg.com/474x/16/a8/3e/16a83e8583e19aacb560aae90c813e4a.jpg" /> */}
                 <Card.Body>
                 <Card.Title className="coolerCardTitle">{deets.coolerName}</Card.Title>

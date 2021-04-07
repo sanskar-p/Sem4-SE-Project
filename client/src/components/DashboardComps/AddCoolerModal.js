@@ -44,7 +44,7 @@ export default function AddCoolerModal({ showModal, handleClose, coolers, getCoo
     }
 
     return (
-        <Modal show={showModal} onHide={handleClose} class="modalbox">
+        <Modal show={showModal} onHide={handleClose} className="modalbox">
             <Modal.Header closeButton className="update-range-modal-header">
                 <Modal.Title className="update-range-modal-title">Add Cooler Details</Modal.Title>
             </Modal.Header>

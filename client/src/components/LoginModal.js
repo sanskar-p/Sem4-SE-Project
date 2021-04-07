@@ -59,12 +59,12 @@ export default function LoginModal(){
 
     return(
       <body className="login_body" style={{'minHeight': '100%'}}>
-        <div class="loginContainer" style={{'minHeight': '100vh'}}>
-          <div class= "loginItem" id="loginItem1"><h1>drinksa<b>pH</b>e</h1></div>
-            <div class="loginItem" id="loginItem2">
+        <div className="loginContainer" style={{'minHeight': '100vh'}}>
+          <div className= "loginItem" id="loginItem1"><h1>drinksa<b>pH</b>e</h1></div>
+            <div className="loginItem" id="loginItem2">
               <form onSubmit = {handleSubmit}>
                   <label>
-                    <div class="loginIn" id="loginIn1">
+                    <div className="loginIn" id="loginIn1">
                       <input
                           type="text"
                           placeholder="enter email"
@@ -75,7 +75,7 @@ export default function LoginModal(){
 
                   </label>
                   <label>
-                    <div class="loginIn" id="loginIn2">
+                    <div className="loginIn" id="loginIn2">
                       <input
                         type="password"
                         placeholder="enter password"
@@ -83,7 +83,7 @@ export default function LoginModal(){
 
                   </label>
 				          {renderRes()}
-                  <div class="loginSubBtn">
+                  <div className="loginSubBtn">
                       <button type="submit">submit</button>
                       <a>Forgot Password</a>
                   </div>

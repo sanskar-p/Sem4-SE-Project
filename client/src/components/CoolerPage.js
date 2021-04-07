@@ -35,7 +35,7 @@ export default function CoolerPage() {
         
         <div className="cooler-det">
 
-            <div class="tile">
+            <div className="tile">
 
                 <h1  style={{borderRadius:'10px', textAlign:"center"}}> &ensp; {cooler.coolerName}</h1>
                 {/* <p>name: {cooler.coolerName}</p> */}
