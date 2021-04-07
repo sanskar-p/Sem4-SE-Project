@@ -1,4 +1,9 @@
-﻿# drinksa*pH*e - your maintenance companion
+
+ <h1 align="center">drinksa<em>pH</em>e - your maintenance companion</h1>
+ <br>
+ <p align="center"><img src="https://github.com/sanskar-p/Sem4-SE-Project/blob/main/client/public/drinksaphewide.jpeg?raw=true" alt="logo"></p>
+ <hr>
+
 
 **drinksa*pH*e** is a project developed during the Software Engineering course. The core functionality of this project is to monitor the pH level of drinking water in various water coolers in the Computer Centre 2 of IIIT Allahabad.
 
@@ -20,7 +25,7 @@
 * Postman - for testing the API
 * MongoDB Compass / Robo3T - for visualising the database.
 * Mongoose - for easier modelling of database schemas in MongoDB.
-* brcryptjs - for secure storage of passwords.
+* bcryptjs - for secure storage of passwords.
 * Nodemailer - for automating the sending of emails.
 #### Frontend tools and libraries
 * create-react-app - for initialising react app.
