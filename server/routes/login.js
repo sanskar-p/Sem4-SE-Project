@@ -21,6 +21,9 @@ router.post('/', (req, res, next) => {
 	else if(!email.match(emailFormat)){
 		errors.push('please enter a valid email')
 	}
+    else if(email !== email.toLowerCase())
+        errors.push('upper case characters not allowed')
+
 	if (!password) {
 		errors.push('please enter a password')
 	}

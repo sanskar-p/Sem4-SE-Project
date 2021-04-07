@@ -83,6 +83,9 @@ router.post('/alEmail', (req, res) => {
 	else if(!alertEmail.match(emailFormat)){
 		errors.push('please enter a valid email')
 	}
+    else if(alertEmail !== alertEmail.toLowerCase())
+        errors.push('upper case characters not allowed')
+
 
     if(errors.length > 0){
         console.log('error in format')

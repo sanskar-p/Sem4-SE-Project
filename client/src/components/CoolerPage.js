@@ -45,7 +45,7 @@ export default function CoolerPage() {
                     <p className="cooler-page-para">Location: <p className="cooler-page-para-val">{cooler.location}</p></p>
                     <p className="cooler-page-para">Current pH: <p  className="cooler-page-para-val">{cooler.currentpH}</p></p>
                     <p className="cooler-page-para">Highest pH: <p  className="cooler-page-para-val">{cooler.highestpH}</p></p>
-                    <p className="cooler-page-para">Description: <p className="cooler-page-para-val">very nice cooler</p> </p>
+                    {/* <p className="cooler-page-para">Description: <p className="cooler-page-para-val">very nice cooler</p> </p> */}
                 </div>
             </div>
         </div>
