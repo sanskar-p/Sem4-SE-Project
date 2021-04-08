@@ -100,7 +100,7 @@ export default function Dashboard() {
 
     const renderCoolersList = () => {
         if (coolers.list !== undefined) {
-            return coolers.list.map(cooler => { return <CoolerCard deets={cooler} alertInterval={alertInterval} low={lowRange} high={highRange} /> })
+            return coolers.list.map(cooler => { return <CoolerCard key={cooler._id} deets={cooler} alertInterval={alertInterval} low={lowRange} high={highRange} /> })
         }
         else return <p>coolers not loading</p>
     }
@@ -111,8 +111,8 @@ export default function Dashboard() {
             {addCoolerSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="pass" variant="success" onClose={() => showAddCoolerSuccess(false)}>Cooler added successfully</Alert> }
             {deleteCoolerSuccess && <Alert style={{'maxWidth':'25rem', 'position': 'absolute', 'zIndex': '20'}} dismissible key="pass" variant="success" onClose={() => showDeleteCoolerSuccess(false)}>Cooler deleted successfully</Alert> }
             
-            <div class="header">
-            <p class="myintro">“DrinkSapHe©” aims to improve the efficiency of water cooler maintenance process,
+            <div className="header">
+            <p className="myintro">“DrinkSapHe©” aims to improve the efficiency of water cooler maintenance process,
              starting with water coolers of CC3, and perhaps later expanding to the other water
               coolers of the campus of IIIT-Allahabad. Real-time reporting of water quality levels 
               will reduce the time it takes to regularly check the quality manually. 
@@ -122,13 +122,13 @@ export default function Dashboard() {
 
                 {/* <!--Waves Container--> */}
                 <div>
-                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
+                 <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                 viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">  
                  
                 <defs>
                 <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                 </defs>
-                <g class="parallax">
+                <g className="parallax">
                 <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
                 <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
                 <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />

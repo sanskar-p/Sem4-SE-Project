@@ -39,7 +39,7 @@ export default function UpdateAlEmailModal({token, showTimeModal, handleCloseTim
     return(
         <Modal show={showTimeModal} onHide={handleCloseTime}>
                     <Modal.Header closeButton className="new-header">
-                        <Modal.Title className="new-title">Change alert email</Modal.Title>
+                        <Modal.Title className="new-title">Change alert time interval</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="newModal">
                         {/* <p style={{ 'margin-left': '111px' }}>Type the updated values of the Pass</p> */}

@@ -16,6 +16,9 @@ router.post('/', (req, res) => {
     if(!feedback.email.match(emailFormat))
         errors.push('please input a valid email id')
 
+    else if(feedback.email !== feedback.email.toLowerCase())
+        errors.push('upper case characters not allowed')
+
     if(errors.length > 0){
         return res.send({
             success: false,
