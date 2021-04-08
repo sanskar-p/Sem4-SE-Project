@@ -3,7 +3,7 @@ import axios from 'axios';
 import SERVER_URL from '../utils/constants';
 import querystring from 'querystring';
 
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/dashboard.css';
 
@@ -53,7 +53,7 @@ export default function Footer() {
             
                 <div className="report-box">
 
-                    <form onSubmit={handleFeedbackSubmit}>
+                    <Form onSubmit={handleFeedbackSubmit}>
                         <div>
                             <input 
                                 type="text" 
@@ -89,7 +89,7 @@ export default function Footer() {
 
                         <div style={{'marginLeft': '3rem'}}>{renderRes()}</div>
                         <Button type="submit" className="report-btn" variant="primary">Send</Button>
-                    </form>
+                    </Form>
                 </div>
 
             
