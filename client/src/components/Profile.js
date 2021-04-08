@@ -118,7 +118,7 @@ export default function Profile() {
                         </div>
                     </div>
 
-                    <h4>{userData.username === 'admin' ? 'Admin' : 'User'} operations:</h4>
+                    <h4 style={{'paddingTop': '3rem'}}>{userData.username === 'admin' ? 'Admin' : 'User'} operations:</h4>
                     <div className="prof-btn-controls">
 
                     {userData.username === 'admin' &&

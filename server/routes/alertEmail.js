@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
 				from: process.env.EMAIL,
 				to: alertEmails
 			},
-			locals: {name: deets.name, currentpH, location: deets.location}
+			locals: {name: deets.coolerName, currentpH, location: deets.location}
 		})
 			.then(data => {
 				console.log('sent')

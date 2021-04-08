@@ -56,13 +56,13 @@ export default function NavigationBar({history}) {
 							<Nav.Link href="/">Home</Nav.Link>
 							{!token && <Nav.Link href="/login">Login</Nav.Link>}
 							{/* {!token && <Nav.Link href="register">Register</Nav.Link>} */}
-							{token &&
+							{/* {token &&
 							<NavDropdown title="Settings" id="basic-nav-dropdown">
 								<NavDropdown.Item href="#action/3.1">Password Change</NavDropdown.Item>
 								<NavDropdown.Item href="#action/3.2">Set pH limit</NavDropdown.Item>
 								<NavDropdown.Item href="#action/3.3">Set alert time</NavDropdown.Item>
 							</NavDropdown>
-							}
+							} */}
 							{token && <Nav.Link href="/profile">Profile</Nav.Link>}
 							<Nav.Link href="#reportSection">Report</Nav.Link>
 							<Nav.Link href="#aboutSection">About Us</Nav.Link>

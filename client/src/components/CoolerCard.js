@@ -33,8 +33,13 @@ export default function CoolerCard({deets, alertInterval,low, high}){
                     //send email?
 
                     console.log('ph low high', res.data.currentpH, low, high);
-                    if(type === 'periodic' && (ph < low || ph > high)){
-                        console.log('sending an email', res.data.currentpH, low, high);
+                    let lowNum = Number.parseFloat(low);
+                    let highNum = Number.parseFloat(high);
+                    let phNum = Number.parseFloat(res.data.currentpH);
+                    console.log(lowNum, phNum, highNum)
+
+                    if(type === 'periodic' && (phNum < lowNum || phNum > highNum)){
+                        console.log('sending an email', res.data.currentpH, lowNum, highNum);
                         sendAlertEmail(res.data.currentpH);
                     }
                 }
@@ -55,7 +60,10 @@ export default function CoolerCard({deets, alertInterval,low, high}){
     }
 
     const checkRange = () => {
-        if(ph < low || ph > high){
+        let lowNum = Number.parseFloat(low);
+        let highNum = Number.parseFloat(high);
+        let phNum = Number.parseFloat(ph);
+        if(phNum < lowNum || phNum > highNum){
             setCardColor('red');
             // sendAlertEmail();        //removed so that email will only be sent in periodic intervals instead of whenever somebody updates
             console.log(`ph of ${deets.coolerName} is out of range`)
