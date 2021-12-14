@@ -58,4 +58,4 @@ app.use('/dashboard', dashboardRouter)
 app.use('/alertEmail', alertEmailRouter)
 app.use('/sendFeedback', feedbackRouter)
 
-app.listen(8080, () => console.log("server running at port 8080"))
+app.listen(process.env.PORT || 8080, () => console.log("server running at port 8080"))
